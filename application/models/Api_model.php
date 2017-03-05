@@ -2113,8 +2113,8 @@ class Api_Model extends CI_Model {
         $config['protocol'] = 'smtp';
         //$config['mailpath'] = '/usr/sbin/sendmail';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'donotreply@faarbetterfilms.com';
-        $config['smtp_pass'] = 'fbrockabyteirocky';//fbrockabyteirocky
+        $config['smtp_user'] = 'donotreply@test.com';
+        $config['smtp_pass'] = 'this is wrong password';//fbrockabyteirocky
         $config['smtp_port'] = 465;
         $config['smtp_timeout'] = 30;
         $config['wordwrap'] = TRUE;
@@ -2132,7 +2132,7 @@ class Api_Model extends CI_Model {
         // echo "<pre>";
         // print_r($initialize);exit;
 
-        $this->email->from('donotreply@faarbetterfilms.com', 'donotreply@faarbetterfilms.com');
+        $this->email->from('donotreply@test.com', 'donotreply@test.com');
         $this->email->to($receiverEmailAddress);
         // $this->email->cc('another@another-example.com');
         // $this->email->bcc('them@their-example.com');
@@ -2530,7 +2530,7 @@ class Api_Model extends CI_Model {
                 $userName = ucwords(str_replace('.',' ',strstr($value['receiverEmail'], '@', true)));
             }
 
-            //userID of video uploader detials
+            //find video uploader details with the help of userID
             $userDetailSql = "SELECT userID,fullName,profilePic,userName
             FROM userProfile
             WHERE userID = ?";
