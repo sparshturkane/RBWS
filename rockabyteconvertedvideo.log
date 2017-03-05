@@ -1,0 +1,1337 @@
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 313
+            [userID] => 3823
+            [receiverEmail] => rajaturkane99@gmail.com
+            [receiveDateTime] => 2017-01-09 11:04:00
+            [title] => test 
+            [description] => test
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/badd86933fb9dd1ab3d4f6576202b7a2.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/badd86933fb9dd1ab3d4f6576202b7a2.jpg
+            [duration] => 00:02:46
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 17:40:20
+            [updated] => 2017-01-09 07:10:20
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 313
+            [userID] => 3823
+            [receiverEmail] => rajaturkane99@gmail.com
+            [receiveDateTime] => 2017-01-09 11:04:00
+            [title] => test 
+            [description] => test
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/badd86933fb9dd1ab3d4f6576202b7a2.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/badd86933fb9dd1ab3d4f6576202b7a2.jpg
+            [duration] => 00:02:46
+            [isRead] => 1
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 17:40:20
+            [updated] => 2017-01-09 07:15:42
+        )
+
+    [1] => Array
+        (
+            [wishVideoID] => 314
+            [userID] => 3837
+            [receiverEmail] => pankp260@gmail.com
+            [receiveDateTime] => 2017-01-09 17:48:00
+            [title] => check bage
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/f6ef20d31d6480dcaa5e11403119973e.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/f6ef20d31d6480dcaa5e11403119973e.jpg
+            [duration] => 00:00:02
+            [isRead] => 1
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 17:46:22
+            [updated] => 2017-01-09 07:18:32
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 315
+            [userID] => 3837
+            [receiverEmail] => pankajp260@gmail.com
+            [receiveDateTime] => 2017-01-09 20:46:00
+            [title] => badge testing
+            [description] => badge video testing
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/afe2b00a28a180f7d6df309047870681.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/afe2b00a28a180f7d6df309047870681.jpg
+            [duration] => 00:00:02
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 20:45:10
+            [updated] => 2017-01-09 10:15:10
+        )
+
+    [1] => Array
+        (
+            [wishVideoID] => 316
+            [userID] => 3837
+            [receiverEmail] => pankajp260@gmail.com
+            [receiveDateTime] => 2017-01-09 20:50:00
+            [title] => video testing
+            [description] => testing video
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/bcc211eaae92895d45b5bb08a8019b85.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/bcc211eaae92895d45b5bb08a8019b85.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 20:49:15
+            [updated] => 2017-01-09 10:19:15
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 317
+            [userID] => 3837
+            [receiverEmail] => pankp260@gmail.com
+            [receiveDateTime] => 2017-01-09 20:55:00
+            [title] => video testing
+            [description] => nice video
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/15b445dc059e7da2e66bc1a383594368.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/15b445dc059e7da2e66bc1a383594368.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 20:52:57
+            [updated] => 2017-01-09 10:22:57
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 318
+            [userID] => 3810
+            [receiverEmail] => Pankaj.prajapati40@yahoo.com
+            [receiveDateTime] => 2017-01-09 21:17:00
+            [title] => check video 
+            [description] => video description 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/36ff7dc3c809de4caee92f3a04142017.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/36ff7dc3c809de4caee92f3a04142017.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-09 21:15:26
+            [updated] => 2017-01-09 10:45:26
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 319
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 13:25:00
+            [title] => video badge
+            [description] => video testing
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/5f5b91272d55847ac31c0b388bec6792.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/5f5b91272d55847ac31c0b388bec6792.jpg
+            [duration] => 00:00:04
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 13:23:37
+            [updated] => 2017-01-10 02:53:37
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 320
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.con
+            [receiveDateTime] => 2017-01-10 14:19:00
+            [title] => check badge
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/6f2d8d119d1511535127f8cb79dc7ed6.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/6f2d8d119d1511535127f8cb79dc7ed6.jpg
+            [duration] => 00:00:20
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 14:17:16
+            [updated] => 2017-01-10 03:47:16
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 321
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 14:23:00
+            [title] => check badge
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/b249c9b9c47ea9305f52cd4eeaa9c702.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/b249c9b9c47ea9305f52cd4eeaa9c702.jpg
+            [duration] => 00:00:20
+            [isRead] => 1
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 14:22:06
+            [updated] => 2017-01-10 03:53:35
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 322
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 17:08:00
+            [title] => bagde testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/6671dc6d5628419c7eb1011460557f3a.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/6671dc6d5628419c7eb1011460557f3a.jpg
+            [duration] => 00:00:04
+            [isRead] => 1
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 17:05:30
+            [updated] => 2017-01-10 06:38:28
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 323
+            [userID] => 3837
+            [receiverEmail] => pankp260@gmail.com
+            [receiveDateTime] => 2017-01-10 17:45:00
+            [title] => badge video
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/06cf4e3d156f2117f030eb7644e6f50b.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/06cf4e3d156f2117f030eb7644e6f50b.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 17:42:22
+            [updated] => 2017-01-10 07:12:22
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 324
+            [userID] => 3837
+            [receiverEmail] => pankp260@gmail.com
+            [receiveDateTime] => 2017-01-10 18:22:00
+            [title] => testing badge
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/6936f729cf001a1e2b4d44694a7342e5.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/6936f729cf001a1e2b4d44694a7342e5.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 18:19:43
+            [updated] => 2017-01-10 07:49:43
+        )
+
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 325
+            [userID] => 3837
+            [receiverEmail] => pankp260@gmail.com
+            [receiveDateTime] => 2017-01-10 18:29:00
+            [title] => badge testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/b5f62bd9af067b586937302b16473176.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/b5f62bd9af067b586937302b16473176.jpg
+            [duration] => 00:00:02
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 18:27:46
+            [updated] => 2017-01-10 07:57:46
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 326
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 18:45:00
+            [title] => badge testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/3694861f29df70f2d7c57bb952b0aad5.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/3694861f29df70f2d7c57bb952b0aad5.jpg
+            [duration] => 00:00:04
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 18:43:01
+            [updated] => 2017-01-10 08:13:01
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 327
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 19:15:00
+            [title] => badge testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/fda89f15afeed5f6e92c985b407e23d8.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/fda89f15afeed5f6e92c985b407e23d8.jpg
+            [duration] => 00:00:04
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 19:12:45
+            [updated] => 2017-01-10 08:42:45
+        )
+
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 328
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 19:23:00
+            [title] => badge testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/1e47dd727081cb388b4fd79f3c697cba.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/1e47dd727081cb388b4fd79f3c697cba.jpg
+            [duration] => 00:00:04
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 19:21:06
+            [updated] => 2017-01-10 08:51:06
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 329
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 19:30:00
+            [title] => badge
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/2b02ae88193c388c4ca85c8d1e80056e.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/2b02ae88193c388c4ca85c8d1e80056e.jpg
+            [duration] => 00:00:02
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 19:26:51
+            [updated] => 2017-01-10 08:56:51
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 330
+            [userID] => 570
+            [receiverEmail] => gmandar4@gmail.com
+            [receiveDateTime] => 2017-01-10 19:33:00
+            [title] => badge testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/d99f5854fca4a3bb72ca4149c2667ea7.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/d99f5854fca4a3bb72ca4149c2667ea7.jpg
+            [duration] => 00:00:03
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 19:31:53
+            [updated] => 2017-01-10 09:01:53
+        )
+
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 331
+            [userID] => 3823
+            [receiverEmail] => rajaturkane99@gmail.com
+            [receiveDateTime] => 2017-01-10 20:00:00
+            [title] => Bage testing
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/91ff695bb8cb97f329cb6aff430d423f.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/91ff695bb8cb97f329cb6aff430d423f.jpg
+            [duration] => 00:00:02
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 19:58:49
+            [updated] => 2017-01-10 09:28:49
+        )
+
+)
+Array
+(
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 332
+            [userID] => 3837
+            [receiverEmail] => prathmesh@codetreasure.com
+            [receiveDateTime] => 2017-01-10 20:10:00
+            [title] => testing
+            [description] => testing
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/c49a0233db8d6ac4f0adb1577a2980e4.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/c49a0233db8d6ac4f0adb1577a2980e4.jpg
+            [duration] => 00:00:05
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 20:09:20
+            [updated] => 2017-01-10 09:39:20
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [wishVideoID] => 333
+            [userID] => 3823
+            [receiverEmail] => sparshturkane@gmail.com
+            [receiveDateTime] => 2017-01-10 20:11:00
+            [title] => Badge testing 
+            [description] => 
+            [videoLink] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/rawVideoFiles/rawWishVideo/25d6784a5fb90003fd154e4dcddc2084.mp4
+            [thumbnail] => http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/25d6784a5fb90003fd154e4dcddc2084.jpg
+            [duration] => 00:00:02
+            [isRead] => 0
+            [isUpdatedLink] => 0
+            [created] => 2017-01-10 20:10:15
+            [updated] => 2017-01-10 09:40:15
+        )
+
+)
