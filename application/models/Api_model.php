@@ -10,7 +10,7 @@ class Api_Model extends CI_Model {
         $this->load->helper('url');
         $this->load->database();
         date_default_timezone_set("Asia/Kolkata");
-        
+
     }
 
     public function loginNewTest($userName, $password) {
@@ -46,7 +46,7 @@ class Api_Model extends CI_Model {
     }
 
     public function getUserData2($userID){
-        $sql = "SELECT 
+        $sql = "SELECT
         userID,
         fullName,
         userName,
@@ -73,21 +73,85 @@ class Api_Model extends CI_Model {
         $socialLoginData = $this->socialLoginData($res['userID']);
 
         $result = array(
-            'userID'        => $res['userID'], 
-            'fullName'      => $res['fullName'], 
-            'userName'      => $res['userName'], 
-            'occupation'    => $res['occupation'], 
-            'phoneNo'       => $res['phoneNo'], 
-            'gender'        => $res['gender'], 
-            'email'         => $res['email'], 
-            'profilePic'    => $res['profilePic'], 
-            'country'       => $res['country'], 
-            'dob'           => $res['dob'], 
-            'state'         => $res['state'], 
-            'aboutMe'       => $res['aboutMe'], 
-            'androidKey'    => $res['androidKey'], 
-            'iosKey'        => $res['iosKey'], 
-            'isActive'      => $res['isActive'], 
+            'userID'        => $res['userID'],
+            'fullName'      => $res['fullName'],
+            'userName'      => $res['userName'],
+            'occupation'    => $res['occupation'],
+            'phoneNo'       => $res['phoneNo'],
+            'gender'        => $res['gender'],
+            'email'         => $res['email'],
+            'profilePic'    => $res['profilePic'],
+            'country'       => $res['country'],
+            'dob'           => $res['dob'],
+            'state'         => $res['state'],
+            'aboutMe'       => $res['aboutMe'],
+            'androidKey'    => $res['androidKey'],
+            'iosKey'        => $res['iosKey'],
+            'isActive'      => $res['isActive'],
+            'syncAccount'   => $socialLoginData
+            );
+
+
+        return $result;
+    }
+
+
+    public function getUserDataFollow($userID ,$profileUserID){
+        $sql = "SELECT
+        userID,
+        fullName,
+        userName,
+        occupation,
+        phoneNo,
+        gender,
+        email,
+        profilePic,
+        country,
+        dob,
+        state,
+        aboutMe,
+        androidKey,
+        iosKey,
+        isActive
+
+        FROM userProfile WHERE userID = ?";
+        $query = $this->db->query($sql,array($profileUserID));
+        $res = $query->row_array();
+        // $userData = array(
+        //         "fullName"=>$res['fullName'];
+        //     );
+
+        $socialLoginData = $this->socialLoginData($res['userID']);
+
+        // Deciding wether that user follows the other user or not 
+        $sql = "SELECT * FROM following WHERE userID = ? AND followUserID = ?";
+        $query = $this->db->query($sql, array($userID, $profileUserID));
+        $isFollowing = '';
+        if($query->num_rows()>0){
+            $followingData = $query->row_array();
+            $isFollowing = $followingData['isFollowing'];
+        } else {
+            $isFollowing = '0';
+        }
+
+
+        $result = array(
+            'isFollowing'   => $isFollowing,
+            'userID'        => $res['userID'],
+            'fullName'      => $res['fullName'],
+            'userName'      => $res['userName'],
+            'occupation'    => $res['occupation'],
+            'phoneNo'       => $res['phoneNo'],
+            'gender'        => $res['gender'],
+            'email'         => $res['email'],
+            'profilePic'    => $res['profilePic'],
+            'country'       => $res['country'],
+            'dob'           => $res['dob'],
+            'state'         => $res['state'],
+            'aboutMe'       => $res['aboutMe'],
+            'androidKey'    => $res['androidKey'],
+            'iosKey'        => $res['iosKey'],
+            'isActive'      => $res['isActive'],
             'syncAccount'   => $socialLoginData
             );
 
@@ -107,7 +171,7 @@ class Api_Model extends CI_Model {
         $twitterStatus = $this->socialLoginDataCheck($userID,'twitter');
         $googleStatus = $this->socialLoginDataCheck($userID,'google');
         $res = array(
-            'facebook' => $facebookStatus, 
+            'facebook' => $facebookStatus,
             'twitter' => $twitterStatus,
             'google' => $googleStatus,
             );
@@ -117,7 +181,7 @@ class Api_Model extends CI_Model {
     private function socialLoginDataCheck($userID,$socialType){
         $sql = "SELECT socialType, socialID FROM socialLogin WHERE userID = ? AND socialType = ?";
         $query = $this->db->query($sql,array($userID,$socialType));
-        return ($query->num_rows() > 0) ? 1 : 0;       
+        return ($query->num_rows() > 0) ? 1 : 0;
     }
 
     public function ifSocialIDExist($socialID){
@@ -145,7 +209,7 @@ class Api_Model extends CI_Model {
 
     public function updateUser($userID,$updateData){
         $this->db->where('userID', $userID);
-        $this->db->update('userProfile', $updateData); 
+        $this->db->update('userProfile', $updateData);
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
@@ -184,7 +248,7 @@ class Api_Model extends CI_Model {
             return false;
         }
     }
-    
+
     public function checkIfDobExists($userID){
         $sql = "SELECT dob FROM userProfile WHERE userID = ?";
         $query = $this->db->query($sql,array($userID));
@@ -196,7 +260,7 @@ class Api_Model extends CI_Model {
             return false;
         }
     }
-    
+
     public function checkIfProfilePicExists($userID){
         $sql = "SELECT profilePic FROM userProfile WHERE userID = ?";
         $query = $this->db->query($sql,array($userID));
@@ -216,7 +280,7 @@ class Api_Model extends CI_Model {
 
         $res = $query->row_array();
         $gender=$res['gender'];
-        
+
         if ($gender == '') {
             return true;
         } else {
@@ -230,7 +294,7 @@ class Api_Model extends CI_Model {
 
         $res = $query->row_array();
         $androidKey=$res['androidKey'];
-        
+
         if ($androidKey == '') {
             return true;
         } else {
@@ -244,7 +308,7 @@ class Api_Model extends CI_Model {
 
         $res = $query->row_array();
         $iosKey=$res['iosKey'];
-        
+
         if ($iosKey == '') {
             return true;
         } else {
@@ -265,7 +329,7 @@ class Api_Model extends CI_Model {
     public function updateDob($dob,$userID){
         $sql = "UPDATE userProfile SET dob= ? WHERE userID=?";
         $query = $this->db->query($sql,array($dob,$userID));
-    }    
+    }
 
     public function updateProfilePic($profilePic,$userID){
         $sql = "UPDATE userProfile SET profilePic= ? WHERE userID=?";
@@ -300,12 +364,12 @@ class Api_Model extends CI_Model {
         //Table UserProfile
         $sql2 = "UPDATE userProfile SET `isActive` = '0',`newID` = ? WHERE userID = ?";
         $query2 = $this->db->query($sql2,array($newUserID,$oldUserID));
-        $affectedQuery2 = $this->db->affected_rows(); 
+        $affectedQuery2 = $this->db->affected_rows();
 
         //update table userProfile `newID`
         $sql5 = "UPDATE userProfile SET `newID` = ? WHERE isActive = ? AND newID = ? ";
         $query5 = $this->db->query($sql5,array($newUserID,'0',$oldUserID));
-        $affectedQuery5 = $this->db->affected_rows(); 
+        $affectedQuery5 = $this->db->affected_rows();
 
         //userInterest
         $sql3 = "UPDATE userInterest SET userID = ? WHERE userID = ?";
@@ -348,7 +412,7 @@ class Api_Model extends CI_Model {
         $query11 = $this->db->query($sql11,array($newUserID,$oldUserID));
         $affectedQuery11 = $this->db->affected_rows();
 
-        
+
 
 
         if($affectedQuery && $affectedQuery2 && $affectedQuery3 && $affectedQuery4 && $affectedQuery5 && $affectedQuery6 && $affectedQuery7){
@@ -465,20 +529,20 @@ class Api_Model extends CI_Model {
         //         INSERT INTO table_name (column1, column2, column3,...)
         // VALUES (value1, value2, value3,...)
         $datetime = date("Y-m-d h:i:s");
-        $sql = "INSERT INTO userInterest (userID,categoryID,isSelected,created) 
+        $sql = "INSERT INTO userInterest (userID,categoryID,isSelected,created)
                 VALUES (?,?,?,'$datetime')";
         $query = $this->db->query($sql,array($userID,$categoryID,$isSelected));
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     public function getUserInterestData($userID){
-        $sql = "SELECT  
+        $sql = "SELECT
         category.categoryName,
         category.categoryThumbnail,
         category.categoryID,
         userInterest.isSelected
 
-        FROM    category    
+        FROM    category
 
         INNER JOIN userInterest
         ON userInterest.categoryID = category.categoryID
@@ -494,13 +558,13 @@ class Api_Model extends CI_Model {
         $query = $this->db->query($sql);
         //--------------------------------------------
         // $userID = '45';
-        // $sql = "SELECT  
+        // $sql = "SELECT
         // category.categoryName,
         // category.categoryThumbnail,
         // category.categoryID,
         // userInterest.isSelected
 
-        // FROM    category    
+        // FROM    category
 
         // INNER JOIN userInterest
         // ON userInterest.categoryID = category.categoryID
@@ -524,9 +588,9 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT isSelected 
-                FROM userInterest 
-                WHERE categoryID = ? 
+            $sql1 = "SELECT isSelected
+                FROM userInterest
+                WHERE categoryID = ?
                 AND userID = ? ";
 
             $query1 = $this->db->query($sql1,array($row['categoryID'],$userID));
@@ -550,15 +614,15 @@ class Api_Model extends CI_Model {
     }
 
     public function getCategoryListUserData($userID){
-        //multiple to one data 
+        //multiple to one data
         $sql = "SELECT * FROM category";
         $query = $this->db->query($sql);
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT isSelected 
-                FROM userInterest 
-                WHERE categoryID = ? 
+            $sql1 = "SELECT isSelected
+                FROM userInterest
+                WHERE categoryID = ?
                 AND userID = ? ";
 
             $query1 = $this->db->query($sql1,array($row['categoryID'],$userID));
@@ -594,8 +658,8 @@ class Api_Model extends CI_Model {
     //     $getUserCategory = $this->getUserCategory($userID);
     //     foreach ($getUserCategory->result_array() as $row)
     //     {
-    //         $sql = "SELECT *  
-    //         FROM video 
+    //         $sql = "SELECT *
+    //         FROM video
     //         WHERE categoryID = ? AND isActive = ? LIMIT $limit OFFSET $offset ";
 
     //         $query1 = $this->db->query($sql,array($row['categoryID'],'1'));
@@ -614,11 +678,11 @@ class Api_Model extends CI_Model {
     //                 'title'=>$row1->title,
     //                 'description'=>$row1->description,
     //                 'tag'=>$row1->tag,
-    //                 'view'=>$row1->view,            
+    //                 'view'=>$row1->view,
     //                 'duration'=>$row1->duration,
     //                 'thumbnail'=>$row1->thumbnail,
     //                 'likeCount'=>$row1->likeCount,
-    //                 'isRockapick'=>$row1->isRockapick                  
+    //                 'isRockapick'=>$row1->isRockapick
     //                 );
     //         }
     //         //..you will need foreach here
@@ -629,7 +693,7 @@ class Api_Model extends CI_Model {
     // }
 
     /*------------------------were using it works fine-----------------------------*/
-    //changes due to isRockapic 
+    //changes due to isRockapic
     // public function getUserVideo($userID,$limit,$nextVideo){
     //     //multiple to multiple data
     //     $getUserCategory = $this->getUserCategory($userID);
@@ -647,8 +711,8 @@ class Api_Model extends CI_Model {
     //         $string='';
     //     }
 
-    //     $sql = "SELECT *  
-    //     FROM video 
+    //     $sql = "SELECT *
+    //     FROM video
     //     WHERE isActive = 1 $string";
     //     $query = $this->db->query($sql,array('1'));
 
@@ -656,10 +720,10 @@ class Api_Model extends CI_Model {
     //     //print_r($result);
     //     $totalCount = count($result);
 
-    //     $sql = "SELECT *  
-    //     FROM video  
+    //     $sql = "SELECT *
+    //     FROM video
     //     WHERE isActive = 1 $string ORDER by videoID DESC LIMIT $limit OFFSET $nextVideo ";
-        
+
     //     $query = $this->db->query($sql,array('1'));
     //     $result = $query->result();
     //     $currentLimit = count($result);
@@ -671,8 +735,8 @@ class Api_Model extends CI_Model {
     //     foreach ($query->result_array() as $row)
     //     {
     //         //$userID='45';
-    //         $sql1 = "SELECT categoryID,categoryName 
-    //         FROM category 
+    //         $sql1 = "SELECT categoryID,categoryName
+    //         FROM category
     //         WHERE categoryID = ?";
 
     //         $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -694,11 +758,11 @@ class Api_Model extends CI_Model {
     //         foreach ($viewQuery->result_array() as $viewRow)
     //         {
     //             $ViewCount = $viewRow['ViewCount'];
-    //         } 
-            
+    //         }
+
     //         //userID of video uploader detials
-    //         $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-    //         FROM userProfile 
+    //         $userDetailSql = "SELECT userID,fullName,profilePic,userName
+    //         FROM userProfile
     //         WHERE userID = ?";
 
     //         $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -754,7 +818,7 @@ class Api_Model extends CI_Model {
     //                 'created'=>$row['created']
     //                 );
     //         }else{
-    //            continue; 
+    //            continue;
     //         }
     //     }
     //     /*-------------Getting each category name----------------------------- */
@@ -793,7 +857,7 @@ class Api_Model extends CI_Model {
             $string='';
         }
 
-        //changing this to select all the videos except which are 
+        //changing this to select all the videos except which are
         // select all the videos except which are already in rockapickVideo for that date
         $rockapickVideoCurrentDay = $this->rockapickVideoCurrentDay();
         // print_r($rockapickVideoCurrentDay);
@@ -814,8 +878,8 @@ class Api_Model extends CI_Model {
         // print_r($string2);
 
 
-        $sql = "SELECT *  
-        FROM video 
+        $sql = "SELECT *
+        FROM video
         WHERE isActive = 1 $string $string2 ORDER by videoID DESC";
         $query = $this->db->query($sql,array('1'));
 
@@ -824,10 +888,10 @@ class Api_Model extends CI_Model {
         //print_r($result);
         $totalCount = count($result);
 
-        // $sql = "SELECT *  
-        // FROM video  
+        // $sql = "SELECT *
+        // FROM video
         // WHERE isActive = 1 $string ORDER by videoID DESC LIMIT $limit OFFSET $nextVideo ";
-        
+
         // $query = $this->db->query($sql,array('1'));
         // $result = $query->result();
         // $currentLimit = count($result);
@@ -839,8 +903,8 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -862,11 +926,11 @@ class Api_Model extends CI_Model {
             foreach ($viewQuery->result_array() as $viewRow)
             {
                 $ViewCount = $viewRow['ViewCount'];
-            } 
-            
+            }
+
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -922,7 +986,7 @@ class Api_Model extends CI_Model {
                     'created'=>$row['created']
                     );
             }else{
-               continue; 
+               continue;
             }
         }
         /*-------------Getting each category name----------------------------- */
@@ -957,7 +1021,7 @@ class Api_Model extends CI_Model {
 
         // $sql = "SELECT * FROM video WHERE isActive = ? AND isPrivate = ? AND isRockapick = ? AND rockapickDate = ? ORDER BY rockapickStepNo ASC";
 
-        $sql = "SELECT 
+        $sql = "SELECT
         v.videoID,
         v.userID,
         v.categoryID,
@@ -973,14 +1037,14 @@ class Api_Model extends CI_Model {
         v.updated,
         v.created,
         rv.rockapickStepNo,
-        rv.rockapickDate 
+        rv.rockapickDate
 
         FROM rockapickVideo as rv
 
         INNER JOIN video as v
         ON rv.videoID = v.videoID
 
-        WHERE v.isActive = ? 
+        WHERE v.isActive = ?
         AND v.isPrivate = ?
         AND v.isRockapick = ?
         AND rv.rockapickDate = ?
@@ -998,8 +1062,8 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -1021,11 +1085,11 @@ class Api_Model extends CI_Model {
             foreach ($viewQuery->result_array() as $viewRow)
             {
                 $ViewCount = $viewRow['ViewCount'];
-            } 
-            
+            }
+
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1081,7 +1145,7 @@ class Api_Model extends CI_Model {
                     'created'=>$row['created']
                     );
             }else{
-               continue; 
+               continue;
             }
         }
 
@@ -1094,16 +1158,16 @@ class Api_Model extends CI_Model {
 
         switch ($suggestion) {
             case 'sameUser':
-                $sql = "SELECT *  
-                FROM video 
+                $sql = "SELECT *
+                FROM video
                 WHERE isActive = 1 AND userID=? AND videoID <> ? ORDER by videoID DESC LIMIT 25";
                 $query = $this->db->query($sql,array($suggestionID,$videoID));
                 // print_r($this->db->last_query());
                 break;
 
             case 'sameCategory';
-                $sql = "SELECT *  
-                FROM video 
+                $sql = "SELECT *
+                FROM video
                 WHERE isActive = 1 AND categoryID=? AND videoID <> ? ORDER by videoID DESC LIMIT 25";
                 $query = $this->db->query($sql,array($suggestionID,$videoID));
                 // print_r($this->db->last_query());
@@ -1120,8 +1184,8 @@ class Api_Model extends CI_Model {
                 }
                 $string=$string."%'";
 
-                $sql = "SELECT *  
-                FROM video 
+                $sql = "SELECT *
+                FROM video
                 WHERE isActive = 1 AND ($string) AND videoID <> ? ORDER by videoID DESC LIMIT 25";
                 $query = $this->db->query($sql,$videoID);
                 // print_r($this->db->last_query());
@@ -1131,8 +1195,8 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -1157,8 +1221,8 @@ class Api_Model extends CI_Model {
             }
 
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1245,8 +1309,8 @@ class Api_Model extends CI_Model {
     }
 
     private function getUserCategory($userID){
-        $sql = "SELECT * 
-        FROM userInterest 
+        $sql = "SELECT *
+        FROM userInterest
         WHERE userID = ? AND isSelected = 1";
         // $sql = "SELECT * FROM userProfile";
         $query = $this->db->query($sql,array($userID));
@@ -1260,12 +1324,12 @@ class Api_Model extends CI_Model {
     }
 
     public function getVideoDetail($videoID){
-        $sql = "SELECT * 
+        $sql = "SELECT *
         FROM video WHERE videoID = ? AND isActive = '1' ";
         $query = $this->db->query($sql,array($videoID));
         //$res = $query->result();
 
-        //counting like 
+        //counting like
         $likeSql = "SELECT count(*) AS likeCount FROM userLikeVideo WHERE videoID = ? and likeFlag =1";
         $likeQuery = $this->db->query($likeSql,array($videoID));
         //$likeQuery->num_rows()>=1
@@ -1282,22 +1346,22 @@ class Api_Model extends CI_Model {
         foreach ($viewQuery->result_array() as $viewRow)
         {
             $ViewCount = $viewRow['ViewCount'];
-        }    
+        }
 
         // creating video detail array
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
             $categoryDetail = $query1->row();
 
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1349,12 +1413,12 @@ class Api_Model extends CI_Model {
     }
 
     public function specificVideoDetail($videoID,$userID){
-        $sql = "SELECT * 
+        $sql = "SELECT *
         FROM video WHERE videoID = ? AND isActive = '1'";
         $query = $this->db->query($sql,array($videoID));
         //$res = $query->result();
 
-        //counting like 
+        //counting like
         $likeSql = "SELECT count(*) AS likeCount FROM userLikeVideo WHERE videoID = ? and likeFlag =1";
         $likeQuery = $this->db->query($likeSql,array($videoID));
         //$likeQuery->result_array()
@@ -1387,16 +1451,16 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
             $categoryDetail = $query1->row();
 
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1447,7 +1511,7 @@ class Api_Model extends CI_Model {
     //making an entry videoView table when ever a user watches video
     public function insertVideoView($insertData){
         $this->db->insert('videoView', $insertData);
-        return ($this->db->affected_rows() > 0) ? true : false;        
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     public function isVideoExist($videoID){
@@ -1469,8 +1533,8 @@ class Api_Model extends CI_Model {
     }
 
     public function userLikeVideoExist($userID,$videoID){
-        $sql = "SELECT * 
-        FROM userLikeVideo 
+        $sql = "SELECT *
+        FROM userLikeVideo
         WHERE userID = ? AND videoID = ?";
         $query = $this->db->query($sql,array($userID,$videoID));
         return ($this->db->affected_rows() > 0) ? true : false;
@@ -1520,8 +1584,8 @@ class Api_Model extends CI_Model {
     }
 
     public function userUploadedVideo($userID){
-        $sql = "SELECT *  
-        FROM video 
+        $sql = "SELECT *
+        FROM video
         WHERE isActive = 1 AND userID = ? ORDER BY videoID DESC";
         $query = $this->db->query($sql,array($userID));
 
@@ -1530,8 +1594,8 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -1565,11 +1629,11 @@ class Api_Model extends CI_Model {
             foreach ($viewQuery->result_array() as $viewRow)
             {
                 $ViewCount = $viewRow['ViewCount'];
-            } 
+            }
 
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1633,15 +1697,15 @@ class Api_Model extends CI_Model {
     }
 
     public function getWishVideoDetail($videoID){
-        $sql = "SELECT * 
+        $sql = "SELECT *
         FROM wishVideo WHERE WishvideoID = ?";
         $query = $this->db->query($sql,array($videoID));
 
         foreach ($query->result_array() as $row)
         {
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -1690,11 +1754,11 @@ class Api_Model extends CI_Model {
         //$time1 = date('H:i:s');
         $less = date('Y-m-d H:i:s',strtotime('-5 minutes'));
 
-        $sql = "SELECT w.*, u.fullName 
-        FROM wishVideo w 
-        INNER JOIN userProfile u 
-        ON w.userID=u.userID 
-        WHERE 
+        $sql = "SELECT w.*, u.fullName
+        FROM wishVideo w
+        INNER JOIN userProfile u
+        ON w.userID=u.userID
+        WHERE
         receiveDateTime >= ? AND receiveDateTime <= ? AND isSent ='0'";
 
 
@@ -1713,8 +1777,8 @@ class Api_Model extends CI_Model {
                 $wishVideoID = $row['wishVideoID'];
                 $sql = "UPDATE wishVideo SET isSent='1' WHERE wishVideoID=?";
                 $query = $this->db->query($sql,array($wishVideoID));
-                
-            
+
+
                 $androidUrl='<a href="https://play.google.com/store/apps/details?id=com.gss.rockabyte.login&wishVideoID=19">Playstore</a>';
 
                 //https://play.google.com/store/apps/details?id=com.gss.rockabyte.login&wishVideoID=19
@@ -1733,14 +1797,14 @@ class Api_Model extends CI_Model {
                     <table width="100%" height="100%">
                     <td width="100%" height="100%" style="width:500px;height: 100%;left: 0;right: 0;
                         background-color: #008780 !important;">
-                    
+
                     <div class="logoHolder" style="position: relative;font-family: Arial,sans-serif;">
                         <img src="http://faarbetterfilms.com/rockabyteServicesV2/assets/images/logowhite.png" class="logoClass" style="width: 80px;position: relative;">
                         <div class="textOnImg" style="position: relative;color: white;top: 0px;left: -3px;
                         font-size: 10px;letter-spacing: 2px;width: 80px;text-align: center;">
                             <span> <strong>ROCKA</strong><br> BYTE</span>
                         </div>
-                    
+
                     </div>
                     <div class="content" style="padding: 10px;text-align: center;padding-bottom: 50px;width:280px;left:0;right:0;margin:auto;">
                         <h4 style="color: #fff289 !important;font-family:Arial,sans-serif;font-size: 20px;font-weight: 400;margin: 10px 0;">'.$row['fullName'].' has sent you a video message through Rockabyte.</h4>
@@ -1766,7 +1830,7 @@ class Api_Model extends CI_Model {
                         <h6><i style="font-family: Arial,sans-serif;font-weight: 400;font-size: 12px;">Note: Please register and login using the same Email id on which you received this email.</i></h6>
                     </div>
                     <div class="footerHolder" style="text-align: center;padding:20px;width:260px;left:0;right:0;margin:auto;">
-                        <span class="rightReserved" style="color: #aaa7a7;font-size: 10px;font-family: Arial,sans-serif;">  
+                        <span class="rightReserved" style="color: #aaa7a7;font-size: 10px;font-family: Arial,sans-serif;">
                             &copy; 2017 RockaByte. All right reserved.
                         </span>
                         <br>
@@ -1814,7 +1878,7 @@ class Api_Model extends CI_Model {
 
     public function sendPushNotification($receiverEmailAddress,$senderUserID){
 
-        //receiver data 
+        //receiver data
         $receiverUserProfileData=$this->getUserDataViaEmail($receiverEmailAddress);
         // print_r($receiverUserProfileData);
         $androidKey = $receiverUserProfileData['androidKey'];
@@ -1844,7 +1908,7 @@ class Api_Model extends CI_Model {
 
 
     public function getUserDataViaEmail($receiverEmailAddress){
-        $sql = "SELECT 
+        $sql = "SELECT
         userID,
         fullName,
         userName,
@@ -1871,21 +1935,21 @@ class Api_Model extends CI_Model {
         $socialLoginData = $this->socialLoginData($res['userID']);
 
         $result = array(
-            'userID'        => $res['userID'], 
-            'fullName'      => $res['fullName'], 
-            'userName'      => $res['userName'], 
-            'occupation'    => $res['occupation'], 
-            'phoneNo'       => $res['phoneNo'], 
-            'gender'        => $res['gender'], 
-            'email'         => $res['email'], 
-            'profilePic'    => $res['profilePic'], 
-            'country'       => $res['country'], 
-            'dob'           => $res['dob'], 
-            'state'         => $res['state'], 
-            'aboutMe'       => $res['aboutMe'], 
-            'androidKey'    => $res['androidKey'], 
-            'iosKey'        => $res['iosKey'], 
-            'isActive'      => $res['isActive'], 
+            'userID'        => $res['userID'],
+            'fullName'      => $res['fullName'],
+            'userName'      => $res['userName'],
+            'occupation'    => $res['occupation'],
+            'phoneNo'       => $res['phoneNo'],
+            'gender'        => $res['gender'],
+            'email'         => $res['email'],
+            'profilePic'    => $res['profilePic'],
+            'country'       => $res['country'],
+            'dob'           => $res['dob'],
+            'state'         => $res['state'],
+            'aboutMe'       => $res['aboutMe'],
+            'androidKey'    => $res['androidKey'],
+            'iosKey'        => $res['iosKey'],
+            'isActive'      => $res['isActive'],
             'syncAccount'   => $socialLoginData
             );
 
@@ -2008,7 +2072,7 @@ class Api_Model extends CI_Model {
     //     $config['smtp_host'] = 'ssl://smtp.googlemail.com';
     //     $config['smtp_user'] = 'turkane.sparsh@gmail.com';
     //     $config['smtp_pass'] = 'sparsh@';
-    //     $config['smtp_port'] = 465; 
+    //     $config['smtp_port'] = 465;
     //     $config['smtp_timeout'] = 30;
     //     $config['wordwrap'] = TRUE;
     //     $config['wrapchars'] = 76;
@@ -2051,7 +2115,7 @@ class Api_Model extends CI_Model {
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
         $config['smtp_user'] = 'donotreply@faarbetterfilms.com';
         $config['smtp_pass'] = 'fbrockabyteirocky';//fbrockabyteirocky
-        $config['smtp_port'] = 465; 
+        $config['smtp_port'] = 465;
         $config['smtp_timeout'] = 30;
         $config['wordwrap'] = TRUE;
         $config['wrapchars'] = 76;
@@ -2088,12 +2152,12 @@ class Api_Model extends CI_Model {
     public function getChatMessage1($receiverUserID)
     {
         //user
-        $sql = "SELECT senderUserID 
+        $sql = "SELECT senderUserID
         FROM chat WHERE receiverUserID = ? AND chatType = ?";
         $query = $this->db->query($sql,array($receiverUserID,'user'));
 
         //group
-        $sql1 = "SELECT senderUserID 
+        $sql1 = "SELECT senderUserID
         FROM chat WHERE receiverUserID = ? AND chatType = ?";
         $query2 = $this->db->query($sql1,array($receiverUserID,'group'));
 
@@ -2105,7 +2169,7 @@ class Api_Model extends CI_Model {
         //     case 'value':
         //         # code...
         //         break;
-            
+
         //     default:
         //         # code...
         //         break;
@@ -2132,7 +2196,7 @@ class Api_Model extends CI_Model {
                 $senderDetailQuery = $this->db->query($senderDetailSql,array($row1));
 
                 //getting message details
-                $messageSql = "SELECT * 
+                $messageSql = "SELECT *
                 FROM chat WHERE ((receiverUserID = ? AND senderUserID = ?)or(receiverUserID = ? AND senderUserID = ?)) AND chatType = ?";
                 $messageQuery = $this->db->query($messageSql,array($receiverUserID, $row1,$row1,$receiverUserID,'user'));
 
@@ -2150,7 +2214,7 @@ class Api_Model extends CI_Model {
 
                 foreach ($senderDetailQuery->result_array() as $row2) {
                     $senderDetailsArray[] = array(
-                        'senderUserName' => $row2['userName'], 
+                        'senderUserName' => $row2['userName'],
                         'senderFullName' => $row2['fullName'],
                         'profilePic' => $row2['profilePic'],
                         'chatType' => 'user',
@@ -2160,10 +2224,10 @@ class Api_Model extends CI_Model {
                     );
                 }
 
-                
+
                 $result = $senderDetailsArray;
                 //the get message details
-                // $messageSql = "SELECT * 
+                // $messageSql = "SELECT *
                 // FROM chat WHERE receiverUserID = ? AND senderUserID = ";
                 // $messageQuery = $this->db->query($messageSql,array($receiverUserID, $row1['senderUserID']));
             }
@@ -2189,7 +2253,7 @@ class Api_Model extends CI_Model {
                 $senderDetailQuery = $this->db->query($senderDetailSql,array($row1));
 
                 //getting message details
-                $messageSql = "SELECT * 
+                $messageSql = "SELECT *
                 FROM chat WHERE ((receiverUserID = ? AND senderUserID = ?)or(receiverUserID = ? AND senderUserID = ?)) AND chatType = ?";
                 $messageQuery = $this->db->query($messageSql,array($receiverUserID, $row1,$row1,$receiverUserID,'group'));
 
@@ -2207,7 +2271,7 @@ class Api_Model extends CI_Model {
 
                 foreach ($senderDetailQuery->result_array() as $row5) {
                     $senderDetailsArray[] = array(
-                        'senderUserName' => $row5['userName'], 
+                        'senderUserName' => $row5['userName'],
                         'senderFullName' => $row5['fullName'],
                         'profilePic' => $row5['profilePic'],
                         'chatType' => 'group',
@@ -2217,10 +2281,10 @@ class Api_Model extends CI_Model {
                     );
                 }
 
-                
+
                 $result = $senderDetailsArray;
                 //the get message details
-                // $messageSql = "SELECT * 
+                // $messageSql = "SELECT *
                 // FROM chat WHERE receiverUserID = ? AND senderUserID = ";
                 // $messageQuery = $this->db->query($messageSql,array($receiverUserID, $row1['senderUserID']));
             }
@@ -2233,7 +2297,7 @@ class Api_Model extends CI_Model {
     public function getChatMessage($receiverUserID)
     {
         //user
-        $sql = "SELECT senderUserID,chatType 
+        $sql = "SELECT senderUserID,chatType
         FROM chat WHERE receiverUserID = ?";
         $query = $this->db->query($sql,array($receiverUserID));
 
@@ -2255,7 +2319,7 @@ class Api_Model extends CI_Model {
                 $result[]=$this->senderDetail_messageDetail($row1['senderUserID'],$receiverUserID,$row1['chatType']);
             }
         }
-        
+
         //processing array to remove the first level of [] from it;
         $processed = array_map(function($a) {  return array_pop($a); }, $result);
         //print_r($processed);
@@ -2269,8 +2333,8 @@ class Api_Model extends CI_Model {
         $senderDetailQuery = $this->db->query($senderDetailSql,array($senderUserID));
 
                 //getting message details
-        $messageSql = "SELECT * 
-        FROM chat 
+        $messageSql = "SELECT *
+        FROM chat
         WHERE ((receiverUserID = ? AND senderUserID = ?)or(receiverUserID = ? AND senderUserID = ?)) AND chatType = ?";
         $messageQuery = $this->db->query($messageSql,array($receiverUserID, $senderUserID,$senderUserID,$receiverUserID,$chatType));
 
@@ -2316,7 +2380,7 @@ class Api_Model extends CI_Model {
         //unset($senderDetailsArray);
         foreach ($senderDetailQuery->result_array() as $row5) {
             $senderDetailsArray[] = array(
-                'senderUserName' => $row5['userName'], 
+                'senderUserName' => $row5['userName'],
                 'senderFullName' => $row5['fullName'],
                 'profilePic' => $row5['profilePic'],
                 'chatType' => $chatType,
@@ -2351,7 +2415,7 @@ class Api_Model extends CI_Model {
         //return 'abc';
         //return false;
         $currentDateTime = date('Y-m-d H:i:s');
-        //echo $currentTime;exit;  
+        //echo $currentTime;exit;
         $result = array();
 
         $sqlGetReceiverEmail = "SELECT email FROM userProfile WHERE userID = ?";
@@ -2361,7 +2425,7 @@ class Api_Model extends CI_Model {
         $receiverEmail = $res['email'];
 
         if($receiverEmail){
-            $sql = "SELECT 
+            $sql = "SELECT
                 up.profilePic,
                 up.userName,
                 up.fullName,
@@ -2427,7 +2491,7 @@ class Api_Model extends CI_Model {
         // now i will have to replicate get user notification
         // Thumbnail if userID with email present then show else blank
         // userData of user whom I sent wishVideo
-        // 
+        //
 
         $result = array();
         foreach ($query->result_array() as $value) {
@@ -2467,8 +2531,8 @@ class Api_Model extends CI_Model {
             }
 
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($userIDSender));
@@ -2520,15 +2584,15 @@ class Api_Model extends CI_Model {
 
     public function specificWishVideoDetail($videoID){
 
-        $sql = "SELECT * 
+        $sql = "SELECT *
         FROM wishVideo WHERE WishvideoID = ?";
         $query = $this->db->query($sql,array($videoID));
 
         foreach ($query->result_array() as $row)
         {
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -2589,14 +2653,14 @@ class Api_Model extends CI_Model {
 
         $search="AND ( video.title Like '%".$keyWord."%' OR video.tag Like '%".$keyWord."%' OR userProfile.fullName Like '%".$keyWord."%' OR userProfile.userName Like '%".$keyWord."%')";
 
-        // $sql = "SELECT video.*  
-        // FROM video 
+        // $sql = "SELECT video.*
+        // FROM video
         // INNER JOIN userProfile
         // ON userProfile.newID = video.userID
         // WHERE video.isActive = 1 AND userProfile.isActive = 1 $search";//before $search add $string
 
-        $sql = "SELECT distinct videoID, video.*  
-        FROM video 
+        $sql = "SELECT distinct videoID, video.*
+        FROM video
         INNER JOIN userProfile
         ON userProfile.newID = video.userID
         WHERE video.isActive = 1 $search";//before $search add $string
@@ -2607,18 +2671,18 @@ class Api_Model extends CI_Model {
         //print_r($result);
         $totalCount = count($result);
 
-        // $sql = "SELECT *  
+        // $sql = "SELECT *
         // FROM video
         // INNER JOIN userProfile
-        // ON userProfile.newID = video.userID  
+        // ON userProfile.newID = video.userID
         // WHERE video.isActive = 1 AND userProfile.isActive = 1 $search ORDER by video.videoID DESC LIMIT $limit OFFSET $nextVideo ";//before $search add $string
 
-        $sql = "SELECT  distinct videoID, video.*  
+        $sql = "SELECT  distinct videoID, video.*
         FROM video
         INNER JOIN userProfile
-        ON userProfile.newID = video.userID  
+        ON userProfile.newID = video.userID
         WHERE video.isActive = 1 $search ORDER by video.videoID DESC LIMIT $limit OFFSET $nextVideo ";//before $search add $string
-        
+
         $query = $this->db->query($sql);
         //echo($this->db->last_query());exit();
         $result = $query->result();
@@ -2632,8 +2696,8 @@ class Api_Model extends CI_Model {
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
-            $sql1 = "SELECT categoryID,categoryName 
-            FROM category 
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
             WHERE categoryID = ?";
 
             $query1 = $this->db->query($sql1,array($row['categoryID']));
@@ -2655,11 +2719,11 @@ class Api_Model extends CI_Model {
             foreach ($viewQuery->result_array() as $viewRow)
             {
                 $ViewCount = $viewRow['ViewCount'];
-            } 
-            
+            }
+
             //userID of video uploader detials
-            $userDetailSql = "SELECT userID,fullName,profilePic,userName 
-            FROM userProfile 
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
             WHERE userID = ?";
 
             $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
@@ -2698,6 +2762,7 @@ class Api_Model extends CI_Model {
             //$createdTime = $this->time_elapsed_string($row['created']);
             if(($row['userID']==$userID) || ($row['isPrivate']=='0')){
                 $results[]=array(
+                'isVideo'=> '1',
                 'videoID'=>$row['videoID'],
                 'userData'=>$userData,
                 'category'=>$categoryDetail,
@@ -2730,6 +2795,227 @@ class Api_Model extends CI_Model {
         return array($results,$nextVideo);
     }
 
+
+    public function searchVideoV3($userID,$keyWord){
+        //multiple to multiple data
+        $getUserCategory = $this->getUserCategory($userID);
+        // $nextVideo = $nextVideo - 1;
+        $prefix  = 'AND (video.categoryID =';
+        $string='';
+        foreach ($getUserCategory->result_array() as $row)
+        {
+            $string=$string .= $prefix . ' ' . $row['categoryID'] . ' ';
+            $prefix = 'or video.categoryID=';
+        }
+        $string=$string.=')';
+
+        if($string == ')'){
+            $string='';
+        }
+
+        $search="AND ( video.title Like '%".$keyWord."%' OR video.tag Like '%".$keyWord."%' OR userProfile.fullName Like '%".$keyWord."%' OR userProfile.userName Like '%".$keyWord."%')";
+
+        // $sql = "SELECT video.*
+        // FROM video
+        // INNER JOIN userProfile
+        // ON userProfile.newID = video.userID
+        // WHERE video.isActive = 1 AND userProfile.isActive = 1 $search";//before $search add $string
+
+        $sql = "SELECT distinct videoID, video.*
+        FROM video
+        INNER JOIN userProfile
+        ON userProfile.newID = video.userID
+        WHERE video.isActive = 1 $search";//before $search add $string
+
+        $query = $this->db->query($sql);
+        // echo $this->db->last_query();exit;
+        $result = $query->result();
+        //print_r($result);
+        $totalCount = count($result);
+
+        // $sql = "SELECT *
+        // FROM video
+        // INNER JOIN userProfile
+        // ON userProfile.newID = video.userID
+        // WHERE video.isActive = 1 AND userProfile.isActive = 1 $search ORDER by video.videoID DESC LIMIT $limit OFFSET $nextVideo ";//before $search add $string
+
+        // $sql = "SELECT  distinct videoID, video.*
+        // FROM video
+        // INNER JOIN userProfile
+        // ON userProfile.newID = video.userID
+        // WHERE video.isActive = 1 $search ORDER by video.videoID DESC LIMIT $limit OFFSET $nextVideo ";//before $search add $string
+
+        // $query = $this->db->query($sql);
+        // //echo($this->db->last_query());exit();
+        // $result = $query->result();
+        // //$totalCount = count($result);
+        // $currentLimit = count($result);
+        // $nextVideo +=1;
+        // $nextVideo = $currentLimit + $nextVideo;
+
+        /*-------------Getting each category name----------------------------- */
+        $results = array();
+        foreach ($query->result_array() as $row)
+        {
+            //$userID='45';
+            $sql1 = "SELECT categoryID,categoryName
+            FROM category
+            WHERE categoryID = ?";
+
+            $query1 = $this->db->query($sql1,array($row['categoryID']));
+            $categoryDetail = $query1->row();
+
+            //userLIke videos
+            $likeVideoID =  $row['videoID'];
+            $likeSql = "SELECT count(*) AS likeCount FROM userLikeVideo WHERE videoID = ? and likeFlag =1";
+            $likeQuery = $this->db->query($likeSql,array($likeVideoID));
+            foreach ($likeQuery->result_array() as $likeRow)
+            {
+                $likeCount = $likeRow['likeCount'];
+            }
+            //.userLike videos
+
+            //viewCount
+            $viewSql = "SELECT count(*) AS ViewCount FROM videoView WHERE videoID = ?";
+            $viewQuery = $this->db->query($viewSql,array($likeVideoID));
+            foreach ($viewQuery->result_array() as $viewRow)
+            {
+                $ViewCount = $viewRow['ViewCount'];
+            }
+
+            //userID of video uploader detials
+            $userDetailSql = "SELECT userID,fullName,profilePic,userName
+            FROM userProfile
+            WHERE userID = ?";
+
+            $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
+            $userData = $userDetailQuery->row();
+            $userProfileData=$this->api->getUserData2($userID);
+
+            // getting video like flag details
+            $likeFlagSql = "SELECT videoID FROM userLikeVideo  WHERE videoID = ? AND likeFlag = 1 AND userID = ?";
+            $likeFlagQuery = $this->db->query($likeFlagSql,array($row['videoID'],$userID));
+            if ($likeFlagQuery->num_rows() >= 1) {
+                $likeFlag = '1';
+            } else {
+                $likeFlag = '0';
+            }
+
+            //converting video tags into an array
+            $tagString = $row['tag'];
+            $tagArray = array();
+            $tagArray = explode(',',$tagString);
+            if($tagArray[0]==''){
+                unset($tagArray);
+                $tagArray = array();
+            }
+
+
+            //converting duration to mm:ss if hh==00
+            $duration = $row['duration'];
+            $durationArray = explode(':',$duration);
+            if($durationArray[0]=='00'){
+                $finalDuration = $durationArray[1].':'.$durationArray[2];
+            }else{
+                $finalDuration = $durationArray[0].':'.$durationArray[1].':'.$durationArray[2];
+            }
+
+
+            //$createdTime = $this->time_elapsed_string($row['created']);
+            if(($row['userID']==$userID) || ($row['isPrivate']=='0')){
+                $results[]=array(
+                'isVideo'=> '1',
+                'videoID'=>$row['videoID'],
+                'userData'=>$userData,
+                'category'=>$categoryDetail,
+                'videoLink'=>$row['videoLink'],
+                'title'=>$row['title'],
+                'description'=>str_replace('\\n', "\n",$row['description']),
+                'tag'=>$tagArray,
+                'viewCount'=>$ViewCount,
+                'duration'=>$finalDuration,
+                'thumbnail'=>$row['thumbnail'],
+                'likeCount'=>$likeCount,
+                'likeFlag'=>$likeFlag,
+                'isActive'=>$row['isActive'],
+                'isRockapick'=>$row['isRockapick'],
+                'updated'=>$row['updated'],
+                'created'=>$row['created']
+                );
+            }else{
+                continue;
+            }
+        }
+        /*-------------Getting each category name----------------------------- */
+        // echo $totalCount; exit;
+        // if($nextVideo > $totalCount){
+        //     $nextVideo = -1;
+        //     return array($results,$nextVideo);
+        // }
+        //print_r($result);exit;
+
+        // return array($results,$nextVideo);
+        return array($results);
+    }
+
+
+    public function searchUserV3($userID,$keyWord)
+    {
+        // parameters
+        /**
+         *
+         1. keyWord = Get user matching that keyword
+         2. userID = except the current userID (" will not be showing user its own profile")
+         */
+
+        $search="AND ( userProfile.fullName Like '%".$keyWord."%' OR userProfile.userName Like '%".$keyWord."%')";
+        $notEqualTo = "AND userID <> $userID";
+
+        $sql = "SELECT * FROM userProfile WHERE isActive = 1 $search $notEqualTo";
+        $query = $this->db->query($sql);
+
+        // if ($query->num_rows() >= 1) {
+        //     return $query->result_array();
+        // } else {
+        //     return false;
+        // }
+        $results = array();
+        foreach ($query->result_array() as $row)
+        {
+            $results[]=array(
+                "isVideo"=> '0',
+                "userID"=> $row['userID'],
+                "fullName"=> $row['fullName'],
+                "userName"=> $row['userName'],
+                "occupation"=> $row['occupation'],
+                "phoneNo"=> $row['phoneNo'],
+                "gender"=> $row['gender'],
+                "email"=> $row['email'],
+                "password"=> $row['password'],
+                "profilePic"=> $row['profilePic'],
+                "country"=> $row['country'],
+                "dob"=> $row['dob'],
+                "state"=> $row['state'],
+                "aboutMe"=> $row['aboutMe'],
+                "accessToken"=> $row['accessToken'],
+                "androidKey"=> $row['androidKey'],
+                "iosKey"=> $row['iosKey'],
+                "isActive"=> $row['isActive'],
+                "forgotPassword"=> $row['forgotPassword'],
+                "validationLink"=> $row['validationLink'],
+                "isVerified"=> $row['isVerified'],
+                "twitterHandler"=> $row['twitterHandler'],
+                "newID"=> $row['newID'],
+                "lastLogin"=> $row['lastLogin'],
+                "updated"=> $row['updated'],
+                "created"=> $row['created']
+                );
+        }
+        return $results;
+
+
+    }
+
     public function storeSearchKeyword($userID,$keyWord,$created){
         $sql = "INSERT INTO searchHistory (userID,keyword,created) VALUES (?,?,?)";
         $query = $this->db->query($sql,array($userID,$keyWord,$created));
@@ -2750,7 +3036,7 @@ class Api_Model extends CI_Model {
         {
                 $ViewCount = $viewRow['ViewCount'];
         }
-        return $ViewCount; 
+        return $ViewCount;
     }
 
     public function getStateList($countryID){
@@ -2808,7 +3094,7 @@ class Api_Model extends CI_Model {
     public function isUserVerified($userID){
         $sql = "SELECT userID, isVerified, created FROM userProfile WHERE userID = ? ";
         $query = $this->db->query($sql,array($userID));
-        
+
         // echo "<pre>";
         // print_r($query->result_array());
         foreach ($query->result_array() as $value) {
@@ -2822,7 +3108,7 @@ class Api_Model extends CI_Model {
         if($queryUserData['isVerified']==1){
             return true;
         }else{
-            //checking if day is greater than five day 
+            //checking if day is greater than five day
             $createdDate = $queryUserData['created'];
             $dateNow = date('Y-m-d H:i:s');
 
@@ -2843,7 +3129,7 @@ class Api_Model extends CI_Model {
     public function updateVideo($userID,$videoID,$updateData){
         $this->db->where('userID', $userID);
         $this->db->where('videoID', $videoID);
-        $this->db->update('video', $updateData); 
+        $this->db->update('video', $updateData);
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
@@ -2851,7 +3137,7 @@ class Api_Model extends CI_Model {
     public function reportVideo($userID,$videoID){
         // $this->db->where('userID', $userID);
         // $this->db->where('videoID', $videoID);
-        // $this->db->update('video', $updateData); 
+        // $this->db->update('video', $updateData);
         $created = date('Y-m-d H:i:s');
         $sql = "INSERT INTO reportVideo (userID,videoID,created) VALUES (?,?,?)";
         $query = $this->db->query($sql,array($userID,$videoID,$created));
@@ -2951,7 +3237,7 @@ class Api_Model extends CI_Model {
 
 
     public function extraUpdateDuration(){
-        //start by getting videoID, link, 
+        //start by getting videoID, link,
         //run ffmpeg
         //update database values where videoID
 
@@ -3024,15 +3310,15 @@ class Api_Model extends CI_Model {
 
 
             $thumbnailPathJpg = substr($thumbnailPath, 0, strpos($thumbnailPath, "."));
-            //$thumbnailPathJpg = 
+            //$thumbnailPathJpg =
             $thumbnailPathJpg = $thumbnailPathJpg . '.jpg';
 
             $thumbnailLink = str_replace('/var/www/html/','http://faarbetterfilms.com/',$thumbnailPathJpg);
-            // call a function to create thumbnail 
+            // call a function to create thumbnail
 
             $input = $videoPath;
             $output = $thumbnailPathJpg;
-            
+
             $status = $this->extraCreateThumbnail($input, $output, '1');
             if($status){
                 $timeSql = "UPDATE video SET thumbnail = ? WHERE videoID = ?";
@@ -3057,15 +3343,15 @@ class Api_Model extends CI_Model {
 
 
             $thumbnailPathJpg = substr($thumbnailPath, 0, strpos($thumbnailPath, "."));
-            //$thumbnailPathJpg = 
+            //$thumbnailPathJpg =
             $thumbnailPathJpg = $thumbnailPathJpg . '.jpg';
 
             $thumbnailLink = str_replace('/var/www/html/','http://faarbetterfilms.com/',$thumbnailPathJpg);
-            // call a function to create thumbnail 
+            // call a function to create thumbnail
 
             $input = $videoPath;
             $output = $thumbnailPathJpg;
-            
+
             $status = $this->extraCreateThumbnail($input, $output, '1');
             if($status){
                 $timeSql = "UPDATE wishVideo SET thumbnail = ? WHERE wishVideoID = ?";
@@ -3103,7 +3389,7 @@ class Api_Model extends CI_Model {
 
         }
 
-        
+
         $fromdurasec = 1;
         if (!file_exists($output)){
             $command = "ffmpeg -itsoffset -{$fromdurasec} -i {$input} -y -vframes 1 -filter:v scale='500:-1' {$output}";
@@ -3122,7 +3408,7 @@ class Api_Model extends CI_Model {
         }else{
             return true;
         }
-        
+
     }
 
     public function extraUpdateVideoLink(){
@@ -3168,7 +3454,7 @@ class Api_Model extends CI_Model {
 
         // foreach ($query->result_array() as $value) {
         //     // echo $value['userID'];echo "<br>";
-        //     // foreach update 
+        //     // foreach update
 
         //     INSERT INTO `userInterest` (`userID`, `categoryID`, `isSelected`, `updated`,`created`) values ('3800', '2','1','now()','now()') ON DUPLICATE KEY UPDATE `userID` = '3800'
         // }
@@ -3183,8 +3469,8 @@ class Api_Model extends CI_Model {
                 // print_r($userID);echo "<br>";
                 // print_r($categoryID);echo "<br>";
                 $isInterestPresent = $this->isInterestPresent($userID,$categoryID);
-            
-                //true means user with this category exists 
+
+                //true means user with this category exists
                 if($isInterestPresent){
                     //we will have to use update query
                     $isSelectUpdate = $this->isSelectUpdate($userID,$categoryID,'1');
@@ -3193,7 +3479,7 @@ class Api_Model extends CI_Model {
                     $insertUserInterest = $this->insertUserInterest($userID,$categoryID,'1');
                 }
             }
-        }     
+        }
     }
 
 
@@ -3202,7 +3488,7 @@ class Api_Model extends CI_Model {
     //     // $this->db->where('userID', $userName);
     //     // $this->db->delete('socialLogin');
 
-    //     $sql = "DELETE FROM socialLogin WHERE userID=? and socialType = ?"; 
+    //     $sql = "DELETE FROM socialLogin WHERE userID=? and socialType = ?";
     //     $query = $this->db->query($sql,array($userName,$keyword));
     // }
 
@@ -3225,6 +3511,143 @@ class Api_Model extends CI_Model {
             // print_r("false");exit;
             return false;
         }
+    }
+
+    // phase V3 
+
+    public function updateFollowing($userID, $followUserID, $updateData)
+    {
+
+        // $data = array(
+        //     'isFollowing' => $isFollowing
+        // );
+    
+        $this->db->where('userID', $userID);
+        $this->db->where('followUserID', $followUserID);
+        $this->db->update('following', $updateData);
+        // echo $this->db->last_query();exit;
+    }
+
+    public function insertFollowing($insertData)
+    {
+        // $data = array(
+        //     'userID' => $userID,
+        //     'followUserID' => $followUserID,
+        //     'isFollowing' => $isFollowing
+        // );
+
+        $this->db->insert('following', $insertData);
+        // echo $this->db->last_query();exit;
+    }
+
+
+    public function selectFromFollowing($userID, $followUserID)
+    {
+        $sql = "SELECT * FROM following WHERE userID = ? AND followUserID = ?";
+        $query = $this->db->query($sql, array($userID, $followUserID));
+        // echo $this->db->last_query();exit;
+        if($query->num_rows()>0){
+            // $res = $query->row_array();
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public function getFollowingList($userID)
+    {
+        $sqlFollowing = "SELECT * FROM following WHERE userID = ? AND isFollowing = ?";
+        $queryFollowing = $this->db->query($sqlFollowing, array($userID,'1'));
+
+        // echo $this->db->last_query();
+        // print_r($queryFollowing->result_array());
+        
+
+        $results = array();
+        foreach ($queryFollowing->result_array() as $value) {
+            $sql = "SELECT * FROM userProfile WHERE isActive = 1 AND userID = ?";
+            $query = $this->db->query($sql, array($value['followUserID']));
+
+            // echo $this->db->last_query();
+            $row = $query->row_array();
+            $results[]=array(
+                "userID"=> $row['userID'],
+                "fullName"=> $row['fullName'],
+                "userName"=> $row['userName'],
+                "occupation"=> $row['occupation'],
+                "phoneNo"=> $row['phoneNo'],
+                "gender"=> $row['gender'],
+                "email"=> $row['email'],
+                "password"=> $row['password'],
+                "profilePic"=> $row['profilePic'],
+                "country"=> $row['country'],
+                "dob"=> $row['dob'],
+                "state"=> $row['state'],
+                "aboutMe"=> $row['aboutMe'],
+                "accessToken"=> $row['accessToken'],
+                "androidKey"=> $row['androidKey'],
+                "iosKey"=> $row['iosKey'],
+                "isActive"=> $row['isActive'],
+                "forgotPassword"=> $row['forgotPassword'],
+                "validationLink"=> $row['validationLink'],
+                "isVerified"=> $row['isVerified'],
+                "twitterHandler"=> $row['twitterHandler'],
+                "newID"=> $row['newID'],
+                "lastLogin"=> $row['lastLogin'],
+                "updated"=> $row['updated'],
+                "created"=> $row['created']
+            );
+        }
+
+        return $results;
+    }
+
+    public function getFollowerList($userID)
+    {
+        $sqlFollowing = "SELECT * FROM following WHERE followUserID = ? AND isFollowing = ?";
+        $queryFollowing = $this->db->query($sqlFollowing, array($userID,'1'));
+
+        // echo $this->db->last_query();
+        // print_r($queryFollowing->result_array());
+        
+
+        $results = array();
+        foreach ($queryFollowing->result_array() as $value) {
+            $sql = "SELECT * FROM userProfile WHERE isActive = 1 AND userID = ?";
+            $query = $this->db->query($sql, array($value['userID']));
+
+            // echo $this->db->last_query();
+            $row = $query->row_array();
+            $results[]=array(
+                "userID"=> $row['userID'],
+                "fullName"=> $row['fullName'],
+                "userName"=> $row['userName'],
+                "occupation"=> $row['occupation'],
+                "phoneNo"=> $row['phoneNo'],
+                "gender"=> $row['gender'],
+                "email"=> $row['email'],
+                "password"=> $row['password'],
+                "profilePic"=> $row['profilePic'],
+                "country"=> $row['country'],
+                "dob"=> $row['dob'],
+                "state"=> $row['state'],
+                "aboutMe"=> $row['aboutMe'],
+                "accessToken"=> $row['accessToken'],
+                "androidKey"=> $row['androidKey'],
+                "iosKey"=> $row['iosKey'],
+                "isActive"=> $row['isActive'],
+                "forgotPassword"=> $row['forgotPassword'],
+                "validationLink"=> $row['validationLink'],
+                "isVerified"=> $row['isVerified'],
+                "twitterHandler"=> $row['twitterHandler'],
+                "newID"=> $row['newID'],
+                "lastLogin"=> $row['lastLogin'],
+                "updated"=> $row['updated'],
+                "created"=> $row['created']
+            );
+        }
+
+        return $results;
     }
 
 }

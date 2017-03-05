@@ -2135,6 +2135,70 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
+    public function userProfileDetailV3() {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $profileUserID = isset($_POST['profileUserID']) ? mysqli_real_escape_string($db,$_POST['profileUserID']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                $accessToken=0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        //Check if userID is active
+                        //if not active==true; userID = newID pass that id and data
+
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+
+                        if ($userID == $profileUserID) {
+                            $userProfileData = $this->api->getUserData2($profileUserID);
+                        } else {
+                            $userProfileData = $this->api->getUserDataFollow($userID, $profileUserID);
+                        }
+                        
+                        
+                        // $socialLoginData = $this->api->socialLoginData($userID);
+                        $userUploadedVideoData = $this->api->userUploadedVideo($profileUserID);
+                        $arrResponse = array('status'=>1,
+                            'message'=>'success',
+                            'userData'=>$userProfileData,
+                            // 'syncAccount'=>$socialLoginData,
+                            'uploadedVideo'=>$userUploadedVideoData
+                        );
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Please Login.');
+                }
+
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
 
     public function editUserProfile() {
         $arrResponse = array();
@@ -2607,7 +2671,7 @@ class Api extends CI_Controller {
                     $getAccessToken = $this->api->getAccessToken($userID);
                     $getAccessToken = $getAccessToken['accessToken'];
                     if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
-                        //main codingstarts if access token is valic
+                        //main codingstarts if access token is valid
                         $created = date('Y-m-d H:i:s');
                         $this->api->storeSearchKeyword($userID,$keyWord,$created);
 
@@ -2615,6 +2679,86 @@ class Api extends CI_Controller {
 
 
                         $arrResponse = array('status'=>1, 'message'=>'success','nextVideo'=>$nextVideo,'video'=>$getUserVideo);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'userID and nextVideo offset is required');
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+    public function searchVideoV3()
+    {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $keyWord = isset($_POST['keyWord']) ? mysqli_real_escape_string($db,$_POST['keyWord']) : '';
+            //$limit = isset($_POST['limit']) ? mysqli_real_escape_string($db,$_POST['limit']) : '';
+            $limit = 25;
+            $offset = isset($_POST['nextVideo']) ? mysqli_real_escape_string($db,$_POST['nextVideo']) : '';
+            $accessToken = 0;
+            $isUserExist = $this->api->isUserExist($userID);
+            if(($isUserExist)||($userID==0)){
+                if($userID!=NULL && $limit!=NULL && $offset!=NULL && $keyWord!=NULL){// checking for required fields
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valid
+                        $created = date('Y-m-d H:i:s');
+                        $this->api->storeSearchKeyword($userID,$keyWord,$created);
+
+                        list($getUserVideo) = $this->api->searchVideoV3($userID,$keyWord);
+                        $nextVideo = '-1';
+
+                        $userProfileResult = $this->api->searchUserV3($userID, $keyWord);
+
+                        // merging both of the arrays 
+                        $InsertAt = 1; //selectedCategoryCount
+
+                        $InsertAtFixed = $InsertAt+1;
+
+                        foreach ($userProfileResult as $value) {
+                            $valueArray = array();
+                            $valueArray[] = $value;
+                            $this->array_insert($getUserVideo, $valueArray, ($InsertAt));
+                            $InsertAt = $InsertAt + $InsertAtFixed;
+                        }
+
+                        /*-------------------- Setting Limit and offset------------------*/
+                        $offset = $offset-1;
+                        // $offset = ;
+                        // $limit = 5;
+                        $inputCount = count($getUserVideo);
+
+                        if($limit + $offset >= $inputCount){
+                            $nextVideo = -1;
+                        }else{
+                            $nextVideo = $limit + $offset + 1 ;
+                        }
+
+                        $sliced = array_slice($getUserVideo, $offset, $limit);
+                        /*-------------------- Setting Limit and offset------------------*/
+
+                        $arrResponse = array('status'=>1, 'message'=>'success','nextVideo'=>$nextVideo,'searchResult'=>$sliced );
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
                     }
@@ -3179,8 +3323,260 @@ class Api extends CI_Controller {
         $this->api->extraInterestAllSelected();
     }
 
-    public function pankajClearData($userName,$keyword)
+    // public function pankajClearData($userName,$keyword)
+    // {
+    //     $this->api->pankajClearData($userName,$keyword);
+    // }
+
+    // phase V3 
+
+    public function follow()
     {
-        $this->api->pankajClearData($userName,$keyword);
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $followUserID = isset($_POST['followUserID']) ? mysqli_real_escape_string($db,$_POST['followUserID']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                $accessToken=0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        // 1. call following database 
+                        // 2. 
+
+                        $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
+                        // echo $followCurrentPresent;
+
+                        if($followCurrentPresent == 1){
+                            //update
+                            $updateData = array(
+                                'isFollowing' => '1'
+                            );
+                            $this->api->updateFollowing($userID, $followUserID, $updateData);
+                        } else {
+                            // insert into follow/followin
+                            $insertData = array(
+                                'userID' => $userID,
+                                'followUserID' => $followUserID,
+                                'isFollowing' => '1',
+                                'created'=>date("Y-m-d H:i:s")
+                            );
+                            $this->api->insertFollowing($insertData);
+                        }
+
+
+                        $arrResponse = array('status'=>1, 'message'=>'success');
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
     }
+
+    public function unFollow()
+    {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $followUserID = isset($_POST['followUserID']) ? mysqli_real_escape_string($db,$_POST['followUserID']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                $accessToken=0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        // 1. call following database 
+                        // 2. 
+
+                        $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
+                        // echo $followCurrentPresent;
+
+                        if($followCurrentPresent == 1){
+                            //update
+                            $updateData = array(
+                                'isFollowing' => '0'
+                            );
+                            $this->api->updateFollowing($userID, $followUserID, $updateData);
+                        } else {
+                            // insert into follow/followin
+                            $insertData = array(
+                                'userID' => $userID,
+                                'followUserID' => $followUserID,
+                                'isFollowing' => '0',
+                                'created'=>date("Y-m-d H:i:s")
+                            );
+                            $this->api->insertFollowing($insertData);
+                        }
+
+
+                        $arrResponse = array('status'=>1, 'message'=>'success');
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+
+    public function getFollowingList()
+    {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                $accessToken=0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        // 1. call following database 
+                        // 2. 
+
+                        $followingList = $this->api->getFollowingList($userID);
+
+
+                        $arrResponse = array('status'=>1, 'message'=>'success', 'followingList'=> $followingList);
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+
+    public function getFollowerList()
+    {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                $accessToken=0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        // 1. call following database 
+                        // 2. 
+
+                        $followerList = $this->api->getFollowerList($userID);
+
+
+                        $arrResponse = array('status'=>1, 'message'=>'success', 'followerList'=> $followerList);
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+
 }
