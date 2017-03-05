@@ -2080,7 +2080,7 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
-    public function userProfileDetail() {
+    public function userProfileDetailV2() {
         $arrResponse = array();
         if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -2135,7 +2135,7 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
-    public function userProfileDetailV3() {
+    public function userProfileDetai() {
         $arrResponse = array();
         if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -2644,7 +2644,7 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
-    public function searchVideo() {
+    public function searchVideoV2() {
         $arrResponse = array();
         if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -2694,7 +2694,7 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
-    public function searchVideoV3()
+    public function searchVideo()
     {
         $arrResponse = array();
         if($_SERVER['REQUEST_METHOD'] == "POST"){

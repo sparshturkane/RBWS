@@ -3650,4 +3650,10 @@ class Api_Model extends CI_Model {
         return $results;
     }
 
+    public function insertNotifications($insertData)
+    {
+        # code...
+        $this->db->insert('notifications', $insertData);
+    }
+
 }
