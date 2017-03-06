@@ -95,6 +95,81 @@ class Api_Model extends CI_Model {
         return $result;
     }
 
+    public function getUserDataProfileData($userID){
+        $sql = "SELECT
+        userID,
+        fullName,
+        userName,
+        occupation,
+        phoneNo,
+        gender,
+        email,
+        profilePic,
+        country,
+        dob,
+        state,
+        aboutMe,
+        androidKey,
+        iosKey,
+        isActive
+
+        FROM userProfile WHERE userID = ?";
+        $query = $this->db->query($sql,array($userID));
+        $res = $query->row_array();
+        // $userData = array(
+        //         "fullName"=>$res['fullName'];
+        //     );
+
+        $socialLoginData = $this->socialLoginData($res['userID']);
+
+        // following count
+        $followingSql = "SELECT COUNT(*) as followingCount FROM `following` WHERE userID = ? AND isFollowing = '1'";
+        $followingQuery = $this->db->query($followingSql,array($userID));
+
+        if($followingQuery->num_rows()>0){
+            $followingData = $followingQuery->row();
+            $followingCount = $followingData->followingCount;
+        } else {
+             $followingCount = '0';
+        }
+
+        // follower count
+        $followerSql = "SELECT COUNT(*) as followerCount FROM `following` WHERE followUserID = ? AND isFollowing = '1'";
+        $followerQuery = $this->db->query($followerSql,array($userID));
+
+        if($followerQuery->num_rows()>0){
+            $followerData = $followerQuery->row();
+            $followerCount = $followerData->followerCount;
+        } else {
+             $followerCount = '0';
+        }
+
+        $result = array(
+            'isVerified'    => '0',
+            'userID'        => $res['userID'],
+            'fullName'      => $res['fullName'],
+            'userName'      => $res['userName'],
+            'occupation'    => $res['occupation'],
+            'phoneNo'       => $res['phoneNo'],
+            'gender'        => $res['gender'],
+            'email'         => $res['email'],
+            'profilePic'    => $res['profilePic'],
+            'country'       => $res['country'],
+            'dob'           => $res['dob'],
+            'state'         => $res['state'],
+            'aboutMe'       => $res['aboutMe'],
+            'androidKey'    => $res['androidKey'],
+            'iosKey'        => $res['iosKey'],
+            'isActive'      => $res['isActive'],
+            'followerCount' => $followerCount,
+            'followingCount' => $followingCount,
+            'syncAccount'   => $socialLoginData
+            );
+
+
+        return $result;
+    }
+
 
     public function getUserDataFollow($userID ,$profileUserID){
         $sql = "SELECT
@@ -123,7 +198,7 @@ class Api_Model extends CI_Model {
 
         $socialLoginData = $this->socialLoginData($res['userID']);
 
-        // Deciding wether that user follows the other user or not 
+        // Deciding wether that user follows the other user or not
         $sql = "SELECT * FROM following WHERE userID = ? AND followUserID = ?";
         $query = $this->db->query($sql, array($userID, $profileUserID));
         $isFollowing = '';
@@ -134,9 +209,31 @@ class Api_Model extends CI_Model {
             $isFollowing = '0';
         }
 
+        // following count
+        $followingSql = "SELECT COUNT(*) as followingCount FROM `following` WHERE userID = ? AND isFollowing = '1'";
+        $followingQuery = $this->db->query($followingSql,array($userID));
+
+        if($followingQuery->num_rows()>0){
+            $followingData = $followingQuery->row();
+            $followingCount = $followingData->followingCount;
+        } else {
+             $followingCount = '0';
+        }
+
+        // follower count
+        $followerSql = "SELECT COUNT(*) as followerCount FROM `following` WHERE followUserID = ? AND isFollowing = '1'";
+        $followerQuery = $this->db->query($followerSql,array($userID));
+
+        if($followerQuery->num_rows()>0){
+            $followerData = $followerQuery->row();
+            $followerCount = $followerData->followerCount;
+        } else {
+             $followerCount = '0';
+        }
 
         $result = array(
             'isFollowing'   => $isFollowing,
+            'isVerified'    => '0',
             'userID'        => $res['userID'],
             'fullName'      => $res['fullName'],
             'userName'      => $res['userName'],
@@ -152,6 +249,8 @@ class Api_Model extends CI_Model {
             'androidKey'    => $res['androidKey'],
             'iosKey'        => $res['iosKey'],
             'isActive'      => $res['isActive'],
+            'followerCount' => $followerCount,
+            'followingCount' => $followingCount,
             'syncAccount'   => $socialLoginData
             );
 
@@ -1861,6 +1960,38 @@ class Api_Model extends CI_Model {
                 //         );
                 //     $this->db->insert('chat', $wishVideoToChat);
                 // }
+
+                //--------------inserting in notifications-------------------//
+                $sqlReceiverUserID = "SELECT * FROM userProfile WHERE email = ?";
+                $queryReceiverUserID = $this->db->query($sqlReceiverUserID,array($receiverEmailAddress));
+
+                $queryReceiverUserIDRow = $queryReceiverUserID->row();
+
+                if($queryReceiverUserID->num_rows() >=1){
+                    // return $row->userID;
+                    $insertDataNotifications = array(
+                        "notificationTypeID" =>'2',//wish Received == 2
+                        "userID" => $queryReceiverUserIDRow->userID,// the one who is receiving
+                        "videoID" =>'0',// not applicable here
+                        "wishVideoID" => $wishVideoID,// wish video id
+                        "followingID" =>'0',//not applicable here
+                        "isActive" =>'1',// will be one always till user deletes it
+                        "created" =>date('Y-m-d H:i:s')
+                    );
+                }else{
+                    $insertDataNotifications = array(
+                        "notificationTypeID" =>'2',//wish Received == 2
+                        "userID" => '0',// when ever a user registers check if they have wish video in wish table by email
+                        "videoID" =>'0',// not applicable here
+                        "wishVideoID" => $wishVideoID,// wish video id
+                        "followingID" =>'0',//not applicable here
+                        "isActive" =>'1',// will be one always till user deletes it
+                        "created" =>date('Y-m-d H:i:s')
+                    );
+                }
+
+                $this->insertNotifications($insertDataNotifications);
+                //--------------inserting in notifications-------------------//
             }
         }
     }
@@ -2114,7 +2245,7 @@ class Api_Model extends CI_Model {
         //$config['mailpath'] = '/usr/sbin/sendmail';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
         $config['smtp_user'] = 'donotreply@test.com';
-        $config['smtp_pass'] = 'this is wrong password';//fbrockabyteirocky
+        $config['smtp_pass'] = 'this is wrong password';//
         $config['smtp_port'] = 465;
         $config['smtp_timeout'] = 30;
         $config['wordwrap'] = TRUE;
@@ -2481,6 +2612,358 @@ class Api_Model extends CI_Model {
             }
         }
         return $result;
+    }
+
+    public function getUserNotificationV3($userID)
+    {
+        $selectNotificationSql = "SELECT * FROM notifications WHERE userID = ? ORDER BY notificationID DESC";
+        $selectNotificationQuery = $this->db->query($selectNotificationSql, array($userID));
+
+        $results = array();
+
+        // nulling all the values here so they don't duplicate
+        $profilePic = '';
+        $userName = '';
+        $wishDescription = '';
+        $description = '';
+        $userData = '';
+        $thumbnail = '';
+        $wishVideoID = '';
+        $videoLink = '';
+        $title = '';
+        $created = '';
+        $isRead = '';
+
+        foreach ($selectNotificationQuery->result_array() as $value)
+        {
+            /**
+            * we will have to implement switch loop lere what will be the data outside switch loop
+            */
+            // echo $value['notificationID'];
+            switch ($value['notificationTypeID']) {
+                case '1': //wish Sent
+                    // wish sent
+                    # code...
+                    // $switchStatement = 1;
+                    /**
+                     * what do i have from notifications table
+                     * 1. notificationID
+                     * 2. notificationTypeID
+                     * 3. userID
+                     * 4. videoID
+                     * 5. wishVideoID
+                     * 6. followingID
+                     * 7. userLikeVideoID
+                     * 8. isRead
+                     * 9. isActive
+                     * 1. updated
+                     * 2. created
+                     */
+
+                    $sentWishSql = "SELECT * FROM wishVideo WHERE wishVideoID = ?";
+                    $sentWishQuery = $this->db->query($sentWishSql, array($value['wishVideoID']));
+
+                    //$row = $query->row();
+                    $sentWishData = $sentWishQuery->row();
+
+                    //video Details
+                    $description = $sentWishData->description;
+                    $thumbnail = $sentWishData->thumbnail;
+                    $wishVideoID = $sentWishData->wishVideoID;
+                    $videoLink = $sentWishData->videoLink;
+                    $title = $sentWishData->title;
+                    $created = $sentWishData->created;
+                    $isRead = $value['isRead'];
+
+                    $isReceiverExist = "SELECT * FROM userProfile WHERE email = ?";
+                    $queryIsReceiverExist = $this->db->query($isReceiverExist,array($sentWishData->receiverEmail));
+
+                    if($queryIsReceiverExist->row()){
+                        $userValue = $queryIsReceiverExist->row();
+                        $profilePic = $userValue->profilePic;
+                        $userName = $userValue->fullName;
+                    }else{
+      
+                        $profilePic = '';
+                        $userName = ucwords(str_replace('.',' ',strstr($sentWishData->receiverEmail, '@', true)));
+                    }
+
+                    //find video uploader details with the help of userID
+                    $userDetailSql = "SELECT userID,fullName,profilePic,userName
+                    FROM userProfile
+                    WHERE userID = ?";
+
+                    $userDetailQuery = $this->db->query($userDetailSql,array($userID));
+                    $userDataInfo = $userDetailQuery->row();
+
+                    $userData = array(
+                        'userID'=> $userDataInfo->userID,
+                        'userName'=> $userDataInfo->fullName,
+                        'fullName'=> $userDataInfo->fullName,
+                        'profilePic'=> $userDataInfo->profilePic,
+                    );
+
+                    // Determining if wish is past or future
+                    $currentTime = date('Y-m-d H:i:s');
+                    $currentTime = strtotime($currentTime);
+                    $wishReceiveDateTime = strtotime($sentWishData->receiveDateTime);
+                    if($currentTime > $wishReceiveDateTime){
+                        //wish sent
+                        $wishDescription = "Wish sent successfully";
+                    }else{
+                        //wish not sent
+                        $wishDescription = "Pending";
+                    }
+
+                break;
+
+                case '2': //wish received 
+                    // wish received
+                    # code...
+                    // $switchStatement = 2;
+                    // i have userID I will have to find emailID from that  user ID 
+                    $receivedWishSql = "SELECT * FROM wishVideo WHERE wishVideoID = ?";
+                    $receivedWishQuery = $this->db->query($receivedWishSql, array($value['wishVideoID']));
+
+                    $receiveWishData = $receivedWishQuery->row();
+
+                    //video Details
+                    $description = $receiveWishData->description;
+                    $thumbnail = $receiveWishData->thumbnail;
+                    $wishVideoID = $receiveWishData->wishVideoID;
+                    $videoLink = $receiveWishData->videoLink;
+                    $title = $receiveWishData->title;
+                    $created = $receiveWishData->created;
+                    $isRead = $value['isRead'];
+
+                    //sender userDetails
+                    //find video uploader details with the help of userID
+                    $userDetailSql = "SELECT userID,fullName,profilePic,userName
+                    FROM userProfile
+                    WHERE userID = ?";
+
+                    $userDetailQuery = $this->db->query($userDetailSql,array($receiveWishData->userID));
+                    $userDataInfo = $userDetailQuery->row();
+
+                    $userData = array(
+                        'userID'=> $userDataInfo->userID,
+                        'userName'=> $userDataInfo->fullName,
+                        'fullName'=> $userDataInfo->fullName,
+                        'profilePic'=> $userDataInfo->profilePic,
+                    );
+
+                    //sender Details
+                    $wishDescription = 'sent you a wish video';
+                    $profilePic = $userDataInfo->profilePic;
+                    $userName = $userDataInfo->fullName;
+                break;
+
+                case '3':
+                    // like video
+                    # code...
+                    // in notification we have userID this is me to get receiver information i would have to do 
+                    // and i also have userLikeVideoID
+                    //1. from userLikeVideoTable get userID and videoID
+                    //2. get user info
+                    //3. get video info and videoUserID info 
+                    $sqlUserLikeVideo = "SELECT * FROM userLikeVideo WHERE id = ?";
+                    $queryUserLikeVideo = $this->db->query($sqlUserLikeVideo,array($value['userLikeVideoID']));
+                    $userLikeVideoData = $queryUserLikeVideo->row();
+                    // print_r($userLikeVideoData);
+
+                    // $value['userLikeVideoID'];
+                    //liker userID and liked videoID
+                    $likerUserID = $userLikeVideoData->userID;
+                    $likedVideoID = $userLikeVideoData->videoID;
+
+
+                    //getting userDetails 
+                    $sqlUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+                    $queryUserDetails = $this->db->query($sqlUserDetails,array($likerUserID));
+                    $userDetails = $queryUserDetails->row();
+
+
+                    //getting videoDetails
+                    $sqlVideoDetails = "SELECT * FROM video WHERE videoID = ?";
+                    $queryVideoDetails = $this->db->query($sqlVideoDetails,array($likedVideoID));
+                    $videoDetails = $queryVideoDetails->row();
+
+                    // getting uploaded video user data
+                    $sqlVideoUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+                    $queryVideoUserDetails = $this->db->query($sqlVideoUserDetails,array($videoDetails->userID));
+                    $userVideoDetails = $queryVideoUserDetails->row();
+
+
+
+                    // $switchStatement = 3;
+                    $profilePic = $userDetails->profilePic; //liker profile picture 
+                    $userName = $userDetails->fullName; //liker userName
+                    $wishDescription = 'liked your video';
+                    $description = $videoDetails->description; // video description
+                    $userData = array(
+                        'userID'=> $userVideoDetails->userID,
+                        'userName'=> $userVideoDetails->fullName,
+                        'fullName'=> $userVideoDetails->fullName,
+                        'profilePic'=> $userVideoDetails->profilePic,
+                    );
+                    $thumbnail = $videoDetails->thumbnail; //video Thumbnail
+                    $wishVideoID = $videoDetails->videoID; // we will need videoID instead of wishVideoID
+                    // $videoID = $videoDetails->videoID;
+                    $videoLink = $videoDetails->videoLink; // video link
+                    $title = $videoDetails->title; // videotitle
+                    $created = $videoDetails->created;
+                    $isRead = $value['isRead'];
+                break;
+
+                case '4':
+                    // follow
+                    # code...
+                    $sqlFollowing = "SELECT * FROM following WHERE followingID = ?";
+                    $queryFollowing = $this->db->query($sqlFollowing,array($value['followingID']));
+                    $followingData = $queryFollowing->row();
+
+
+                    $sqlUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+                    $queryUserDetails = $this->db->query($sqlUserDetails,array($followingData->userID));
+                    $userDetails = $queryUserDetails->row();
+
+
+                    // $switchStatement = 4;
+                    $profilePic = $userDetails->profilePic; // the follower
+                    $userName = $userDetails->fullName; //the follower
+                    $wishDescription = 'is following you'; 
+                    $followerUserID = $userDetails->userID; // the follower ID
+                    $created = $followingData->created;
+                    $isRead = $value['isRead'];
+                    //$description = ''; //
+                    // $userData = '';
+                    // $thumbnail = '';
+                    // $wishVideoID = '';
+                    // $videoLink = '';
+                    // $title = '';
+                    // $created = '';
+                    // $isRead = '';
+                break;
+
+                case '5':
+                    // unfollow
+                    # code...
+                    $sqlFollowing = "SELECT * FROM following WHERE followingID = ?";
+                    $queryFollowing = $this->db->query($sqlFollowing,array($value['followingID']));
+                    $followingData = $queryFollowing->row();
+
+
+                    $sqlUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+                    $queryUserDetails = $this->db->query($sqlUserDetails,array($followingData->userID));
+                    $userDetails = $queryUserDetails->row();
+
+
+                    // $switchStatement = 5;
+                    $profilePic = $userDetails->profilePic; // the follower
+                    $userName = $userDetails->fullName; //the follower
+                    $wishDescription = 'unfollowed you'; 
+                    $followerUserID = $userDetails->userID; // the follower ID
+                    $created = $followingData->created;
+                    $isRead = $value['isRead'];
+                break;
+
+
+                default:
+                    # code...
+                    $profilePic = '';
+                    $userName = '';
+                    $wishDescription = '';
+                    $description = '';
+                    $userData = '';
+                    $thumbnail = '';
+                    $wishVideoID = '';
+                    $videoLink = '';
+                    $title = '';
+                    $created = '';
+                    $isRead = '';
+                break;
+            }
+
+            // $results[] = array(
+            //     "notificationID" => $value['notificationID'],
+            //     "notificationTypeID" => $value['notificationTypeID'],
+            //     "switchStatement" => $switchStatement
+            // );
+
+            if ($value['notificationTypeID']==4 || $value['notificationTypeID']==5) {
+                $results[] = array(
+                    "profilePic" => $profilePic,
+                    "userName" => $userName,
+                    "wishDescription" => $wishDescription,
+                    "userID" => $followerUserID,
+                    "created" => $created,
+                    "isRead" => $isRead,
+                    "notificationTypeID" => $value['notificationTypeID'],
+                );
+            } else {
+                $results[] = array(
+                    "profilePic" => $profilePic,
+                    "userName" => $userName,
+                    "wishDescription" => $wishDescription,
+                    "description" => $description,
+                    "userData" => $userData,
+                    "thumbnail" => $thumbnail,
+                    "videoID" => $wishVideoID,
+                    "videoLink" => $videoLink,
+                    "title" => $title,
+                    "created" => $created,
+                    "isRead" => $isRead,
+                    "notificationTypeID" => $value['notificationTypeID'],
+                );
+            }
+            
+
+            
+
+            // // wish received
+            // {
+            //     "profilePic": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/userProfilePicture/aed9e6bf76812b930288c7472037c1e8.jpg", // sender profile picture
+            //     "userName": "Prathmesh Angachekar", // sender userName
+            //     "wishDescription": "sent you a wish video",
+            //     "description": "Hvbinnp inn'hi JFK",
+            //     "userData": { // user Data of video change // get userdata
+            //         "userID": "3844",
+            //         "userName": "Prathmesh Angachekar",
+            //         "fullName": "Prathmesh Angachekar",
+            //         "profilePic": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/userProfilePicture/aed9e6bf76812b930288c7472037c1e8.jpg"
+            //     },
+            //     "thumbnail": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/1564596dba3c39b8533d613ddbfc921f.jpg",
+            //     "videoID": "468",
+            //     "videoLink": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/1564596dba3c39b8533d613ddbfc921f.mp4",
+            //     "title": "Test wish",
+            //     "created": "2017-01-21 21:11:00",
+            //     "createdSort": 1485013260,
+            //     "isRead": "1"
+            // },
+
+            // // wish sent
+            // {
+            //     "profilePic": "https://graph.facebook.com/342477939441179/picture?type=large",//receiver profilePic
+            //     "userName": "Aditya Dev", // reciever userName
+            //     "wishDescription": "Wish sent successfully", // wish description
+            //     "description": "", // video// description
+            //     "userData": { //user Data of video
+            //         "userID": "3823",
+            //         "fullName": "Sparsh Turkane ",
+            //         "profilePic": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/userProfilePicture/2751ea99420b7cfc3e2cc46302ae8f34.jpg",
+            //         "userName": "sparsh_tur"
+            //     },
+            //     "thumbnail": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/thumbnail/a50b52feadce96a3c273b60b24b94c21.jpg",//video thumbnail
+            //     "videoID": "467", //sent videoID
+            //     "videoLink": "http://faarbetterfilms.com/rockabyteServicesV2/uploads/wishVideo/a50b52feadce96a3c273b60b24b94c21.mp4",// sent VideoLink
+            //     "title": "Test wish ",// sent videoTitle
+            //     "created": "2017-01-21 16:57:00", //sent created Videodate
+            //     "isRead": "1" //notifications table
+            // },
+        }
+
+        return $results;
+
     }
 
 
@@ -3513,7 +3996,7 @@ class Api_Model extends CI_Model {
         }
     }
 
-    // phase V3 
+    // phase V3
 
     public function updateFollowing($userID, $followUserID, $updateData)
     {
@@ -3521,7 +4004,7 @@ class Api_Model extends CI_Model {
         // $data = array(
         //     'isFollowing' => $isFollowing
         // );
-    
+
         $this->db->where('userID', $userID);
         $this->db->where('followUserID', $followUserID);
         $this->db->update('following', $updateData);
@@ -3546,9 +4029,10 @@ class Api_Model extends CI_Model {
         $sql = "SELECT * FROM following WHERE userID = ? AND followUserID = ?";
         $query = $this->db->query($sql, array($userID, $followUserID));
         // echo $this->db->last_query();exit;
+        $row = $query->row();
         if($query->num_rows()>0){
             // $res = $query->row_array();
-            return 1;
+            return $row->followingID;
         } else {
             return 0;
         }
@@ -3561,7 +4045,7 @@ class Api_Model extends CI_Model {
 
         // echo $this->db->last_query();
         // print_r($queryFollowing->result_array());
-        
+
 
         $results = array();
         foreach ($queryFollowing->result_array() as $value) {
@@ -3609,7 +4093,7 @@ class Api_Model extends CI_Model {
 
         // echo $this->db->last_query();
         // print_r($queryFollowing->result_array());
-        
+
 
         $results = array();
         foreach ($queryFollowing->result_array() as $value) {
@@ -3654,6 +4138,18 @@ class Api_Model extends CI_Model {
     {
         # code...
         $this->db->insert('notifications', $insertData);
+    }
+
+    public function selectFromNotification($userID)
+    {
+        $sql = "SELECT * FROM notifications WHERE userID = ?";
+        $query = $this->db->query($sql, array($userID));
+        if($query->num_rows()>0){
+            // $res = $query->row_array();
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
