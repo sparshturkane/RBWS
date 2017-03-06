@@ -1818,12 +1818,12 @@ class Api extends CI_Controller {
                                 //-----Inserting data into notifications table ---------------------//
                                 $insertDataNotifications = array(
                                     "notificationTypeID" =>'3',//liked video == 3
-                                    "userID" => $videoUserID,// person whose video is getting liked 
+                                    "userID" => $videoUserID,// person whose video is getting liked
                                     "videoID" => $videoID,// not applicable here
-                                    "wishVideoID" => '0',// wish video id 
+                                    "wishVideoID" => '0',// wish video id
                                     "followingID" =>'0',//not applicable here
                                     "userLikeVideoID" => $userLikeVideoID,
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
 
@@ -2191,8 +2191,8 @@ class Api extends CI_Controller {
                         } else {
                             $userProfileData = $this->api->getUserDataFollow($userID, $profileUserID);
                         }
-                        
-                        
+
+
                         // $socialLoginData = $this->api->socialLoginData($userID);
                         $userUploadedVideoData = $this->api->userUploadedVideo($profileUserID);
                         $arrResponse = array('status'=>1,
@@ -2497,12 +2497,12 @@ class Api extends CI_Controller {
 
                                 //-----Inserting data into notifications table ---------------------//
                                 $insertDataNotifications = array(
-                                    "notificationTypeID" =>'1',//wish sent == 1 
-                                    "userID" => $userID,// the one who is sending 
+                                    "notificationTypeID" =>'1',//wish sent == 1
+                                    "userID" => $userID,// the one who is sending
                                     "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => $videoid,// wish video id 
+                                    "wishVideoID" => $videoid,// wish video id
                                     "followingID" =>'0',//not applicable here
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
 
@@ -2644,9 +2644,14 @@ class Api extends CI_Controller {
                             // if(){}
                             $output = array_merge($userNotificationResult, $sentWish);
 
-                            // print_r($output);
+                            // print_r($output); // desc
+                            // usort($output, function($a, $b) {
+                            //     return  $b['videoID'] - $a['videoID'];
+                            // });
+
+                            //ascending order videoID sort
                             usort($output, function($a, $b) {
-                                return  $b['videoID'] - $a['videoID'];
+                                return  $a['videoID'] - $b['videoID'];
                             });
 
                             // print_r($output);
@@ -2677,9 +2682,45 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
-    public function extraInsertIntoNotificationsLegacy($value='')
+    public function extraInsertIntoNotificationsLegacy()
     {
-        # code...
+        $this->load->database();
+        $sql = "SELECT * FROM userProfile WHERE isActive = '1' ";
+        $query = $this->db->query($sql);
+
+        foreach ($query->result_array() as $value) {
+
+            echo $value['userID'];echo '-------------------------------------------------';echo '<br>';
+            $userNotificationResult = $this->api->getUserNotification($value['userID']);
+            $sentWish = $this->api->sentWishVideo($value['userID']);
+
+            if((!empty($userNotificationResult)) || (!empty($sentWish))){
+
+                // $this->api->updateWishVideoNotification($userNotificationResult);
+
+                $sentWish = $this->api->sentWishVideo($value['userID']);
+
+                $output = array_merge($userNotificationResult, $sentWish);
+
+      
+
+                //ascending order videoID sort
+                usort($output, function($a, $b) {
+                    return  $a['videoID'] - $b['videoID'];
+                });
+
+
+                // $arrResponse = array('status'=>1, 'message'=>'success', 'notification'=>$output);
+                // echo json_encode($arrResponse);
+                // print_r($output);
+
+                foreach ($output as $outputValue) {
+                    echo "<br>";
+                    echo $outputValue['videoID'];
+                    echo '<br>';
+                }
+            }
+        }
     }
 
 
@@ -2707,9 +2748,9 @@ class Api extends CI_Controller {
                     $getAccessToken = $this->api->getAccessToken($userID);
                     $getAccessToken = $getAccessToken['accessToken'];
                     if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is
-                        // main coding starts from here 
+                        // main coding starts from here
                         /**
-                         * 
+                         *
                          if there is noting in notification table against my userID then no use notifications
                          */
 
@@ -2717,14 +2758,14 @@ class Api extends CI_Controller {
                         if($userNotifictionExist){
 
                             // sort through each and every notification type have a different function call them
-                            // and do the stuff simple first two are already done only 
+                            // and do the stuff simple first two are already done only
                             // forget first line better yet make it a switch
 
                             $notificationResult = $this->api->getUserNotificationV3($userID);
                             $arrResponse = array('status'=>1, 'message'=>'success.', 'notification'=> $notificationResult);
                         }else{
                             $arrResponse = array('status'=>2, 'message'=>'Currently No Notification');
-                        }   
+                        }
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
                     }
@@ -2828,7 +2869,7 @@ class Api extends CI_Controller {
 
                         $userProfileResult = $this->api->searchUserV3($userID, $keyWord);
 
-                        // merging both of the arrays 
+                        // merging both of the arrays
                         $InsertAt = 1; //selectedCategoryCount
 
                         $InsertAtFixed = $InsertAt+1;
@@ -3425,7 +3466,7 @@ class Api extends CI_Controller {
     //     $this->api->pankajClearData($userName,$keyword);
     // }
 
-    // phase V3 
+    // phase V3
 
     public function followUnfollow()
     {
@@ -3457,8 +3498,8 @@ class Api extends CI_Controller {
                     if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
 
-                        // 1. call following database 
-                        // 2. 
+                        // 1. call following database
+                        // 2.
                         if($followUnfollowFlag == 1){
                             $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
                             // echo $followCurrentPresent;exit;
@@ -3472,12 +3513,12 @@ class Api extends CI_Controller {
 
                                 // insert notification data
                                 $insertDataNotifications = array(
-                                    "notificationTypeID" =>'4',// follow 
-                                    "userID" => $followUserID,// the one who is sending 
+                                    "notificationTypeID" =>'4',// follow
+                                    "userID" => $followUserID,// the one who is sending
                                     "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id 
+                                    "wishVideoID" => '0',// wish video id
                                     "followingID" => $followCurrentPresent,
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
                             } else {
@@ -3493,18 +3534,18 @@ class Api extends CI_Controller {
 
                                 // insert notification data
                                 $insertDataNotifications = array(
-                                    "notificationTypeID" =>'4',// follow 
-                                    "userID" => $followUserID,// the one who is sending 
+                                    "notificationTypeID" =>'4',// follow
+                                    "userID" => $followUserID,// the one who is sending
                                     "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id 
+                                    "wishVideoID" => '0',// wish video id
                                     "followingID" => $followingID,
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
                             }
 
                             //-----Inserting data into notifications table ---------------------//
-                            
+
 
                             $this->api->insertNotifications($insertDataNotifications);
 
@@ -3525,12 +3566,12 @@ class Api extends CI_Controller {
 
                                 // insert notification data
                                 $insertDataNotifications = array(
-                                    "notificationTypeID" =>'5',// unfollow 
-                                    "userID" => $followUserID,// the one who is sending 
+                                    "notificationTypeID" =>'5',// unfollow
+                                    "userID" => $followUserID,// the one who is sending
                                     "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id 
+                                    "wishVideoID" => '0',// wish video id
                                     "followingID" => $followCurrentPresent,
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
                             } else {
@@ -3546,27 +3587,27 @@ class Api extends CI_Controller {
 
                                 // insert notification data
                                 $insertDataNotifications = array(
-                                    "notificationTypeID" =>'5',// unfollow 
-                                    "userID" => $followUserID,// the one who is sending 
+                                    "notificationTypeID" =>'5',// unfollow
+                                    "userID" => $followUserID,// the one who is sending
                                     "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id 
+                                    "wishVideoID" => '0',// wish video id
                                     "followingID" => $followingID,
-                                    "isActive" =>'1',// will be one always till user deletes it 
+                                    "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
                             }
 
                             //-----Inserting data into notifications table ---------------------//
-                            
+
 
                             $this->api->insertNotifications($insertDataNotifications);
 
                             //-----Inserting data into notifications table ----------------------//
                              $arrResponse = array('status'=>1, 'message'=>'success');
                         }
-                        
 
-                       
+
+
                         //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
@@ -3613,8 +3654,8 @@ class Api extends CI_Controller {
     //                 if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
     //                     //main codingstarts if access token is valic
 
-    //                     // 1. call following database 
-    //                     // 2. 
+    //                     // 1. call following database
+    //                     // 2.
 
     //                     $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
     //                     // echo $followCurrentPresent;
@@ -3628,12 +3669,12 @@ class Api extends CI_Controller {
 
     //                         // insert notification data
     //                         $insertDataNotifications = array(
-    //                             "notificationTypeID" =>'5',// unfollow 
-    //                             "userID" => $followUserID,// the one who is sending 
+    //                             "notificationTypeID" =>'5',// unfollow
+    //                             "userID" => $followUserID,// the one who is sending
     //                             "videoID" =>'0',// not applicable here
-    //                             "wishVideoID" => '0',// wish video id 
+    //                             "wishVideoID" => '0',// wish video id
     //                             "followingID" => $followCurrentPresent,
-    //                             "isActive" =>'1',// will be one always till user deletes it 
+    //                             "isActive" =>'1',// will be one always till user deletes it
     //                             "created" =>date('Y-m-d H:i:s')
     //                         );
     //                     } else {
@@ -3649,18 +3690,18 @@ class Api extends CI_Controller {
 
     //                         // insert notification data
     //                         $insertDataNotifications = array(
-    //                             "notificationTypeID" =>'5',// unfollow 
-    //                             "userID" => $followUserID,// the one who is sending 
+    //                             "notificationTypeID" =>'5',// unfollow
+    //                             "userID" => $followUserID,// the one who is sending
     //                             "videoID" =>'0',// not applicable here
-    //                             "wishVideoID" => '0',// wish video id 
+    //                             "wishVideoID" => '0',// wish video id
     //                             "followingID" => $followingID,
-    //                             "isActive" =>'1',// will be one always till user deletes it 
+    //                             "isActive" =>'1',// will be one always till user deletes it
     //                             "created" =>date('Y-m-d H:i:s')
     //                         );
     //                     }
 
     //                     //-----Inserting data into notifications table ---------------------//
-                        
+
 
     //                     $this->api->insertNotifications($insertDataNotifications);
 
@@ -3713,8 +3754,8 @@ class Api extends CI_Controller {
                     if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
 
-                        // 1. call following database 
-                        // 2. 
+                        // 1. call following database
+                        // 2.
 
                         $followingList = $this->api->getFollowingList($userID);
 
@@ -3766,8 +3807,8 @@ class Api extends CI_Controller {
                     if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
 
-                        // 1. call following database 
-                        // 2. 
+                        // 1. call following database
+                        // 2.
 
                         $followerList = $this->api->getFollowerList($userID);
 

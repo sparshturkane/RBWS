@@ -211,7 +211,7 @@ class Api_Model extends CI_Model {
 
         // following count
         $followingSql = "SELECT COUNT(*) as followingCount FROM `following` WHERE userID = ? AND isFollowing = '1'";
-        $followingQuery = $this->db->query($followingSql,array($userID));
+        $followingQuery = $this->db->query($followingSql,array($profileUserID));
 
         if($followingQuery->num_rows()>0){
             $followingData = $followingQuery->row();
@@ -222,7 +222,7 @@ class Api_Model extends CI_Model {
 
         // follower count
         $followerSql = "SELECT COUNT(*) as followerCount FROM `following` WHERE followUserID = ? AND isFollowing = '1'";
-        $followerQuery = $this->db->query($followerSql,array($userID));
+        $followerQuery = $this->db->query($followerSql,array($profileUserID));
 
         if($followerQuery->num_rows()>0){
             $followerData = $followerQuery->row();
@@ -510,6 +510,16 @@ class Api_Model extends CI_Model {
         $sql11 = "UPDATE reportVideo SET userID = ? WHERE userID = ?";
         $query11 = $this->db->query($sql11,array($newUserID,$oldUserID));
         $affectedQuery11 = $this->db->affected_rows();
+
+        //following userID
+        $sql12 = "UPDATE following SET userID = ? WHERE userID = ?";
+        $query12 = $this->db->query($sql12,array($newUserID,$oldUserID));
+        $affectedQuery12 = $this->db->affected_rows();
+
+        //following followUserID
+        $sql13 = "UPDATE following SET followUserID = ? WHERE followUserID = ?";
+        $query13 = $this->db->query($sql13,array($newUserID,$oldUserID));
+        $affectedQuery13 = $this->db->affected_rows();
 
 
 
