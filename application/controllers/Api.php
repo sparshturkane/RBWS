@@ -2716,7 +2716,21 @@ class Api extends CI_Controller {
 
                 foreach ($output as $outputValue) {
                     echo "<br>";
-                    echo $outputValue['videoID'];
+                   
+                    // echo $outputValue['videoID'];
+                    
+                    $insertDataNotifications = array(
+                        "notificationTypeID" => $outputValue['notificationTypeID'],//wish Received == 2
+                        "userID" => $value['userID'],
+                        "wishVideoID" => $outputValue['videoID'],// wish video id
+                        "isRead"=> '0',
+                        "isActive" =>'1',// will be one always till user deletes it
+                        "created" =>date('Y-m-d H:i:s')
+                    );
+
+                    // $this->api->insertNotifications($insertDataNotifications);
+                    print_r($insertDataNotifications);
+                    print_r($outputValue);
                     echo '<br>';
                 }
             }
@@ -2753,6 +2767,10 @@ class Api extends CI_Controller {
                          *
                          if there is noting in notification table against my userID then no use notifications
                          */
+
+                        // updating isRead =1 in notifications 
+                        $this->api->updateIsReadNotification($userID);
+
 
                         $userNotifictionExist = $this->api->selectFromNotification($userID);
                         if($userNotifictionExist){
@@ -3336,7 +3354,7 @@ class Api extends CI_Controller {
     }
 
 
-    public function notificationBadgeCount() {
+    public function notificationBadgeCountV2() {
         $arrResponse = array();
         if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -3379,6 +3397,72 @@ class Api extends CI_Controller {
                             // $finalArray = array_splice($userNotificationResult,0,$endSplice);
 
                             $arrResponse = array('status'=>1, 'message'=>'success', 'badgeCount'=>$count);
+                        }else{
+                            $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                        }
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                    }
+                }else{
+                     $arrResponse = array('status'=>1, 'message'=>'success', 'badgeCount'=>0);
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID, lastCount is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+
+    public function notificationBadgeCount() {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            // $lastCount = isset($_POST['lastCount']) ? mysqli_real_escape_string($db,$_POST['lastCount']) : '';
+
+            if($userID!=NULL){// checking for required fields
+                if($userID!=0){
+                    $accessToken=0;
+                    $isUserExist = $this->api->isUserExist($userID);
+                    if($isUserExist){
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                        $headers = apache_request_headers();
+                        foreach ($headers as $key => $value) {
+                            switch ($key) {
+                                case 'accesstoken':
+                                $accessToken = $value;
+                                break;
+                            }
+                        }
+                        $getAccessToken = $this->api->getAccessToken($userID);
+                        $getAccessToken = $getAccessToken['accessToken'];
+                        if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+
+                            // $userNotificationResult = $this->api->getUserNotification($userID);
+
+                            // $count = 0;
+                            // foreach ($userNotificationResult as $value) {
+                            //     if($value['isRead']==0){
+                            //         $count = $count + 1;
+                            //     }
+                            // }
+                            // echo $count;exit;
+                            // $totalCount = count($userNotificationResult);
+                            // $endSplice = $totalCount-$lastCount;
+
+                            // $finalArray = array_splice($userNotificationResult,0,$endSplice);
+
+                            //V3 badge count 
+                            $badgeCount = $this->api->badgeCountNotifications($userID);
+
+
+                            $arrResponse = array('status'=>1, 'message'=>'success', 'badgeCount'=>$badgeCount);
                         }else{
                             $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
                         }
@@ -3824,6 +3908,161 @@ class Api extends CI_Controller {
 
             }else{
                 $arrResponse = array('status'=>0, 'message'=>'userID is required');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+
+    public function getNotificationType() {
+        $arrResponse = array();
+        $db=$this->db->conn_id;
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $accessToken = 0;
+            if($userID!=NULL){
+                $isUserExist = $this->api->isUserExist($userID);
+                if(($isUserExist)||($userID==0)){
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+
+                    if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){
+                        $notificationTypeList = $this->api->getNotificationType($userID);
+                        //print_r($getCategoryList);
+                        $arrResponse = array('status'=>1,'message'=>'success','notificationTypeList'=>$notificationTypeList);
+
+                        //print_r($getCategoryList);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required.');
+            }
+        }else{
+            $arrResponse = array('status'=>0,'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+    public function getHomeFeedSettingList() {
+        $arrResponse = array();
+        $db=$this->db->conn_id;
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $accessToken = 0;
+            if($userID!=NULL){
+                $isUserExist = $this->api->isUserExist($userID);
+                if(($isUserExist)||($userID==0)){
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+
+                    if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){
+                        $getHomeFeedSettingList = $this->api->getHomeFeedSettingList($userID);
+                        //print_r($getCategoryList);
+                        $arrResponse = array('status'=>1,'message'=>'success','homeFeedSettingList'=>$getHomeFeedSettingList);
+
+                        //print_r($getCategoryList);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID is required.');
+            }
+        }else{
+            $arrResponse = array('status'=>0,'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
+    public function updateUserSetting() {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $homeFeedSettingID = isset($_POST['homeFeedSettingID']) ? mysqli_real_escape_string($db,$_POST['homeFeedSettingID']) : '';
+            $isSelected = isset($_POST['isSelected']) ? mysqli_real_escape_string($db,$_POST['isSelected']) : '';
+            if($userID!=NULL && $homeFeedSettingID!=NULL && $isSelected!=NULL){// checking for required fields
+                $accessToken = 0;
+                $isUserExist = $this->api->isUserExist($userID);
+                if($isUserExist){
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if(strcmp($getAccessToken,$accessToken)==0){// checking if accesstoken is valid
+                        //main codingstarts if access token is valic
+                        //make entry in userInterest table and effect following fields userID, categoryID, isSelected, updated, created
+
+                        //here we have to do 2 things 1.update 2.insert dependending on if data is present
+
+                        $isSettingPresent = $this->api->isSettingPresent($userID,$homeFeedSettingID);
+                        //true means user with this category exists
+                        if($isSettingPresent){
+                            //we will have to use update query
+                            $updateUserSetting = $this->api->updateUserSetting($userID,$homeFeedSettingID,$isSelected);
+                            if($updateUserSetting){
+                                //$arrResponse = array(); successfull with all userInterest data
+                                // $getCategoryListUserData = $this->api->getCategoryListUserData($userID);
+                                $getHomeFeedSettingList = $this->api->getHomeFeedSettingList($userID);
+                                $arrResponse = array('status'=>1,'message'=>'user setting updated successfully','homeFeedSettingList'=>$getHomeFeedSettingList);
+                            }else{
+                                $arrResponse = array('status'=>0,'message'=>'Error updating please try again later.');
+                            }
+                        }else{
+                            //we will have to use insert query
+                            $insertUserSetting = $this->api->insertUserSetting($userID,$homeFeedSettingID,$isSelected);
+                            if($insertUserSetting){
+                                //$arrResponse = array(); successfull with all userInterest data
+                                // $getCategoryListUserData = $this->api->getCategoryListUserData($userID);
+                                $getHomeFeedSettingList = $this->api->getHomeFeedSettingList($userID);
+                                $arrResponse = array('status'=>1,'message'=>'user setting updated successfully','homeFeedSettingList'=>$getHomeFeedSettingList);
+                            }else{
+                                $arrResponse = array('status'=>0,'message'=>'Error updating please try again later.');
+                            }
+                        }
+
+                        //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'userID, categoryID and isSelected is required.');
             }
         }else{
             $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');

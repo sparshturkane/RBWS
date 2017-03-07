@@ -2043,3 +2043,27 @@ Line Number: 2720
 
 Backtrace:
 
+
+Fatal error: Cannot redeclare Api_Model::getCategoryListUserData() in /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php on line 771
+
+A PHP Error was encountered
+
+Severity:    Compile Error
+Message:     Cannot redeclare Api_Model::getCategoryListUserData()
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 771
+
+Backtrace:
+
+
+Fatal error: Cannot redeclare Api_Model::getCategoryListUserData() in /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php on line 771
+
+A PHP Error was encountered
+
+Severity:    Compile Error
+Message:     Cannot redeclare Api_Model::getCategoryListUserData()
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 771
+
+Backtrace:
+

@@ -521,6 +521,11 @@ class Api_Model extends CI_Model {
         $query13 = $this->db->query($sql13,array($newUserID,$oldUserID));
         $affectedQuery13 = $this->db->affected_rows();
 
+        //notifications
+        $sql14 = "UPDATE notifications SET userID = ? WHERE userID = ?";
+        $query14 = $this->db->query($sql14,array($newUserID,$oldUserID));
+        $affectedQuery14 = $this->db->affected_rows();
+
 
 
 
@@ -614,6 +619,16 @@ class Api_Model extends CI_Model {
         }
     }
 
+    public function isSettingPresent($userID,$homeFeedSettingID){
+        $sql = "SELECT * FROM userHomeFeedSetting WHERE userID = ? AND homeFeedSettingID = ?";
+        $query = $this->db->query($sql,array($userID,$homeFeedSettingID));
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function checkIsEmailFieldEmpty($userID){
         $sql = "SELECT * FROM userProfile WHERE userID = ?";
         $query = $this->db->query($sql,array($userID));
@@ -632,6 +647,22 @@ class Api_Model extends CI_Model {
         $sql = "UPDATE userInterest SET isSelected= ? WHERE userID= ? AND categoryID = ?";
         $query = $this->db->query($sql,array($isSelected,$userID,$categoryID));
         return ($query) ? true : false;
+    }
+
+    public function updateUserSetting($userID,$homeFeedSettingID,$isSelected){
+        $sql = "UPDATE userHomeFeedSetting SET isSelected= ? WHERE userID= ? AND homeFeedSettingID = ?";
+        $query = $this->db->query($sql,array($isSelected,$userID,$homeFeedSettingID));
+        return ($query) ? true : false;
+    }
+
+    public function insertUserSetting($userID,$homeFeedSettingID,$isSelected){
+        //         INSERT INTO table_name (column1, column2, column3,...)
+        // VALUES (value1, value2, value3,...)
+        $datetime = date("Y-m-d h:i:s");
+        $sql = "INSERT INTO userHomeFeedSetting (userID,homeFeedSettingID,isSelected,created)
+                VALUES (?,?,?,'$datetime')";
+        $query = $this->db->query($sql,array($userID,$homeFeedSettingID,$isSelected));
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     public function insertUserInterest($userID,$categoryID,$isSelected){
@@ -757,6 +788,62 @@ class Api_Model extends CI_Model {
                 'categoryThumbnail'=>$categoryThumbnail,
                 //'isActive'=>$row['isActive'],
                 'isSelected'=>$isSelected
+            );
+        }
+        return $result;
+    }
+
+
+    public function getHomeFeedSettingList($userID){
+        //multiple to one data
+        $sql = "SELECT * FROM homeFeedSettingList";
+        $query = $this->db->query($sql);
+        foreach ($query->result_array() as $row)
+        {
+            //$userID='45';
+            $sql1 = "SELECT isSelected
+                FROM userHomeFeedSetting
+                WHERE homeFeedSettingID = ?
+                AND userID = ? ";
+
+            $query1 = $this->db->query($sql1,array($row['homeFeedSettingID'],$userID));
+            $row1 = $query1->row();
+
+            if (isset($row1)){
+                $isSelected = $row1->isSelected;
+            }else{
+                $isSelected='0';
+            }
+
+            //rocka pick setting by default to 1
+            $homeFeedSettingID = $row['homeFeedSettingID'];
+            $homeFeedSettingName = $row['homeFeedSettingName'];
+            // if($categoryID==1){
+            //     $isSelected = '1';
+            // }
+
+            $result[]=array(
+                'homeFeedSettingID'=>$homeFeedSettingID,
+                'homeFeedSettingName'=>$homeFeedSettingName,
+                //'isActive'=>$row['isActive'],
+                'isSelected'=>$isSelected
+            );
+        }
+        return $result;
+    }
+
+
+    public function getNotificationType($userID){
+        //multiple to one data
+        $sql = "SELECT * FROM notificationType";
+        $query = $this->db->query($sql);
+        foreach ($query->result_array() as $row)
+        {
+            
+
+            $result[]=array(
+                'notificationTypeID'=>$row['notificationTypeID'],
+                'notificationTypeName'=>$row['notificationTypeName'],
             );
         }
         return $result;
@@ -1996,6 +2083,7 @@ class Api_Model extends CI_Model {
                         "wishVideoID" => $wishVideoID,// wish video id
                         "followingID" =>'0',//not applicable here
                         "isActive" =>'1',// will be one always till user deletes it
+                        "receiverEmail"=> $receiverEmailAddress,
                         "created" =>date('Y-m-d H:i:s')
                     );
                 }
@@ -2618,6 +2706,7 @@ class Api_Model extends CI_Model {
                     'created'=> $row['receiveDateTime'],
                     'createdSort' => strtotime($row['receiveDateTime']),
                     'isRead' =>$row['isRead'],
+                    'notificationTypeID' => '2',
                 );
             }
         }
@@ -2909,6 +2998,7 @@ class Api_Model extends CI_Model {
                     "created" => $created,
                     "isRead" => $isRead,
                     "notificationTypeID" => $value['notificationTypeID'],
+                    "isVideo" => '0',
                 );
             } else {
                 $results[] = array(
@@ -2924,6 +3014,7 @@ class Api_Model extends CI_Model {
                     "created" => $created,
                     "isRead" => $isRead,
                     "notificationTypeID" => $value['notificationTypeID'],
+                    "isVideo" => '1',
                 );
             }
             
@@ -3057,6 +3148,7 @@ class Api_Model extends CI_Model {
                 'created'=> $value['receiveDateTime'],
                 'createdSort' => strtotime($value['receiveDateTime']),
                 'isRead' =>$value['isRead'],
+                'notificationTypeID' => '1'
             );
         }
 
@@ -3072,6 +3164,25 @@ class Api_Model extends CI_Model {
             $wishVideoID = $value['videoID'];
             $sql = "UPDATE wishVideo SET isRead = '1' WHERE wishVideoID=?";
             $query = $this->db->query($sql,array($wishVideoID));
+        }
+    }
+
+    public function updateIsReadNotification($userID){
+            $sql = "UPDATE notifications SET isRead = '1' WHERE userID=?";
+            $query = $this->db->query($sql,array($userID));
+    }
+
+
+    public function badgeCountNotifications($userID){
+            $sql = "SELECT count(*) as badgeCount FROM notifications WHERE userID=? AND isRead = '0'";
+            $query = $this->db->query($sql,array($userID));
+
+            $row = $query->row();
+            if ($query->num_rows() >= 1) {
+            $row = $query->row();
+            return $row->badgeCount;
+        } else {
+            return 0;
         }
     }
 
@@ -4148,6 +4259,12 @@ class Api_Model extends CI_Model {
     {
         # code...
         $this->db->insert('notifications', $insertData);
+    }
+
+    public function insertNotificationsLegacy($insertData)
+    {
+        # code...
+        $this->db->insert('notificationsLegacy', $insertData);
     }
 
     public function selectFromNotification($userID)
