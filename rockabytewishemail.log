@@ -920,3 +920,851 @@ Line Number: 771
 
 Backtrace:
 
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Uninitialized string offset: 0
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     Illegal string offset 'userID'
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2077
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2077
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2537
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Fatal error: Cannot redeclare Api::getVideo() in /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php on line 1294
+
+A PHP Error was encountered
+
+Severity:    Compile Error
+Message:     Cannot redeclare Api::getVideo()
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+Line Number: 1294
+
+Backtrace:
+

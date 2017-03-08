@@ -1184,8 +1184,13 @@ class Api extends CI_Controller {
             //getting post data
             $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
             //$limit = isset($_POST['limit']) ? mysqli_real_escape_string($db,$_POST['limit']) : '';
+
             $limit = 500;
             $offset = isset($_POST['nextVideo']) ? mysqli_real_escape_string($db,$_POST['nextVideo']) : '';
+
+            $iosKey = isset($_POST['iosKey']) ? mysqli_real_escape_string($db,$_POST['iosKey']) : '';
+            $androidKey = isset($_POST['androidKey']) ? mysqli_real_escape_string($db,$_POST['androidKey']) : '';
+
             $accessToken = 0;
             $isUserExist = $this->api->isUserExist($userID);
             if(($isUserExist)||($userID==0)){
@@ -1202,6 +1207,21 @@ class Api extends CI_Controller {
                     $getAccessToken = $getAccessToken['accessToken'];
                     if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
+
+                        if($userID != 0 ){
+                            if(!empty($androidKey)){
+                                $updateData['androidKey']=$androidKey;
+                            }
+
+                            if(!empty($iosKey)){
+                                $updateData['iosKey']=$iosKey;
+                            }
+                            
+
+                            if(!empty($updateData)){
+                                $success = $this->api->updateUser($userID,$updateData);
+                            }
+                        }
 
                         list($getUserVideo) = $this->api->getUserVideo($userID);
 
@@ -1269,6 +1289,63 @@ class Api extends CI_Controller {
         }
         echo json_encode($arrResponse);
     }
+
+
+    public function getFbfVideo() {
+        $arrResponse = array();
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            $db=$this->db->conn_id;//gives database conn variable to be used in mysqli_real_escape_string()
+
+            //getting post data
+            $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            //$limit = isset($_POST['limit']) ? mysqli_real_escape_string($db,$_POST['limit']) : '';
+
+            $limit = 500;
+            $offset = isset($_POST['nextVideo']) ? mysqli_real_escape_string($db,$_POST['nextVideo']) : '';
+
+            $iosKey = isset($_POST['iosKey']) ? mysqli_real_escape_string($db,$_POST['iosKey']) : '';
+            $androidKey = isset($_POST['androidKey']) ? mysqli_real_escape_string($db,$_POST['androidKey']) : '';
+            
+            $accessToken = 0;
+            $isUserExist = $this->api->isUserExist($userID);
+            if(($isUserExist)||($userID==0)){
+                if($userID!=NULL && $limit!=NULL && $offset!=NULL){// checking for required fields
+                    $headers = apache_request_headers();
+                    foreach ($headers as $key => $value) {
+                        switch ($key) {
+                            case 'accesstoken':
+                            $accessToken = $value;
+                            break;
+                        }
+                    }
+                    $getAccessToken = $this->api->getAccessToken($userID);
+                    $getAccessToken = $getAccessToken['accessToken'];
+                    if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
+                        //main codingstarts if access token is valic
+
+                        
+
+                        list($getUserVideo) = $this->api->getFbfVideo($userID);
+
+                        $nextVideo = '-1';
+
+                        $arrResponse = array('status'=>1, 'message'=>'success','nextVideo'=>$nextVideo,'video'=>$getUserVideo);
+                    }else{
+                        $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
+                    }
+                }else{
+                    $arrResponse = array('status'=>0, 'message'=>'userID and nextVideo offset is required');
+                }
+            }else{
+                $arrResponse = array('status'=>0, 'message'=>'Error : Invalid userID ');
+            }
+        }else{
+            $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
+        }
+        echo json_encode($arrResponse);
+    }
+
 
     function array_insert(&$array, $insert, $position)
     {
@@ -1617,6 +1694,9 @@ class Api extends CI_Controller {
             $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
             $videoID = isset($_POST['videoID']) ? mysqli_real_escape_string($db,$_POST['videoID']) : '';
             $wishVideo = isset($_POST['wishVideo']) ? mysqli_real_escape_string($db,$_POST['wishVideo']) : '';
+            $fbfSeriesVideo = isset($_POST['fbfSeriesVideo']) ? mysqli_real_escape_string($db,$_POST['fbfSeriesVideo']) : '';
+            // added in phase V3Test because we wanted to get iosKey and androidKey of users after onboarding screens as well
+            
 
             if($userID!=NULL && $videoID!=NULL){//    checking for required fields
                 $accessToken=0;
@@ -1635,7 +1715,17 @@ class Api extends CI_Controller {
                     $getAccessToken = $getAccessToken['accessToken'];
                     if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
-                        if($wishVideo!='1'){
+
+                        // we will have to user switch case here 
+                        // 1. default == video detail
+                        // wishVideo == 1 
+                        // one more flag fbf video == 1 
+
+
+                        // updating androidKey and iosKey if user != 0
+                        
+                            
+                        if($wishVideo!='1' && $fbfSeriesVideo!='1'){
                             //add videoID and userID in videoView table
 
 
@@ -1694,6 +1784,48 @@ class Api extends CI_Controller {
                                     'sameCategory'=>$getSameCategoryVideo,
                                     'sameTag'=>$getSameTagVideo
                                 );
+                        }elseif( $fbfSeriesVideo=='1'){
+                            
+                            //show the like flag if present
+                            $videoDetail = $this->api->specificVideoDetail($videoID,$userID);
+
+                            // print_r($videoDetail);
+                            if($videoDetail){
+
+                                $videoUserID = $videoDetail[0]['userData']->{'userID'};
+                                $fbfSeriesID = $videoDetail[0]['fbfSeriesID'];
+                                // echo $fbfSeriesID;
+                                $videoCategoryID = $videoDetail[0]['category']->{'categoryID'};
+                                //$videoTag = $videoDetail[0]['tag'];
+                                $videoTag = implode (",", $videoDetail[0]['tag']);
+
+                                // print_r($videoDetail);
+                                // exit;
+
+
+                                // $getSameUserVideo = $this->api->getSuggestedVideo($videoUserID,'sameUser',$userID,$videoID);
+                                $getSameUserVideo = $this->api->getFbfSuggestedVideo($fbfSeriesID,$videoID, $userID);
+                                $getSameCategoryVideo = $this->api->getSuggestedVideo($videoCategoryID,'sameCategory',$userID,$videoID);
+                                $videoTagArray = explode(',',$videoTag);
+                                $getSameTagVideo = $this->api->getSuggestedVideo($videoTagArray,'sameTag',$userID,$videoID);
+                                // $arrResponse = array(
+                                //  'status'=>1,
+                                //  'message'=>'success',
+                                //  'sameUser'=>$getSameUserVideo,
+                                //  'sameCategory'=>$getSameCategoryVideo,
+                                //  'sameTag'=>$getSameTagVideo
+                                //  );
+                                $arrResponse = array(
+                                    'status'=>1,
+                                    'message'=>'success',
+                                    'videoDetail'=>$videoDetail,
+                                    'sameUser'=>$getSameUserVideo,
+                                    'sameCategory'=>$getSameCategoryVideo,
+                                    'sameTag'=>$getSameTagVideo
+                                );
+                            }else{
+                                $arrResponse = array('status'=>0, 'message'=>'Error getting fetching data');
+                            }
                         }
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
@@ -1767,8 +1899,10 @@ class Api extends CI_Controller {
                                 $senderUserName = $senderUserProfileData['userName'];
 
                                 $videoTitle = $videoDetail[0]['title'];
+                                $videoThumbnail = $videoDetail[0]['thumbnail'];
                                 $notification = "liked your video $videoTitle";
-                                // $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName);
+                                $notificationTypeID = 3;
+                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
 
                                 //----------------------GCM AND APNS NOTIFICATION-------------//
 
@@ -1810,8 +1944,10 @@ class Api extends CI_Controller {
                                 $senderUserName = $senderUserProfileData['userName'];
 
                                 $videoTitle = $videoDetail[0]['title'];
+                                $videoThumbnail = $videoDetail[0]['thumbnail'];
                                 $notification = "liked your video $videoTitle";
-                                // $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName);
+                                $notificationTypeID = 3;
+                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
 
                                 //----------------------GCM AND APNS NOTIFICATION-------------//
 
@@ -1915,7 +2051,7 @@ class Api extends CI_Controller {
     }
 
 
-    private function sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName){
+    private function sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID){
 
         if($senderUserName==''){
             $senderName = $senderFullName;
@@ -1926,7 +2062,7 @@ class Api extends CI_Controller {
         $finalNotification = "$senderName  $notification";
         //echo $finalNotification;
         if(!empty($androidKey)){
-            $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification);
+            $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail);
         }
 
         if(!empty($iosKey)){
@@ -2166,6 +2302,10 @@ class Api extends CI_Controller {
             if($userID!=NULL){// checking for required fields
                 $accessToken=0;
                 $isUserExist = $this->api->isUserExist($userID);
+                if($userID==0){
+                    $isUserExist = 1;
+                }
+
                 if($isUserExist){
                     //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
                     $headers = apache_request_headers();
@@ -2178,29 +2318,33 @@ class Api extends CI_Controller {
                     }
                     $getAccessToken = $this->api->getAccessToken($userID);
                     $getAccessToken = $getAccessToken['accessToken'];
-                    if(strcmp($getAccessToken,$accessToken)==0){// chcking if accesstoken is valid
+                    if((strcmp($getAccessToken,$accessToken)==0)||($userID==0 && $accessToken=='10cd14cdb637ab82fa37b70055062b1b')){// chcking if accesstoken is valid
                         //main codingstarts if access token is valic
 
                         //Check if userID is active
                         //if not active==true; userID = newID pass that id and data
 
                         //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
+                        if(($userID == 0 ) && ($profileUserID==0 || $profileUserID=='') ){
+                             $arrResponse = array('status'=>0, 'message'=>'userID and profileUserID both cannot be empty');
+                        }else{
+                            if (($profileUserID == '') || empty($profileUserID)) {
+                                $userProfileData = $this->api->getUserDataProfileData($userID);
+                            } else {
+                                $userProfileData = $this->api->getUserDataFollow($userID, $profileUserID);
+                            }
 
-                        if (($profileUserID == '') || empty($profileUserID)) {
-                            $userProfileData = $this->api->getUserDataProfileData($userID);
-                        } else {
-                            $userProfileData = $this->api->getUserDataFollow($userID, $profileUserID);
+
+                            // $socialLoginData = $this->api->socialLoginData($userID);
+                            $userUploadedVideoData = $this->api->userUploadedVideo($profileUserID);
+                            $arrResponse = array('status'=>1,
+                                'message'=>'success',
+                                'userData'=>$userProfileData,
+                                // 'syncAccount'=>$socialLoginData,
+                                'uploadedVideo'=>$userUploadedVideoData
+                            );
                         }
-
-
-                        // $socialLoginData = $this->api->socialLoginData($userID);
-                        $userUploadedVideoData = $this->api->userUploadedVideo($profileUserID);
-                        $arrResponse = array('status'=>1,
-                            'message'=>'success',
-                            'userData'=>$userProfileData,
-                            // 'syncAccount'=>$socialLoginData,
-                            'uploadedVideo'=>$userUploadedVideoData
-                        );
+                        
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
                     }
@@ -3584,7 +3728,7 @@ class Api extends CI_Controller {
 
                         // 1. call following database
                         // 2.
-                        if($followUnfollowFlag == 1){
+                        if($followUnfollowFlag == 1){ // follow
                             $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
                             // echo $followCurrentPresent;exit;
 
@@ -3605,6 +3749,10 @@ class Api extends CI_Controller {
                                     "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
+
+                                $this->api->insertNotifications($insertDataNotifications);
+
+                                // $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
                             } else {
                                 // insert into follow/followin
                                 $insertData = array(
@@ -3626,18 +3774,20 @@ class Api extends CI_Controller {
                                     "isActive" =>'1',// will be one always till user deletes it
                                     "created" =>date('Y-m-d H:i:s')
                                 );
+
+                                $this->api->insertNotifications($insertDataNotifications);
                             }
 
                             //-----Inserting data into notifications table ---------------------//
 
 
-                            $this->api->insertNotifications($insertDataNotifications);
+                            
 
                             //-----Inserting data into notifications table ----------------------//
 
                              $arrResponse = array('status'=>1, 'message'=>'success');
 
-                        } else if($followUnfollowFlag == 0){
+                        } else if($followUnfollowFlag == 0){ //unfollow
                             $followCurrentPresent = $this->api->selectFromFollowing($userID, $followUserID);
                             // echo $followCurrentPresent;
 
@@ -3649,15 +3799,15 @@ class Api extends CI_Controller {
                                 $this->api->updateFollowing($userID, $followUserID, $updateData);
 
                                 // insert notification data
-                                $insertDataNotifications = array(
-                                    "notificationTypeID" =>'5',// unfollow
-                                    "userID" => $followUserID,// the one who is sending
-                                    "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id
-                                    "followingID" => $followCurrentPresent,
-                                    "isActive" =>'1',// will be one always till user deletes it
-                                    "created" =>date('Y-m-d H:i:s')
-                                );
+                                // $insertDataNotifications = array(
+                                //     "notificationTypeID" =>'5',// unfollow
+                                //     "userID" => $followUserID,// the one who is sending
+                                //     "videoID" =>'0',// not applicable here
+                                //     "wishVideoID" => '0',// wish video id
+                                //     "followingID" => $followCurrentPresent,
+                                //     "isActive" =>'1',// will be one always till user deletes it
+                                //     "created" =>date('Y-m-d H:i:s')
+                                // );
                             } else {
                                 // insert into follow/followin
                                 $insertData = array(
@@ -3670,21 +3820,21 @@ class Api extends CI_Controller {
                                 $followingID = $this->db->insert_id();
 
                                 // insert notification data
-                                $insertDataNotifications = array(
-                                    "notificationTypeID" =>'5',// unfollow
-                                    "userID" => $followUserID,// the one who is sending
-                                    "videoID" =>'0',// not applicable here
-                                    "wishVideoID" => '0',// wish video id
-                                    "followingID" => $followingID,
-                                    "isActive" =>'1',// will be one always till user deletes it
-                                    "created" =>date('Y-m-d H:i:s')
-                                );
+                                // $insertDataNotifications = array(
+                                //     "notificationTypeID" =>'5',// unfollow
+                                //     "userID" => $followUserID,// the one who is sending
+                                //     "videoID" =>'0',// not applicable here
+                                //     "wishVideoID" => '0',// wish video id
+                                //     "followingID" => $followingID,
+                                //     "isActive" =>'1',// will be one always till user deletes it
+                                //     "created" =>date('Y-m-d H:i:s')
+                                // );
                             }
 
                             //-----Inserting data into notifications table ---------------------//
 
 
-                            $this->api->insertNotifications($insertDataNotifications);
+                            // $this->api->insertNotifications($insertDataNotifications);
 
                             //-----Inserting data into notifications table ----------------------//
                              $arrResponse = array('status'=>1, 'message'=>'success');
@@ -3819,6 +3969,7 @@ class Api extends CI_Controller {
 
             //getting post data
             $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $otherUserID = isset($_POST['otherUserID']) ? mysqli_real_escape_string($db,$_POST['otherUserID']) : '';
 
             if($userID!=NULL){// checking for required fields
                 $accessToken=0;
@@ -3840,8 +3991,16 @@ class Api extends CI_Controller {
 
                         // 1. call following database
                         // 2.
-
-                        $followingList = $this->api->getFollowingList($userID);
+                        // $followingList = '';
+                        if (!empty($otherUserID)) {
+                            # code...
+                            $followingList = $this->api->getFollowingList($otherUserID);
+                        } else {
+                            # code...
+                            $followingList = $this->api->getFollowingList($userID);
+                        }
+                        
+                        // $followingList = $this->api->getFollowingList($userID);
 
 
                         $arrResponse = array('status'=>1, 'message'=>'success', 'followingList'=> $followingList);
@@ -3872,6 +4031,7 @@ class Api extends CI_Controller {
 
             //getting post data
             $userID = isset($_POST['userID']) ? mysqli_real_escape_string($db,$_POST['userID']) : '';
+            $otherUserID = isset($_POST['otherUserID']) ? mysqli_real_escape_string($db,$_POST['otherUserID']) : '';
 
             if($userID!=NULL){// checking for required fields
                 $accessToken=0;
@@ -3894,9 +4054,15 @@ class Api extends CI_Controller {
                         // 1. call following database
                         // 2.
 
-                        $followerList = $this->api->getFollowerList($userID);
+                        if (!empty($otherUserID)) {
+                            # code...
+                            $followerList = $this->api->getFollowerList($otherUserID);
+                        } else {
+                            # code...
+                            $followerList = $this->api->getFollowerList($userID);
+                        }
 
-
+                        // $followerList = $this->api->getFollowerList($userID);
                         $arrResponse = array('status'=>1, 'message'=>'success', 'followerList'=> $followerList);
                         //$arrResponse = array('status'=>1, 'message'=>'accessToken is Valid','getAccessToken'=>$getAccessToken,'accessToken'=>$accessToken);
                     }else{
@@ -4069,6 +4235,50 @@ class Api extends CI_Controller {
         }
         echo json_encode($arrResponse);
     }
+
+    // public function insertNotificationsCodeTest()
+    // {
+    //     $this->load->database();
+    //     //--------------inserting in notifications-------------------//
+    //             $sqlReceiverUserID = "SELECT * FROM userProfile WHERE email = ?";
+    //             $queryReceiverUserID = $this->db->query($sqlReceiverUserID,array('prathmesh@codetreasure.com'));
+    //             echo $this->db->last_query();
+
+    //             // $queryReceiverUserIDRow = $queryReceiverUserID->row();
+    //             // $res = $queryReceiverUserID->row_array();
+
+    //             foreach ($queryReceiverUserID->result_array() as $queryReceiverUserIDRow) {
+    //                 echo $queryReceiverUserIDRow['userID'];
+    //                 // if($queryReceiverUserID->num_rows() >=1){
+    //                 //     // return $row->userID;
+    //                 //     $insertDataNotifications = array(
+    //                 //         "notificationTypeID" =>'2',//wish Received == 2
+    //                 //         "userID" => $queryReceiverUserIDRow['userID'],// the one who is receiving
+    //                 //         "videoID" =>'0',// not applicable here
+    //                 //         "wishVideoID" => $wishVideoID,// wish video id
+    //                 //         "followingID" =>'0',//not applicable here
+    //                 //         "isActive" =>'1',// will be one always till user deletes it
+    //                 //         "created" =>date('Y-m-d H:i:s')
+    //                 //     );
+    //                 // }else{
+    //                 //     $insertDataNotifications = array(
+    //                 //         "notificationTypeID" =>'2',//wish Received == 2
+    //                 //         "userID" => '0',// when ever a user registers check if they have wish video in wish table by email
+    //                 //         "videoID" =>'0',// not applicable here
+    //                 //         "wishVideoID" => $wishVideoID,// wish video id
+    //                 //         "followingID" =>'0',//not applicable here
+    //                 //         "isActive" =>'1',// will be one always till user deletes it
+    //                 //         "receiverEmail"=> $receiverEmailAddress,
+    //                 //         "created" =>date('Y-m-d H:i:s')
+    //                 //     );
+    //                 // }
+
+    //                 // $this->insertNotifications($insertDataNotifications);
+    //             }
+
+                
+    //             //--------------inserting in notifications-------------------//
+    // }
 
 
 }

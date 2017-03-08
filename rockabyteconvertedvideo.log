@@ -2067,3 +2067,15 @@ Line Number: 771
 
 Backtrace:
 
+
+Fatal error: Cannot redeclare Api::getVideo() in /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php on line 1294
+
+A PHP Error was encountered
+
+Severity:    Compile Error
+Message:     Cannot redeclare Api::getVideo()
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+Line Number: 1294
+
+Backtrace:
+
