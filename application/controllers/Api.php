@@ -1625,6 +1625,20 @@ class Api extends CI_Controller {
         //     return false;
         // return true;
 
+        //
+
+        $inputTime = $fromdurasec;
+
+        $uSec = $inputTime % 1000;
+        $inputTime = floor($inputTime / 1000);
+
+        $seconds = $inputTime % 60;
+        $inputTime = floor($inputTime / 60);
+
+        $minutes = $inputTime % 60;
+        $inputTime = floor($inputTime / 60); 
+
+        $fromdurasec = '00:'.$minutes.':'.$seconds.'.'.$uSec;
          // $portout = $output
         $portout = strstr($output, '.', true);
         $portout = $portout.'-portrait'.'.jpg';
@@ -3739,7 +3753,7 @@ class Api extends CI_Controller {
                                 );
                                 $this->api->updateFollowing($userID, $followUserID, $updateData);
 
-                                // insert notification data
+                                // insert notification data in notification table --------------------------
                                 $insertDataNotifications = array(
                                     "notificationTypeID" =>'4',// follow
                                     "userID" => $followUserID,// the one who is sending
@@ -3751,8 +3765,32 @@ class Api extends CI_Controller {
                                 );
 
                                 $this->api->insertNotifications($insertDataNotifications);
+                                // insert notification data in notification table --------------------------
 
-                                // $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
+                                // getting data of sender
+                                // senderUserID 
+                                $senderData = $this->api->getUserData2($userID);
+                                // print_r($senderData);
+                                $senderFullName = $senderData['fullName'];
+                                $senderUserName = $senderData['userName'];
+                                $senderProfilePic = $senderData['profilePic'];
+
+                                // getting data of receiver
+                                // $followUserID 
+                                $receiverData = $this->api->getUserData2($followUserID);
+                                // print_r($receiverData);
+                                $androidKey = $receiverData['androidKey'];
+                                $iosKey = $receiverData['iosKey'];
+                                $notification = 'started following you';
+
+
+
+                                //-----------------sending Gcm and apns notifications----------------------//
+                                $notificationTypeID = '4';
+                                // $sendingGcmMessage = $this->api->androidNotification($userDetails->androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
+
+                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,'',$senderProfilePic,$notificationTypeID);
+                                //-----------------sending Gcm and apns notifications----------------------//
                             } else {
                                 // insert into follow/followin
                                 $insertData = array(
@@ -3765,6 +3803,7 @@ class Api extends CI_Controller {
                                 $followingID = $this->db->insert_id();
 
                                 // insert notification data
+                                //-----Inserting data into notifications table ---------------------//
                                 $insertDataNotifications = array(
                                     "notificationTypeID" =>'4',// follow
                                     "userID" => $followUserID,// the one who is sending
@@ -3776,14 +3815,15 @@ class Api extends CI_Controller {
                                 );
 
                                 $this->api->insertNotifications($insertDataNotifications);
+                                //-----Inserting data into notifications table ----------------------//
                             }
 
-                            //-----Inserting data into notifications table ---------------------//
+                           
 
 
                             
 
-                            //-----Inserting data into notifications table ----------------------//
+                            
 
                              $arrResponse = array('status'=>1, 'message'=>'success');
 

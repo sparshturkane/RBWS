@@ -2475,8 +2475,9 @@ class Api_Model extends CI_Model {
                 'message'   => $notification,
                 'title'     => 'Rockabyte',
                 'videoID'   => $videoID,
-                'isWish'    => 0,
+                // 'isWish'    => 0,
                 'thumbnail' => $videoThumbnail,
+                'notificationTypeID'  => $notificationTypeID,
                 'subtitle'  => 'notification',
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
@@ -2490,8 +2491,9 @@ class Api_Model extends CI_Model {
                 'message'   => $notification,
                 'title'     => 'Rockabyte',
                 'videoID'   => $videoID,
-                'isWish'    => 1,
+                // 'isWish'    => 1,
                 'thumbnail' => $videoThumbnail,
+                'notificationTypeID'  => $notificationTypeID,
                 'subtitle'  => 'notification',
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
@@ -2505,8 +2507,9 @@ class Api_Model extends CI_Model {
                 'message'   => $notification,
                 'title'     => 'Rockabyte',
                 'videoID'   => '',
-                'isWish'    => 0,
-                'thumbnail' => '',
+                // 'isWish'    => 0,
+                'thumbnail' => $videoThumbnail,
+                'notificationTypeID'  => $notificationTypeID,
                 'subtitle'  => 'notification',
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
@@ -2542,7 +2545,7 @@ class Api_Model extends CI_Model {
         //return $result;
     }
 
-    public function iosNotification($deviceToken,$message){
+    public function iphoneNotification($deviceToken,$message){
         // Put your device token here (without spaces):
         //--$deviceToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
@@ -3247,7 +3250,7 @@ class Api_Model extends CI_Model {
                     $notificationTypeID = '4';
                     $wishVideoID = '';
                     $wishVideoThumbnail = '';
-                    $sendingGcmMessage = $this->androidNotification($userDetails->androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
+                    // $sendingGcmMessage = $this->androidNotification($userDetails->androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
                     //$description = ''; //
                     // $userData = '';
                     // $thumbnail = '';
