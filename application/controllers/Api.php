@@ -1915,10 +1915,37 @@ class Api extends CI_Controller {
                                 $videoTitle = $videoDetail[0]['title'];
                                 $videoThumbnail = $videoDetail[0]['thumbnail'];
                                 $notification = "liked your video $videoTitle";
-                                $notificationTypeID = 3;
-                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
+                                $notificationTypeID = '3';
+
+                                if($videoUserID != $userID){
+                                    $likeNotificationObject = $this->api->likeNotificationObject($updateUserLikeVideo);
+                                    // print_r($likeNotificationObject);exit;
+                                    // $likeNotificationObjectJson = json_encode($likeNotificationObject);
+
+                                    $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID,$likeNotificationObject);
+                                }
+                                
 
                                 //----------------------GCM AND APNS NOTIFICATION-------------//
+
+                                //-----Inserting data into notifications table ---------------------//
+                                $insertDataNotifications = array(
+                                    "notificationTypeID" =>'3',//liked video == 3
+                                    "userID" => $videoUserID,// person whose video is getting liked
+                                    "videoID" => $videoID,// not applicable here
+                                    "wishVideoID" => '0',// wish video id
+                                    "followingID" =>'0',//not applicable here
+                                    "userLikeVideoID" => $updateUserLikeVideo,
+                                    "isActive" =>'1',// will be one always till user deletes it
+                                    "created" =>date('Y-m-d H:i:s')
+                                );
+
+                                if($videoUserID != $userID){
+                                    $this->api->insertNotifications($insertDataNotifications);
+                                }
+                                
+
+                                //-----Inserting data into notifications table ----------------------//
 
                                 $arrResponse = array('status'=>1, 'message'=>'success updating likeFlag','videoDetail'=>$videoDetail);
                             }else{
@@ -1960,9 +1987,12 @@ class Api extends CI_Controller {
                                 $videoTitle = $videoDetail[0]['title'];
                                 $videoThumbnail = $videoDetail[0]['thumbnail'];
                                 $notification = "liked your video $videoTitle";
-                                $notificationTypeID = 3;
-                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID);
+                                $notificationTypeID = '3';
+                                $likeNotificationObject = $this->api->likeNotificationObject($userLikeVideoID);
 
+                                if($videoUserID != $userID){
+                                    $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID, $likeNotificationObject);
+                                }
                                 //----------------------GCM AND APNS NOTIFICATION-------------//
 
                                 //-----Inserting data into notifications table ---------------------//
@@ -1977,8 +2007,9 @@ class Api extends CI_Controller {
                                     "created" =>date('Y-m-d H:i:s')
                                 );
 
-                                $this->api->insertNotifications($insertDataNotifications);
-
+                                if($videoUserID != $userID){
+                                    $this->api->insertNotifications($insertDataNotifications);
+                                }
                                 //-----Inserting data into notifications table ----------------------//
 
                                 $arrResponse = array('status'=>1, 'message'=>'success inserting likeFlag','videoDetail'=>$videoDetail);
@@ -2001,6 +2032,12 @@ class Api extends CI_Controller {
             $arrResponse = array('status'=>0, 'message'=>'requested method is not accepted');
         }
         echo json_encode($arrResponse);
+    }
+
+    public function callWishNotification()
+    {
+        $wishNotificationObject = $this->api->wishVideoNotificationObject('519');
+        print_r($wishNotificationObject);
     }
 
 
@@ -2065,22 +2102,49 @@ class Api extends CI_Controller {
     }
 
 
-    private function sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID){
+    private function sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID, $notificationObject){
 
-        if($senderUserName==''){
+        // echo "sendUserNotificationCalled";
+        // echo "<br>";
+        // echo $androidKey;
+        // echo "<br>";
+        // echo $iosKey;
+        // echo "<br>";
+        // echo $notification;
+        // echo "<br>";
+        // echo $senderFullName;
+        // echo "<br>";
+        // echo $senderUserName;
+        // echo "<br>";
+        // echo $videoID;
+        // echo "<br>";
+        // echo $videoThumbnail;
+        // echo "<br>";
+        // echo $notificationTypeID;
+        // echo "<br>";
+        // if($senderUserName==''){
+        //     $senderName = $senderFullName;
+        // }else{
+        //     $senderName = $senderUserName;
+        // }
+
+        if ($senderFullName == '') {
+           $senderName = $senderUserName;
+        } else {
             $senderName = $senderFullName;
-        }else{
-            $senderName = $senderUserName;
         }
+        
 
         $finalNotification = "$senderName  $notification";
         //echo $finalNotification;
         if(!empty($androidKey)){
-            $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail);
+            $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject);
+            // print_r($sendingGcmMessage);
         }
 
         if(!empty($iosKey)){
-            // $sendingApnsMessage = $this->api->iphoneNotification($iosKey,$finalNotification);
+            $sendingApnsMessage = $this->api->iphoneNotification($iosKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject);
+            // print_r($sendingApnsMessage);
         }
     }
 
@@ -3786,10 +3850,10 @@ class Api extends CI_Controller {
 
 
                                 //-----------------sending Gcm and apns notifications----------------------//
-                                $notificationTypeID = '4';
+                                $notificationTypeID = '2';
                                 // $sendingGcmMessage = $this->api->androidNotification($userDetails->androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
 
-                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,'',$senderProfilePic,$notificationTypeID);
+                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$userID,$senderProfilePic,$notificationTypeID,'');
                                 //-----------------sending Gcm and apns notifications----------------------//
                             } else {
                                 // insert into follow/followin
@@ -3816,6 +3880,30 @@ class Api extends CI_Controller {
 
                                 $this->api->insertNotifications($insertDataNotifications);
                                 //-----Inserting data into notifications table ----------------------//
+
+                                //-----------------sending Gcm and apns notifications----------------------//
+                                $senderData = $this->api->getUserData2($userID);
+                                // print_r($senderData);
+                                $senderFullName = $senderData['fullName'];
+                                $senderUserName = $senderData['userName'];
+                                $senderProfilePic = $senderData['profilePic'];
+
+                                // getting data of receiver
+                                // $followUserID 
+                                $receiverData = $this->api->getUserData2($followUserID);
+                                // print_r($receiverData);
+                                $androidKey = $receiverData['androidKey'];
+                                $iosKey = $receiverData['iosKey'];
+                                $notification = 'started following you';
+
+
+
+                                
+                                $notificationTypeID = '2';
+                                // $sendingGcmMessage = $this->api->androidNotification($userDetails->androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
+
+                                $this->sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$userID,$senderProfilePic,$notificationTypeID,'');
+                                //-----------------sending Gcm and apns notifications----------------------//
                             }
 
                            

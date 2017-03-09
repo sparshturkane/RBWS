@@ -843,7 +843,7 @@ class Api_Model extends CI_Model {
         $query = $this->db->query($sql);
         foreach ($query->result_array() as $row)
         {
-            
+
 
             $result[]=array(
                 'notificationTypeID'=>$row['notificationTypeID'],
@@ -2302,11 +2302,13 @@ class Api_Model extends CI_Model {
 
                 //$receiverEmailAddress = $row['receiverEmail'];
                 $emailResponse = $this->sendEmail($receiverEmailAddress, $subject, $body);
+
+                $wishNotificationObject = $this->wishVideoNotificationObject($wishVideoID);
                 //----------push notification---------------------//
                 //  $videoID,$videoThumbnail,$notificationTypeID
                 $wishVideoThumbnail = $row['wishVideoID'];
-                $notificationTypeID = 2;
-                $sendPushResponse = $this->sendPushNotification($receiverEmailAddress,$senderUserID,$wishVideoID,$wishVideoThumbnail,$notificationTypeID);
+                $notificationTypeID = '1';
+                $sendPushResponse = $this->sendPushNotification($receiverEmailAddress,$senderUserID,$wishVideoID,$wishVideoThumbnail,$notificationTypeID,$wishNotificationObject);
                 // return $emailResponse;
 
                 //inserting wish video details in chat folder
@@ -2359,7 +2361,7 @@ class Api_Model extends CI_Model {
                     $this->insertNotifications($insertDataNotifications);
                 }
 
-                
+
                 //--------------inserting in notifications-------------------//
             }
         }
@@ -2376,7 +2378,7 @@ class Api_Model extends CI_Model {
         }
     }
 
-    public function sendPushNotification($receiverEmailAddress,$senderUserID,$wishVideoID,$wishVideoThumbnail,$notificationTypeID){
+    public function sendPushNotification($receiverEmailAddress,$senderUserID,$wishVideoID,$wishVideoThumbnail,$notificationTypeID,$notificationObject){
 
         //receiver data
         $receiverUserProfileData=$this->getUserDataViaEmail($receiverEmailAddress);
@@ -2389,20 +2391,26 @@ class Api_Model extends CI_Model {
         $senderFullName = $senderUserProfileData['fullName'];
         $senderUserName = $senderUserProfileData['userName'];
 
-        if($senderUserName==''){
+        // if($senderUserName==''){
+        //     $senderName = $senderFullName;
+        // }else{
+        //     $senderName = $senderUserName;
+        // }
+
+        if ($senderFullName == '') {
+           $senderName = $senderUserName;
+        } else {
             $senderName = $senderFullName;
-        }else{
-            $senderName = $senderUserName;
         }
 
         $finalNotification = "$senderName has sent you a wish video ";
         echo $finalNotification;
         if(!empty($androidKey)){
-            $sendingGcmMessage = $this->androidNotification($androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail);
+            $sendingGcmMessage = $this->androidNotification($androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail,$notificationObject);
         }
 
         if(!empty($iosKey)){
-            // $sendingApnsMessage = $this->iphoneNotification($iosKey,$finalNotification);
+            $sendingApnsMessage = $this->iphoneNotification($iosKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail, $notificationObject);
         }
     }
 
@@ -2458,18 +2466,31 @@ class Api_Model extends CI_Model {
     }
 
 
-    public function androidNotification($reg_key,$notification,$notificationTypeID,$videoID,$videoThumbnail){
+    public function androidNotification($reg_key,$notification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject){
         // public function androidNotification(){
         // API access key from Google API's Console
         // $reg_key = "dbyIJkoPSc8:APA91bEW9UYvaskdMIMT7exRK-Q89EuZQIVJO5HsAKFUxEux7Qtq7kMRAT2RhctLui7fh0fFxhB2kTvqVuZRPJVt2BSbmYX4iBr-fnuUMR46PR-VBpFCwFS-q8LAsZh43J-gqfCbCb-c";
         // $notification = "hello world";
+        // echo "<br>";
+        // echo $reg_key;
+        // echo "<br>";
+        // echo $notification;
+        // echo "<br>";
+        // echo $notificationTypeID;
+        // echo "<br>";
+        // echo $videoID;
+        // echo "<br>";
+        // echo $videoThumbnail;
+        // echo "<br>";
+        // echo "<br>";
 
         // define( 'API_ACCESS_KEY', 'AIzaSyDNk9wafP7C8TMNHVoT9TuuMAiF0_mh6LM' );
         if (!defined('API_ACCESS_KEY')) define('API_ACCESS_KEY', 'AIzaSyDNk9wafP7C8TMNHVoT9TuuMAiF0_mh6LM');
         $registrationIds = array($reg_key);
 
         // prep the bundle
-        if($notificationTypeID==3){
+        $msg = array();
+        if($notificationTypeID==3){ // like
             $msg = array
             (
                 'message'   => $notification,
@@ -2477,15 +2498,16 @@ class Api_Model extends CI_Model {
                 'videoID'   => $videoID,
                 // 'isWish'    => 0,
                 'thumbnail' => $videoThumbnail,
-                'notificationTypeID'  => $notificationTypeID,
+                'notificationTypeID'  => '3', // this is for like video
                 'subtitle'  => 'notification',
+                'notification' => $notificationObject,
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
                 'sound'     => 1,
                 'largeIcon' => 'large_icon',
                 'smallIcon' => 'small_icon'
             );
-        } elseif($notificationTypeID==2) {
+        } elseif($notificationTypeID==1) {//wish
             $msg = array
             (
                 'message'   => $notification,
@@ -2493,23 +2515,24 @@ class Api_Model extends CI_Model {
                 'videoID'   => $videoID,
                 // 'isWish'    => 1,
                 'thumbnail' => $videoThumbnail,
-                'notificationTypeID'  => $notificationTypeID,
+                'notificationTypeID'  => '1', // this is for wish videos
                 'subtitle'  => 'notification',
+                'notification' => $notificationObject,
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
                 'sound'     => 1,
                 'largeIcon' => 'large_icon',
                 'smallIcon' => 'small_icon'
             );
-        } elseif($notificationTypeID==4){
+        } elseif($notificationTypeID==2){ //profile
             $msg = array
             (
                 'message'   => $notification,
                 'title'     => 'Rockabyte',
-                'videoID'   => '',
+                'videoID'   => $videoID,
                 // 'isWish'    => 0,
                 'thumbnail' => $videoThumbnail,
-                'notificationTypeID'  => $notificationTypeID,
+                'notificationTypeID'  => '2', // this is for notification of follow
                 'subtitle'  => 'notification',
                 'tickerText'    => 'Ticker text here...Ticker text here...Ticker text here',
                 'vibrate'   => 1,
@@ -2518,7 +2541,8 @@ class Api_Model extends CI_Model {
                 'smallIcon' => 'small_icon'
             );
         }
-        
+
+        // print_r($msg);
         $fields = array
         (
             'registration_ids'  => $registrationIds,
@@ -2538,68 +2562,233 @@ class Api_Model extends CI_Model {
         curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
         curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+        // print_r($ch);
         $result = curl_exec($ch );
         curl_close( $ch );
         // echo $result;
 
-        //return $result;
+        return $result;
     }
 
-    public function iphoneNotification($deviceToken,$message){
+    // public function apns($deviceToken,$message){
+    //     // Put your device token here (without spaces):
+    //     //--$deviceToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+    //     // Put your private key's passphrase here:
+    //     $passphrase = 'xxxxxxx';
+
+    //     // Put your alert message here:
+    //     //--$message = 'A push notification has been sent!';
+
+    //     ////////////////////////////////////////////////////////////////////////////////
+
+    //     $ctx = stream_context_create();
+    //     stream_context_set_option($ctx, 'ssl', 'local_cert', 'ck_file_name.pem');
+    //     stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
+
+    //     // Open a connection to the APNS server
+    //     // gateway.sandbox.push.apple.com:2195
+    //     // ssl://gateway.push.apple.com:2195
+    //     $fp = stream_socket_client('ssl://gateway.sandbox.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+
+    //     if (!$fp)
+    //         exit("Failed to connect: $err $errstr" . PHP_EOL);
+
+    //     echo 'Connected to APNS' . PHP_EOL;
+
+    //     // Create the payload body
+    //     $body['aps'] = array(
+    //         'alert' => array(
+    //             'body' => $message,
+    //             'action-loc-key' => 'Bango App',
+    //             ),
+    //         'badge' => 2,
+    //         'sound' => 'oven.caf',
+    //         );
+
+    //     // Encode the payload as JSON
+    //     $payload = json_encode($body);
+
+    //     // Build the binary notification
+    //     $msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
+
+    //     // Send it to the server
+    //     $result = fwrite($fp, $msg, strlen($msg));
+
+    //     if (!$result){
+    //         //-- echo 'Message not delivered' . PHP_EOL;
+    //         $returnResult = 'Message not delivered' . PHP_EOL;
+    //     }else{
+    //         // echo 'Message successfully delivered' . PHP_EOL;
+    //         $returnResult = 'Message successfully delivered' . PHP_EOL;
+    //     }
+    //     // Close the connection to the server
+    //     fclose($fp);
+
+    //     return $returnResult;
+    // }
+
+    // public function iphoneNotification($reg_key,$notification,$notificationTypeID,$videoID,$videoThumbnail)
+    // {
+    //     $apnsHost = 'gateway.sandbox.push.apple.com';
+    //     $apnsCert = '/var/www/html/rockabyteServicesV3Test/application/RockabyteDevpushcert.pem';
+    //     $apnsPort = 2195;
+    //     $apnsPass = 'Coders1234';
+    //     $token = $reg_key;
+
+    //     // $payload['aps'] = array(
+    //     //     'alert' => 'Oh hai!',
+    //     //     'badge' => 1,
+    //     //     'sound' => 'default'
+    //     //     );
+
+    //     // prep the bundle
+    //     if($notificationTypeID==3){
+    //         $payload['aps'] = array
+    //         (
+    //             'alert'   => $notification,
+    //             'badge' => 1,
+    //             'sound' => 'default',
+    //             'title'     => 'Rockabyte',
+    //             'videoID'   => $videoID,
+    //             // 'isWish'    => 0,
+    //             'thumbnail' => $videoThumbnail,
+    //             'notificationTypeID'  => '3', // this is for like video
+    //         );
+    //     } elseif($notificationTypeID==2) {
+    //         $msg = array
+    //         (
+    //             'alert'   => $notification,
+    //             'badge' => 1,
+    //             'sound' => 'default',
+    //             'title'     => 'Rockabyte',
+    //             'videoID'   => $videoID,
+    //             // 'isWish'    => 1,
+    //             'thumbnail' => $videoThumbnail,
+    //             'notificationTypeID'  => '1', // this is for wish videos
+    //         );
+    //     } elseif($notificationTypeID==4){
+    //         $msg = array
+    //         (
+    //             'alert'   => $notification,
+    //             'badge' => 1,
+    //             'sound' => 'default',
+    //             'title'     => 'Rockabyte',
+    //             'videoID'   => '',
+    //             // 'isWish'    => 0,
+    //             'thumbnail' => $videoThumbnail,
+    //             'notificationTypeID'  => '2', // this is for notification of follow
+    //         );
+    //     }
+
+
+    //     $output = json_encode($payload);
+    //     $token = pack('H*', str_replace(' ', '', $token));
+    //     $apnsMessage = chr(0).chr(0).chr(32).$token.chr(0).chr(strlen($output)).$output;
+
+    //     $streamContext = stream_context_create();
+    //     stream_context_set_option($streamContext, 'ssl', 'local_cert', $apnsCert);
+    //     stream_context_set_option($streamContext, 'ssl', 'passphrase', $apnsPass);
+
+    //     $apns = stream_socket_client('ssl://'.$apnsHost.':'.$apnsPort, $error, $errorString, 2, STREAM_CLIENT_CONNECT, $streamContext);
+    //     fwrite($apns, $apnsMessage);
+    //     fclose($apns);
+    // }
+
+
+    public function iphoneNotification($reg_key,$notification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject)
+    {
         // Put your device token here (without spaces):
-        //--$deviceToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+        $deviceToken = $reg_key;
 
         // Put your private key's passphrase here:
-        $passphrase = 'xxxxxxx';
+        $passphrase = 'Coders1234';
 
         // Put your alert message here:
-        //--$message = 'A push notification has been sent!';
+        // $message = $notification;
 
         ////////////////////////////////////////////////////////////////////////////////
 
         $ctx = stream_context_create();
-        stream_context_set_option($ctx, 'ssl', 'local_cert', 'ck_file_name.pem');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', '/var/www/html/rockabyteServicesV3Test/application/RockabyteDevpushcert.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
         // Open a connection to the APNS server
-        $fp = stream_socket_client('ssl://gateway.push.apple.com:2195', $err, $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+        $fp = stream_socket_client(
+            'ssl://gateway.sandbox.push.apple.com:2195', $err,
+            $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
         if (!$fp)
             exit("Failed to connect: $err $errstr" . PHP_EOL);
 
-        echo 'Connected to APNS' . PHP_EOL;
+        // echo 'Connected to APNS' . PHP_EOL;
 
         // Create the payload body
-        $body['aps'] = array(
-            'alert' => array(
-                'body' => $message,
-                'action-loc-key' => 'Bango App',
-                ),
-            'badge' => 2,
-            'sound' => 'oven.caf',
-            );
+        $body['aps'] = array();
+            // $body['otherCustomUrl']="http://test.com";
+
+            if($notificationTypeID==3){
+                $body['aps'] = array
+                (
+                    'alert'   => $notification,
+                    'badge' => 1,
+                    'sound' => 'default',
+                    'title'     => 'Rockabyte',
+                    'videoID'   => $videoID,
+                    'notification' => $notificationObject,
+                    // 'isWish'    => 0,
+                    'thumbnail' => $videoThumbnail,
+                    'notificationTypeID'  => '3', // this is for like video
+                );
+                // $body['otherCustomUrl']="http://test.com";
+            } elseif($notificationTypeID==1) {
+                $body['aps'] = array
+                (
+                    'alert'   => $notification,
+                    'badge' => 1,
+                    'sound' => 'default',
+                    'title'     => 'Rockabyte',
+                    'videoID'   => $videoID,
+                    'notification' => $notificationObject,
+                    // 'isWish'    => 1,
+                    'thumbnail' => $videoThumbnail,
+                    'notificationTypeID'  => '1', // this is for wish videos
+                );
+                // $body['otherCustomUrl']="http://test.com";
+            } elseif($notificationTypeID==2){
+                $body['aps'] = array
+                (
+                    'alert'   => $notification,
+                    'badge' => 1,
+                    'sound' => 'default',
+                    'title'     => 'Rockabyte',
+                    'videoID'   => $videoID,
+                    // 'isWish'    => 0,
+                    'thumbnail' => $videoThumbnail,
+                    'notificationTypeID'  => '2', // this is for notification of follow
+                );
+                // $body['otherCustomUrl']="http://test.com";
+            }
+
 
         // Encode the payload as JSON
         $payload = json_encode($body);
-
+        // print_r($payload);
         // Build the binary notification
         $msg = chr(0) . pack('n', 32) . pack('H*', $deviceToken) . pack('n', strlen($payload)) . $payload;
 
         // Send it to the server
         $result = fwrite($fp, $msg, strlen($msg));
 
-        if (!$result){
-            //-- echo 'Message not delivered' . PHP_EOL;
-            $returnResult = 'Message not delivered' . PHP_EOL;
-        }else{
-            // echo 'Message successfully delivered' . PHP_EOL;
-            $returnResult = 'Message successfully delivered' . PHP_EOL;
-        }
+        if (!$result)
+            $echoResult = 'Message not delivered' . PHP_EOL;
+        else
+            $echoResult = 'Message successfully delivered' . PHP_EOL;
+
         // Close the connection to the server
         fclose($fp);
-
-        return $returnResult;
     }
+
 
 
     // public function sendEmail($receiverEmailAddress, $emailSubject, $emailBody)
@@ -3024,6 +3213,155 @@ class Api_Model extends CI_Model {
         return $result;
     }
 
+
+    public function likeNotificationObject($userLikeVideoID)
+    {
+        // case '3':
+        // like video
+        # code...
+        // in notification we have userID this is me to get receiver information i would have to do
+        // and i also have userLikeVideoID
+        //1. from userLikeVideoTable get userID and videoID
+        //2. get user info
+        //3. get video info and videoUserID info
+        $results = array();
+
+
+        $sqlUserLikeVideo = "SELECT * FROM userLikeVideo WHERE id = ?";
+        $queryUserLikeVideo = $this->db->query($sqlUserLikeVideo,array($userLikeVideoID));
+        $userLikeVideoData = $queryUserLikeVideo->row();
+        // print_r($userLikeVideoData);
+
+        // $value['userLikeVideoID'];
+        //liker userID and liked videoID
+        $likerUserID = $userLikeVideoData->userID;
+        $likedVideoID = $userLikeVideoData->videoID;
+
+
+        //getting userDetails
+        $sqlUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+        $queryUserDetails = $this->db->query($sqlUserDetails,array($likerUserID));
+        $userDetails = $queryUserDetails->row();
+
+
+        //getting videoDetails
+        $sqlVideoDetails = "SELECT * FROM video WHERE videoID = ?";
+        $queryVideoDetails = $this->db->query($sqlVideoDetails,array($likedVideoID));
+        $videoDetails = $queryVideoDetails->row();
+
+        // getting uploaded video user data
+        $sqlVideoUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+        $queryVideoUserDetails = $this->db->query($sqlVideoUserDetails,array($videoDetails->userID));
+        $userVideoDetails = $queryVideoUserDetails->row();
+
+
+
+        // $switchStatement = 3;
+        $profilePic = $userDetails->profilePic; //liker profile picture
+        $userName = $userDetails->fullName; //liker userName
+        $wishDescription = 'liked your video';
+        $description = $videoDetails->description; // video description
+        $userData = array(
+            'userID'=> $userVideoDetails->userID,
+            'userName'=> $userVideoDetails->fullName,
+            'fullName'=> $userVideoDetails->fullName,
+            'profilePic'=> $userVideoDetails->profilePic,
+        );
+        $thumbnail = $videoDetails->thumbnail; //video Thumbnail
+        $wishVideoID = $videoDetails->videoID; // we will need videoID instead of wishVideoID
+        // $videoID = $videoDetails->videoID;
+        $videoLink = $videoDetails->videoLink; // video link
+        $title = $videoDetails->title; // videotitle
+        $created = $videoDetails->created;
+        $isRead = '1';
+
+        $customNotificationTypeID = '3';
+
+        $results = array(
+            "profilePic" => $profilePic,
+            "userName" => $userName,
+            "wishDescription" => $wishDescription,
+            "description" => $description,
+            "userData" => $userData,
+            "thumbnail" => $thumbnail,
+            "videoID" => $wishVideoID,
+            "videoLink" => $videoLink,
+            "title" => $title,
+            "created" => $created,
+            "isRead" => $isRead,
+            "notificationTypeID" => $customNotificationTypeID,
+            "isVideo" => '1',
+            );
+
+        return $results;
+    }
+
+
+    
+
+    public function wishVideoNotificationObject($wishVideoIDParam)
+    {
+        // case '2': //wish received
+        // wish received
+        # code...
+        // $switchStatement = 2;
+        // i have userID I will have to find emailID from that  user ID
+        $receivedWishSql = "SELECT * FROM wishVideo WHERE wishVideoID = ?";
+        $receivedWishQuery = $this->db->query($receivedWishSql, array($wishVideoIDParam));
+
+        $receiveWishData = $receivedWishQuery->row();
+
+        //video Details
+        $description = $receiveWishData->description;
+        $thumbnail = $receiveWishData->thumbnail;
+        $wishVideoID = $receiveWishData->wishVideoID;
+        $videoLink = $receiveWishData->videoLink;
+        $title = $receiveWishData->title;
+        $created = $receiveWishData->created;
+        $isRead = '0';
+
+        //sender userDetails
+        //find video uploader details with the help of userID
+        $userDetailSql = "SELECT userID,fullName,profilePic,userName
+        FROM userProfile
+        WHERE userID = ?";
+
+        $userDetailQuery = $this->db->query($userDetailSql,array($receiveWishData->userID));
+        $userDataInfo = $userDetailQuery->row();
+
+        $userData = array(
+            'userID'=> $userDataInfo->userID,
+            'userName'=> $userDataInfo->fullName,
+            'fullName'=> $userDataInfo->fullName,
+            'profilePic'=> $userDataInfo->profilePic,
+        );
+
+        //sender Details
+        $wishDescription = 'sent you a wish video';
+        $profilePic = $userDataInfo->profilePic;
+        $userName = $userDataInfo->fullName;
+
+        $customNotificationTypeID = '1';
+        // break;
+
+        $results = array(
+            "profilePic" => $profilePic,
+            "userName" => $userName,
+            "wishDescription" => $wishDescription,
+            "description" => $description,
+            "userData" => $userData,
+            "thumbnail" => $thumbnail,
+            "videoID" => $wishVideoID,
+            "videoLink" => $videoLink,
+            "title" => $title,
+            "created" => $created,
+            "isRead" => $isRead,
+            "notificationTypeID" => $customNotificationTypeID,
+            "isVideo" => '1',
+            );
+        return $results;
+    }
+
     public function getUserNotificationV3($userID)
     {
         $selectNotificationSql = "SELECT * FROM notifications WHERE userID = ? ORDER BY notificationID DESC";
@@ -3093,7 +3431,7 @@ class Api_Model extends CI_Model {
                         $profilePic = $userValue->profilePic;
                         $userName = $userValue->fullName;
                     }else{
-      
+
                         $profilePic = '';
                         $userName = ucwords(str_replace('.',' ',strstr($sentWishData->receiverEmail, '@', true)));
                     }
@@ -3125,13 +3463,14 @@ class Api_Model extends CI_Model {
                         $wishDescription = "Pending";
                     }
 
+                    $customNotificationTypeID = '1';
                 break;
 
-                case '2': //wish received 
+                case '2': //wish received
                     // wish received
                     # code...
                     // $switchStatement = 2;
-                    // i have userID I will have to find emailID from that  user ID 
+                    // i have userID I will have to find emailID from that  user ID
                     $receivedWishSql = "SELECT * FROM wishVideo WHERE wishVideoID = ?";
                     $receivedWishQuery = $this->db->query($receivedWishSql, array($value['wishVideoID']));
 
@@ -3166,16 +3505,18 @@ class Api_Model extends CI_Model {
                     $wishDescription = 'sent you a wish video';
                     $profilePic = $userDataInfo->profilePic;
                     $userName = $userDataInfo->fullName;
+
+                    $customNotificationTypeID = '1';
                 break;
 
                 case '3':
                     // like video
                     # code...
-                    // in notification we have userID this is me to get receiver information i would have to do 
+                    // in notification we have userID this is me to get receiver information i would have to do
                     // and i also have userLikeVideoID
                     //1. from userLikeVideoTable get userID and videoID
                     //2. get user info
-                    //3. get video info and videoUserID info 
+                    //3. get video info and videoUserID info
                     $sqlUserLikeVideo = "SELECT * FROM userLikeVideo WHERE id = ?";
                     $queryUserLikeVideo = $this->db->query($sqlUserLikeVideo,array($value['userLikeVideoID']));
                     $userLikeVideoData = $queryUserLikeVideo->row();
@@ -3187,7 +3528,7 @@ class Api_Model extends CI_Model {
                     $likedVideoID = $userLikeVideoData->videoID;
 
 
-                    //getting userDetails 
+                    //getting userDetails
                     $sqlUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
                     $queryUserDetails = $this->db->query($sqlUserDetails,array($likerUserID));
                     $userDetails = $queryUserDetails->row();
@@ -3206,7 +3547,7 @@ class Api_Model extends CI_Model {
 
 
                     // $switchStatement = 3;
-                    $profilePic = $userDetails->profilePic; //liker profile picture 
+                    $profilePic = $userDetails->profilePic; //liker profile picture
                     $userName = $userDetails->fullName; //liker userName
                     $wishDescription = 'liked your video';
                     $description = $videoDetails->description; // video description
@@ -3223,6 +3564,8 @@ class Api_Model extends CI_Model {
                     $title = $videoDetails->title; // videotitle
                     $created = $videoDetails->created;
                     $isRead = $value['isRead'];
+
+                    $customNotificationTypeID = '3';
                 break;
 
                 case '4':
@@ -3241,7 +3584,7 @@ class Api_Model extends CI_Model {
                     // $switchStatement = 4;
                     $profilePic = $userDetails->profilePic; // the follower
                     $userName = $userDetails->fullName; //the follower
-                    $wishDescription = 'is following you'; 
+                    $wishDescription = 'is following you';
                     $followerUserID = $userDetails->userID; // the follower ID
                     $created = $followingData->created;
                     $isRead = $value['isRead'];
@@ -3259,6 +3602,8 @@ class Api_Model extends CI_Model {
                     // $title = '';
                     // $created = '';
                     // $isRead = '';
+
+                    $customNotificationTypeID = '2';
                 break;
 
                 case '5':
@@ -3277,10 +3622,12 @@ class Api_Model extends CI_Model {
                     // $switchStatement = 5;
                     $profilePic = $userDetails->profilePic; // the follower
                     $userName = $userDetails->fullName; //the follower
-                    $wishDescription = 'unfollowed you'; 
+                    $wishDescription = 'unfollowed you';
                     $followerUserID = $userDetails->userID; // the follower ID
                     $created = $followingData->created;
                     $isRead = $value['isRead'];
+
+                    $customNotificationTypeID = '2';
                 break;
 
 
@@ -3312,9 +3659,10 @@ class Api_Model extends CI_Model {
                     "userName" => $userName,
                     "wishDescription" => $wishDescription,
                     "userID" => $followerUserID,
+                    "videoID" => $followerUserID,
                     "created" => $created,
                     "isRead" => $isRead,
-                    "notificationTypeID" => '2',
+                    "notificationTypeID" => $customNotificationTypeID,
                     "isVideo" => '0',
                 );
             } else {
@@ -3330,13 +3678,13 @@ class Api_Model extends CI_Model {
                     "title" => $title,
                     "created" => $created,
                     "isRead" => $isRead,
-                    "notificationTypeID" => '1',
+                    "notificationTypeID" => $customNotificationTypeID,
                     "isVideo" => '1',
                 );
             }
-            
 
-            
+
+
 
             // // wish received
             // {
