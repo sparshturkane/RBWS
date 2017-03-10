@@ -1918,7 +1918,8 @@ class Api extends CI_Controller {
                                 $notificationTypeID = '3';
 
                                 if($videoUserID != $userID){
-                                    $likeNotificationObject = $this->api->likeNotificationObject($updateUserLikeVideo);
+                                    // echo $userLikeVideoExist;
+                                    $likeNotificationObject = $this->api->likeNotificationObject($userLikeVideoExist);
                                     // print_r($likeNotificationObject);exit;
                                     // $likeNotificationObjectJson = json_encode($likeNotificationObject);
 
@@ -1988,6 +1989,7 @@ class Api extends CI_Controller {
                                 $videoThumbnail = $videoDetail[0]['thumbnail'];
                                 $notification = "liked your video $videoTitle";
                                 $notificationTypeID = '3';
+
                                 $likeNotificationObject = $this->api->likeNotificationObject($userLikeVideoID);
 
                                 if($videoUserID != $userID){
@@ -2104,7 +2106,7 @@ class Api extends CI_Controller {
 
     private function sendUserNotification($androidKey,$iosKey,$notification,$senderFullName,$senderUserName,$videoID,$videoThumbnail,$notificationTypeID, $notificationObject){
 
-        // echo "sendUserNotificationCalled";
+        echo "sendUserNotificationCalled";
         // echo "<br>";
         // echo $androidKey;
         // echo "<br>";
@@ -2139,7 +2141,7 @@ class Api extends CI_Controller {
         //echo $finalNotification;
         if(!empty($androidKey)){
             $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject);
-            // print_r($sendingGcmMessage);
+            // print_r($notificationObject);
         }
 
         if(!empty($iosKey)){

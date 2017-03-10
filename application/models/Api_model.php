@@ -1996,7 +1996,15 @@ class Api_Model extends CI_Model {
         FROM userLikeVideo
         WHERE userID = ? AND videoID = ?";
         $query = $this->db->query($sql,array($userID,$videoID));
-        return ($this->db->affected_rows() > 0) ? true : false;
+        // return ($this->db->affected_rows() > 0) ? true : false;
+        // echo $this->db->last_query();exit;
+        if ($query->num_rows() >0) {
+            $row = $query->row();
+            // print_r($row->id);exit;
+            return $row->id;
+        } else {
+            return false;
+        }
     }
 
     public function updateUserLikeVideo($userID,$videoID,$likeDislikeFlag){
