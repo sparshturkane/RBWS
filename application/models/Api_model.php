@@ -3033,8 +3033,8 @@ class Api_Model extends CI_Model {
         $config['protocol'] = 'smtp';
         //$config['mailpath'] = '/usr/sbin/sendmail';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'donotreply@faarbetterfilms.com';
-        $config['smtp_pass'] = 'fbrockabyteirocky';//
+        $config['smtp_user'] = 'donotreply@d.com';
+        $config['smtp_pass'] = 'dd';//
         $config['smtp_port'] = 465;
         $config['smtp_timeout'] = 30;
         $config['wordwrap'] = TRUE;
@@ -5525,6 +5525,14 @@ class Api_Model extends CI_Model {
     {
         # code...
         $this->db->insert('notifications', $insertData);
+    }
+
+    public function updateNotificationsWhileRegistration($insertData)
+    {
+        # code...
+        // $this->db->insert('notifications', $insertData);
+        $sql = "UPDATE notifications SET thumbnail = ? WHERE wishVideoID = ?";
+        $query = $this->db->query($sql,array($thumbnailLink,$value['wishVideoID']));
     }
 
     public function insertNotificationsLegacy($insertData)
