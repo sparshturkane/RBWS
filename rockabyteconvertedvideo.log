@@ -2132,3 +2132,5542 @@ Line Number: 1233
 
 Backtrace:
 
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+

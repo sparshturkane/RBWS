@@ -1082,7 +1082,7 @@ class Api_Model extends CI_Model {
 
         $sql = "SELECT *
         FROM video
-        WHERE isActive = 1 AND isFBF = 0 $string $string2 ORDER by videoID DESC";
+        WHERE isActive = 1 AND isFBF = 0 AND isPrivate = '0' $string $string2 ORDER by videoID DESC";
         $query = $this->db->query($sql,array('1'));
 
         // echo $this->db->last_query();exit;
@@ -2901,7 +2901,7 @@ class Api_Model extends CI_Model {
         ////////////////////////////////////////////////////////////////////////////////
 
         $ctx = stream_context_create();
-        stream_context_set_option($ctx, 'ssl', 'local_cert', '/var/www/html/rockabyteServicesV3Test/application/RockabyteDevpushcert.pem');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', '/var/www/html/rockabyteServicesV3Test/application/RockabyteProdpushcert.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
         // Open a connection to the APNS server
@@ -3033,8 +3033,8 @@ class Api_Model extends CI_Model {
         $config['protocol'] = 'smtp';
         //$config['mailpath'] = '/usr/sbin/sendmail';
         $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-        $config['smtp_user'] = 'donotreply@test.com';
-        $config['smtp_pass'] = 'this is wrong password';//
+        $config['smtp_user'] = 'donotreply@faarbetterfilms.com';
+        $config['smtp_pass'] = 'fbrockabyteirocky';//
         $config['smtp_port'] = 465;
         $config['smtp_timeout'] = 30;
         $config['wordwrap'] = TRUE;
@@ -4868,7 +4868,7 @@ class Api_Model extends CI_Model {
                 "isVerified"=> $row['isVerified'],
                 "twitterHandler"=> $row['twitterHandler'],
                 "newID"=> $row['newID'],
-                "lastLogin"=> $row['lastLogin'],
+                "lastLogin"=> $row['lastLogin']?$row['lastLogin']:'',
                 "updated"=> $row['updated'],
                 "created"=> $row['created']
                 );

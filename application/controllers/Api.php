@@ -1446,7 +1446,7 @@ class Api extends CI_Controller {
 
                         $nextVideo = '-1';
 
-                        $arrResponse = array('status'=>1, 'message'=>'success','nextVideo'=>$nextVideo,'video'=>$getUserVideo);
+                        $arrResponse = array('status'=>1, 'message'=>'Coming Soon','nextVideo'=>$nextVideo,'video'=>$getUserVideo);
                     }else{
                         $arrResponse = array('status'=>0, 'message'=>'Some fields are missing');
                     }
@@ -2257,7 +2257,7 @@ class Api extends CI_Controller {
         }
         
 
-        $finalNotification = "$senderName  $notification";
+        $finalNotification = "$senderName $notification";
         //echo $finalNotification;
         if(!empty($androidKey)){
             $sendingGcmMessage = $this->api->androidNotification($androidKey,$finalNotification,$notificationTypeID,$videoID,$videoThumbnail, $notificationObject);
@@ -2540,6 +2540,10 @@ class Api extends CI_Controller {
                             $userUploadedVideoData = $this->api->userUploadedVideo($userID);
                             if( $profileUserID != 0 ){
                                 $userUploadedVideoData = $this->api->userUploadedVideoHidePrivate($profileUserID);
+                            }
+
+                            if($profileUserID == $userID){
+                                $userUploadedVideoData = $this->api->userUploadedVideo($userID);
                             }
 
                             $arrResponse = array('status'=>1,
