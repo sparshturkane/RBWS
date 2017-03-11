@@ -1225,38 +1225,134 @@ class Api extends CI_Controller {
 
                         list($getUserVideo) = $this->api->getUserVideo($userID);
 
-                        /*------------------Rocka Pick Videos In Between----------------------*/
-                        // pass todays date
-                        $todayDate = date('Y-m-d');
-                        // $todayDate = '2017-01-26';
-                        $getRockaPickVideo = $this->api->getRockaPickVideo($todayDate,$userID);
-                        // print_r($getRockaPickVideo);
-                        // get user selected interest
-                        $getCategoryList = $this->api->getCategoryListUserData($userID);
-                        // print_r($getCategoryList);
+                        //----------------handeling user settings ----------------------//
+                        $getHomeFeedSettingList = $this->api->getHomeFeedSettingList($userID);
+                        // print_r($getHomeFeedSettingList);
 
-                        $selectedCategoryCount = 0;
-                        foreach ($getCategoryList as $value) {
-                            // echo $value['isSelected'];echo "<br>";
-                            if($value['isSelected'] == 1){
-                                $selectedCategoryCount = $selectedCategoryCount + 1;
+                        $getUserVideoWish = array();
+                        $getUserVideoFollowing = array();
+                        $getUserVideoFollower = array();
+
+                        foreach ($getHomeFeedSettingList as $homeValue) {
+                            //------------------wish video in home feed --------------------//
+                            if (($homeValue['homeFeedSettingID']==2) && ($homeValue['isSelected']==1)){
+                                $getUserVideoWish = $this->api->getUserVideoWish($userID);
+                            }
+
+                            //----------------- following/ follower videos in home feed ----------------//
+                            if (($homeValue['homeFeedSettingID']==3) && ($homeValue['isSelected']==1)){
+                                $getUserVideoFollowing = $this->api->getUserVideoFollowing($userID);
+                                $getUserVideoFollower = $this->api->getUserVideoFollower($userID);
                             }
                         }
 
-                        $isRockapickInsertAt = $selectedCategoryCount; //selectedCategoryCount
+                        //----------------handeling user settings ----------------------//
 
-                        $isRockapickInsertAtFixed = $isRockapickInsertAt+1;
+                        // //------------------wish video in home feed --------------------//
+                        // $getUserVideoWish = $this->api->getUserVideoWish($userID);
+                        // // print_r($getUserVideoWish); exit;
+
+                        // //----------------- following videos in home feed ----------------//
+                        // $getUserVideoFollowing = $this->api->getUserVideoFollowing($userID);
+                        // // print_r($getUserVideoFollowing); exit;
+
+                        // //----------------- followers videos in home feed -----------------// 
+                        // $getUserVideoFollower = $this->api->getUserVideoFollower($userID);
+                        // // print_r($getUserVideoFollower); exit;
 
 
-                        // print_r($getRockaPickVideo);
-                        foreach ($getRockaPickVideo as $value) {
-                            $valueArray = array();
-                            $valueArray[] = $value;
-                            $this->array_insert($getUserVideo, $valueArray, ($isRockapickInsertAt));
-                            $isRockapickInsertAt = $isRockapickInsertAt + $isRockapickInsertAtFixed;
+                        /*---------logic of what how to display all these videos -----------*/
+                        $getUserVideo = array_merge($getUserVideo, $getUserVideoWish);
+                        $getUserVideo = array_merge($getUserVideo, $getUserVideoFollowing);
+                        $getUserVideo = array_merge($getUserVideo, $getUserVideoFollower);
+
+                        // print_r($getUserVideo); 
+                        // exit;
+
+                        // usort($getUserVideo, function($a, $b) {
+                        //     return  $a['videoID'] - $b['videoID'];
+                        // });
+
+
+                        //sorting videos based on time 
+                        usort($getUserVideo, function($a, $b) {
+                            $ad = new DateTime($a['created']);
+                            $bd = new DateTime($b['created']);
+
+                            if ($ad == $bd) {
+                                return 0;
+                            }
+
+                            return $ad > $bd ? -1 : 1;
+                        });
+                        // print_r($getUserVideo);
+
+
+                        foreach ($getHomeFeedSettingList as $homeValue) {
+                             /*------------------Rocka Pick Videos In Between----------------------*/
+                            if (($homeValue['homeFeedSettingID']==1) && ($homeValue['isSelected']==1)){
+                                $todayDate = date('Y-m-d');
+                                // $todayDate = '2017-01-26';
+                                $getRockaPickVideo = $this->api->getRockaPickVideo($todayDate,$userID);
+                                // print_r($getRockaPickVideo);
+                                // get user selected interest
+                                $getCategoryList = $this->api->getCategoryListUserData($userID);
+                                // print_r($getCategoryList);
+
+                                $selectedCategoryCount = 0;
+                                foreach ($getCategoryList as $value) {
+                                    // echo $value['isSelected'];echo "<br>";
+                                    if($value['isSelected'] == 1){
+                                        $selectedCategoryCount = $selectedCategoryCount + 1;
+                                    }
+                                }
+
+                                $isRockapickInsertAt = $selectedCategoryCount; //selectedCategoryCount
+
+                                $isRockapickInsertAtFixed = $isRockapickInsertAt+1;
+
+
+                                // print_r($getRockaPickVideo);
+                                foreach ($getRockaPickVideo as $value) {
+                                    $valueArray = array();
+                                    $valueArray[] = $value;
+                                    $this->array_insert($getUserVideo, $valueArray, ($isRockapickInsertAt));
+                                    $isRockapickInsertAt = $isRockapickInsertAt + $isRockapickInsertAtFixed;
+                                }
+                            }
                         }
+                        /*------------------Rocka Pick Videos In Between----------------------*/
+                        // // pass todays date
+                        // $todayDate = date('Y-m-d');
+                        // // $todayDate = '2017-01-26';
+                        // $getRockaPickVideo = $this->api->getRockaPickVideo($todayDate,$userID);
+                        // // print_r($getRockaPickVideo);
+                        // // get user selected interest
+                        // $getCategoryList = $this->api->getCategoryListUserData($userID);
+                        // // print_r($getCategoryList);
 
-                        // print_r($getUserVideo);exit;
+                        // $selectedCategoryCount = 0;
+                        // foreach ($getCategoryList as $value) {
+                        //     // echo $value['isSelected'];echo "<br>";
+                        //     if($value['isSelected'] == 1){
+                        //         $selectedCategoryCount = $selectedCategoryCount + 1;
+                        //     }
+                        // }
+
+                        // $isRockapickInsertAt = $selectedCategoryCount; //selectedCategoryCount
+
+                        // $isRockapickInsertAtFixed = $isRockapickInsertAt+1;
+
+
+                        // // print_r($getRockaPickVideo);
+                        // foreach ($getRockaPickVideo as $value) {
+                        //     $valueArray = array();
+                        //     $valueArray[] = $value;
+                        //     $this->array_insert($getUserVideo, $valueArray, ($isRockapickInsertAt));
+                        //     $isRockapickInsertAt = $isRockapickInsertAt + $isRockapickInsertAtFixed;
+                        // }
+
+                        // // print_r($getUserVideo);exit;
                         /*------------------Rocka Pick Videos In Between----------------------*/
 
                         /*-------------------- Setting Limit and offset------------------*/

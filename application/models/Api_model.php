@@ -816,7 +816,7 @@ class Api_Model extends CI_Model {
             if (isset($row1)){
                 $isSelected = $row1->isSelected;
             }else{
-                $isSelected='0';
+                $isSelected='1';
             }
 
             //rocka pick setting by default to 1
@@ -1169,6 +1169,7 @@ class Api_Model extends CI_Model {
             if(($row['userID']==$userID) || ($row['isPrivate']=='0')){
 
                 $results[]=array(
+                    'notificationTypeID'=>'3',
                     'videoID'=>$row['videoID'],
                     'userData'=>$userData,
                     'category'=>$categoryDetail,
@@ -2476,7 +2477,7 @@ class Api_Model extends CI_Model {
 
                     $this->insertNotifications($insertDataNotifications);
 
-                    
+
                 }
 
 
@@ -2522,19 +2523,19 @@ class Api_Model extends CI_Model {
         }
 
         $finalNotification = "$senderName has sent you a wish video ";
-        // echo $finalNotification; 
+        // echo $finalNotification;
         // echo "andi----";
-        // echo $androidKey; 
+        // echo $androidKey;
         // echo "ios----";
-        // echo $iosKey; 
+        // echo $iosKey;
         // echo "notitype----";
-        // echo $notificationTypeID; 
+        // echo $notificationTypeID;
         // echo "wishVideoID----";
-        // echo $wishVideoID; 
+        // echo $wishVideoID;
         // echo "wish thumb----";
-        // echo $wishVideoThumbnail; 
+        // echo $wishVideoThumbnail;
         // echo " noti obj----";
-        // print_r($notificationObject); 
+        // print_r($notificationObject);
         // echo "----";
         if(!empty($androidKey)){
             $sendingGcmMessage = $this->androidNotification($androidKey,$finalNotification,$notificationTypeID,$wishVideoID,$wishVideoThumbnail,$notificationObject);
@@ -2586,7 +2587,7 @@ class Api_Model extends CI_Model {
         } else {
             $senderName = $senderFullName;
         }
-        
+
 
         $finalNotification = "$senderName $notification";
         //echo $finalNotification;
@@ -2902,7 +2903,7 @@ class Api_Model extends CI_Model {
 
         // Open a connection to the APNS server
         $fp = stream_socket_client(
-            'ssl://gateway.sandbox.push.apple.com:2195', $err,
+            'ssl://gateway.push.apple.com:2195', $err,
             $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
         if (!$fp)
@@ -3484,7 +3485,7 @@ class Api_Model extends CI_Model {
     }
 
 
-    
+
 
     public function wishVideoNotificationObject($wishVideoIDParam)
     {
@@ -3917,6 +3918,397 @@ class Api_Model extends CI_Model {
 
         return $results;
 
+    }
+
+    public function getUserVideoWish($userID)
+    {
+        //return 'abc';
+        //return false;
+        $currentDateTime = date('Y-m-d H:i:s');
+        //echo $currentTime;exit;
+        $result = array();
+
+        $sqlGetReceiverEmail = "SELECT email FROM userProfile WHERE userID = ?";
+        $queryGetReceiverEmail=$this->db->query($sqlGetReceiverEmail,array($userID));
+
+        $res = $queryGetReceiverEmail->row_array();
+        $receiverEmail = $res['email'];
+
+        if($receiverEmail){
+            $sql = "SELECT
+                up.profilePic,
+                up.userName,
+                up.fullName,
+                up.userID,
+                ww.thumbnail,
+                ww.wishVideoID,
+                ww.receiverEmail,
+                ww.receiveDateTime,
+                ww.videoLink,
+                ww.description,
+                ww.title,
+                ww.isRead,
+                ww.duration
+            FROM userProfile AS up
+
+            INNER JOIN wishVideo AS ww
+            ON ww.receiverEmail = ? AND up.userID = ww.userID
+
+            WHERE receiveDateTime >= '2012-12-12 00:00:00' AND receiveDateTime <= ?
+            ORDER BY ww.wishVideoID DESC";
+
+            $query = $this->db->query($sql,array($receiverEmail, $currentDateTime));
+            //echo $this->db->last_query();exit;
+            foreach ($query->result_array() as $row) {
+                //$username;
+                // if($row['userName']==''){
+                //     $username = $row['fullName'];
+                // }else{
+                //     $username = $row['userName'];
+                // }
+
+                //user data of user who sent me wish video
+                $fullName = $row['fullName'];
+                $userData = array(
+                    'userID'=> $row['userID'],
+                    'userName'=> $fullName,
+                    'fullName'=> $fullName,
+                    'profilePic'=> $row['profilePic'],
+                );
+
+                //-------- making dummy category ---------//
+                $categoryDetail = array(
+                    'categoryID' => '0',
+                    'categoryName' => 'Wish'
+                    );
+
+                // ------- making empty tag array---------//
+                $tagArray = array();
+
+                //converting duration to mm:ss if hh==00
+                $duration = $row['duration'];
+                $durationArray = explode(':',$duration);
+                if($durationArray[0]=='00'){
+                    $finalDuration = $durationArray[1].':'.$durationArray[2];
+                }else{
+                    $finalDuration = $durationArray[0].':'.$durationArray[1].':'.$durationArray[2];
+                }
+
+
+                $result[]=array(
+                    // 'profilePic'=> $row['profilePic'],
+                    // 'userName'=> $fullName,
+                    // 'wishDescription'=>'sent you a wish video',
+                    // 'description' => str_replace('\\n', "\n",$row['description']),
+                    // 'userData' => $userData,
+                    // 'thumbnail'=> $row['thumbnail'],
+                    // 'videoID'=> $row['wishVideoID'],
+                    // 'videoLink' =>$row['videoLink'],
+                    // 'title' => str_replace('\\n', "\n",$row['title']),
+                    // 'created'=> $row['receiveDateTime'],
+                    // 'createdSort' => strtotime($row['receiveDateTime']),
+                    // 'isRead' =>$row['isRead'],
+                    // 'notificationTypeID' => '1',
+                    //----------------------------------------------------//
+                    'notificationTypeID' => '1',
+                    'videoID'=>$row['wishVideoID'], // yes
+                    'userData'=>$userData, //yes
+                    'category'=>$categoryDetail, //na redundant with slight change
+                    'videoLink'=>$row['videoLink'],//yes
+                    'title'=> str_replace('\\n', "\n",$row['title']), //yes
+                    'description'=> str_replace('\\n', "\n",$row['description']),//yes
+                    'tag'=>$tagArray, // na
+                    'viewCount'=> '0',// na
+                    'duration'=>$finalDuration, //no
+                    'thumbnail'=>$row['thumbnail'], // yes
+                    'likeCount'=>'0', // na
+                    'likeFlag'=>'0', // na 
+                    'isActive'=> '1', // no
+                    'isRockapick'=>'0', //no
+                    'updated'=> $row['receiveDateTime'], //no
+                    'created'=> $row['receiveDateTime'], //yes
+                );
+            }
+        }
+        return $result;
+
+        // $results[]=array(
+        //     'videoID'=>$row['videoID'], // yes
+        //     'userData'=>$userData, //yes
+        //     'category'=>$categoryDetail, //na redundant with slight change
+        //     'videoLink'=>$row['videoLink'],//yes
+        //     'title'=>$row['title'], //yes
+        //     'description'=>str_replace('\\n', "\n",$row['description']),//yes
+        //     'tag'=>$tagArray, // na
+        //     'viewCount'=>$ViewCount,// na
+        //     'duration'=>$finalDuration, //no
+        //     'thumbnail'=>$row['thumbnail'], // yes
+        //     'likeCount'=>$likeCount, // na
+        //     'likeFlag'=>$likeFlag, // na 
+        //     'isActive'=>$row['isActive'], // no
+        //     'isRockapick'=>$row['isRockapick'], //no
+        //     'updated'=>$row['updated'], //no
+        //     'created'=>$row['created'] //yes
+        //     );
+
+        // $results[] = array(
+        //     "profilePic" => $profilePic,
+        //     "userName" => $userName,
+        //     "wishDescription" => $wishDescription,
+        //     "description" => $description,
+        //     "userData" => $userData,
+        //     "thumbnail" => $thumbnail,
+        //     "videoID" => $wishVideoID,
+        //     "videoLink" => $videoLink,
+        //     "title" => $title,
+        //     "created" => $created,
+        //     "isRead" => $isRead,
+        //     "notificationTypeID" => $customNotificationTypeID,
+        //     "isVideo" => '1',
+        //     );
+    }
+
+    public function getUserVideoFollowing($userID)
+    {
+        // getting list of people i am following
+        $sqlFollowing = "SELECT * FROM following WHERE userID = ? AND isFollowing = ?";
+        $queryFollowing = $this->db->query($sqlFollowing, array($userID,'1'));
+
+        // echo $this->db->last_query();
+        // print_r($queryFollowing->result_array());
+
+
+        $results = array();
+        // getting details of persons i am following
+        foreach ($queryFollowing->result_array() as $value) { // $value['followUserID']
+            // echo "this loop is not executing";
+            $sql = "SELECT *
+            FROM video
+            WHERE isActive = 1 AND userID = ? AND isPrivate = ? ORDER BY videoID DESC";
+            $query = $this->db->query($sql,array($value['followUserID'],'0'));
+
+            // echo $this->db->last_query();
+            // print_r($query->result_array());
+
+            /*-------------Getting each category name----------------------------- */
+            // $results=array();
+            foreach ($query->result_array() as $row)
+            {
+                //$userID='45';
+                $sql1 = "SELECT categoryID,categoryName
+                FROM category
+                WHERE categoryID = ?";
+
+                $query1 = $this->db->query($sql1,array($row['categoryID']));
+                $categoryDetail = $query1->row();
+
+                //userLIke videos
+                $likeVideoID =  $row['videoID'];
+                $likeSql = "SELECT count(*) AS likeCount FROM userLikeVideo WHERE videoID = ? and likeFlag =1";
+                $likeQuery = $this->db->query($likeSql,array($likeVideoID));
+                foreach ($likeQuery->result_array() as $likeRow)
+                {
+                    $likeCount = $likeRow['likeCount'];
+                }
+                //.userLike videos
+
+                //likeFlag
+                $likeFlagSql = "SELECT likeFlag FROM userLikeVideo WHERE videoID=? AND userID=?";
+                $likeFlagQuery = $this->db->query($likeFlagSql,array($row['videoID'],$userID));
+                if ($likeFlagQuery->num_rows() >= 1) {
+                    foreach ($likeFlagQuery->result_array() as $likeFlagRow)
+                    {
+                        $likeFlag = $likeFlagRow['likeFlag'];
+                    }
+                } else {
+                    $likeFlag = '0';
+                }
+
+                //viewCount
+                $viewSql = "SELECT count(*) AS ViewCount FROM videoView WHERE videoID = ?";
+                $viewQuery = $this->db->query($viewSql,array($likeVideoID));
+                foreach ($viewQuery->result_array() as $viewRow)
+                {
+                    $ViewCount = $viewRow['ViewCount'];
+                }
+
+                //userID of video uploader detials
+                $userDetailSql = "SELECT userID,fullName,profilePic,userName
+                FROM userProfile
+                WHERE userID = ?";
+
+                $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
+                $userData = $userDetailQuery->row();
+
+                //converting video tags into an array
+                $tagString = $row['tag'];
+                $tagArray = array();
+                $tagArray = explode(',',$tagString);
+                if($tagArray[0]==''){
+                    unset($tagArray);
+                    $tagArray = array();
+                }
+
+                //converting duration to mm:ss if hh==00
+                $duration = $row['duration'];
+                $durationArray = explode(':',$duration);
+                if($durationArray[0]=='00'){
+                    $finalDuration = $durationArray[1].':'.$durationArray[2];
+                }else{
+                    $finalDuration = $durationArray[0].':'.$durationArray[1].':'.$durationArray[2];
+                }
+
+                //$createdTime = $this->time_elapsed_string($row['created']);
+                if(($row['userID']==$userID) || ($row['isPrivate']=='0')){
+                    $results[]=array(
+                        'notificationTypeID'=>'3',
+                        'videoID'=>$row['videoID'],
+                        'userData'=>$userData,
+                        'category'=>$categoryDetail,
+                        'videoLink'=>$row['videoLink'],
+                        'title'=>$row['title'],
+                        'description'=>str_replace('\\n', "\n",$row['description']),
+                        'tag'=>$tagArray,
+                        'viewCount'=>$ViewCount,
+                        'duration'=>$finalDuration,
+                        'thumbnail'=>$row['thumbnail'],
+                        'likeCount'=>$likeCount,
+                        'likeFlag'=>$likeFlag,
+                        'isActive'=>$row['isActive'],
+                        'isRockapick'=>$row['isRockapick'],
+                        'updated'=>$row['updated'],
+                        'created'=>$row['created']
+                        );
+                }else{
+                    continue;
+                }
+            }
+            /*-------------Getting each category name----------------------------- */
+            // return $results;
+        }
+        return $results;
+    }
+
+
+    public function getUserVideoFollower($userID)
+    {
+        // getting list of people i am following
+        $sqlFollowing = "SELECT * FROM following WHERE followUserID = ? AND isFollowing = ?";
+        $queryFollowing = $this->db->query($sqlFollowing, array($userID,'1'));
+
+        // echo $this->db->last_query();
+        // print_r($queryFollowing->result_array());
+
+
+        $results = array();
+        // getting details of persons i am following
+        foreach ($queryFollowing->result_array() as $value) { // $value['followUserID']
+            // echo "this loop is not executing";
+            $sql = "SELECT *
+            FROM video
+            WHERE isActive = 1 AND userID = ? AND isPrivate = ? ORDER BY videoID DESC";
+            $query = $this->db->query($sql,array($value['userID'],'0'));
+
+            // echo $this->db->last_query();
+            // print_r($query->result_array());
+
+            /*-------------Getting each category name----------------------------- */
+            // $results=array();
+            foreach ($query->result_array() as $row)
+            {
+                //$userID='45';
+                $sql1 = "SELECT categoryID,categoryName
+                FROM category
+                WHERE categoryID = ?";
+
+                $query1 = $this->db->query($sql1,array($row['categoryID']));
+                $categoryDetail = $query1->row();
+
+                //userLIke videos
+                $likeVideoID =  $row['videoID'];
+                $likeSql = "SELECT count(*) AS likeCount FROM userLikeVideo WHERE videoID = ? and likeFlag =1";
+                $likeQuery = $this->db->query($likeSql,array($likeVideoID));
+                foreach ($likeQuery->result_array() as $likeRow)
+                {
+                    $likeCount = $likeRow['likeCount'];
+                }
+                //.userLike videos
+
+                //likeFlag
+                $likeFlagSql = "SELECT likeFlag FROM userLikeVideo WHERE videoID=? AND userID=?";
+                $likeFlagQuery = $this->db->query($likeFlagSql,array($row['videoID'],$userID));
+                if ($likeFlagQuery->num_rows() >= 1) {
+                    foreach ($likeFlagQuery->result_array() as $likeFlagRow)
+                    {
+                        $likeFlag = $likeFlagRow['likeFlag'];
+                    }
+                } else {
+                    $likeFlag = '0';
+                }
+
+                //viewCount
+                $viewSql = "SELECT count(*) AS ViewCount FROM videoView WHERE videoID = ?";
+                $viewQuery = $this->db->query($viewSql,array($likeVideoID));
+                foreach ($viewQuery->result_array() as $viewRow)
+                {
+                    $ViewCount = $viewRow['ViewCount'];
+                }
+
+                //userID of video uploader detials
+                $userDetailSql = "SELECT userID,fullName,profilePic,userName
+                FROM userProfile
+                WHERE userID = ?";
+
+                $userDetailQuery = $this->db->query($userDetailSql,array($row['userID']));
+                $userData = $userDetailQuery->row();
+
+                //converting video tags into an array
+                $tagString = $row['tag'];
+                $tagArray = array();
+                $tagArray = explode(',',$tagString);
+                if($tagArray[0]==''){
+                    unset($tagArray);
+                    $tagArray = array();
+                }
+
+                //converting duration to mm:ss if hh==00
+                $duration = $row['duration'];
+                $durationArray = explode(':',$duration);
+                if($durationArray[0]=='00'){
+                    $finalDuration = $durationArray[1].':'.$durationArray[2];
+                }else{
+                    $finalDuration = $durationArray[0].':'.$durationArray[1].':'.$durationArray[2];
+                }
+
+                //$createdTime = $this->time_elapsed_string($row['created']);
+                if(($row['userID']==$userID) || ($row['isPrivate']=='0')){
+                    $results[]=array(
+                        'notificationTypeID'=>'3',
+                        'videoID'=>$row['videoID'],
+                        'userData'=>$userData,
+                        'category'=>$categoryDetail,
+                        'videoLink'=>$row['videoLink'],
+                        'title'=>$row['title'],
+                        'description'=>str_replace('\\n', "\n",$row['description']),
+                        'tag'=>$tagArray,
+                        'viewCount'=>$ViewCount,
+                        'duration'=>$finalDuration,
+                        'thumbnail'=>$row['thumbnail'],
+                        'likeCount'=>$likeCount,
+                        'likeFlag'=>$likeFlag,
+                        'isActive'=>$row['isActive'],
+                        'isRockapick'=>$row['isRockapick'],
+                        'updated'=>$row['updated'],
+                        'created'=>$row['created']
+                        );
+                }else{
+                    continue;
+                }
+            }
+            /*-------------Getting each category name----------------------------- */
+            // return $results;
+        }
+        return $results;
     }
 
 
@@ -5058,7 +5450,7 @@ class Api_Model extends CI_Model {
                     "created"=> $row['created']
                 );
             }
-            
+
         }
 
         return $results;
