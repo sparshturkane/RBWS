@@ -800,8 +800,9 @@ class Api_Model extends CI_Model {
 
     public function getHomeFeedSettingList($userID){
         //multiple to one data
-        $sql = "SELECT * FROM homeFeedSettingList";
+        $sql = "SELECT * FROM homeFeedSettingList WHERE isActive = '1'";
         $query = $this->db->query($sql);
+        // echo $this->db->last_query();
         foreach ($query->result_array() as $row)
         {
             //$userID='45';
@@ -1185,7 +1186,8 @@ class Api_Model extends CI_Model {
                     'isActive'=>$row['isActive'],
                     'isRockapick'=>$row['isRockapick'],
                     'updated'=>$row['updated'],
-                    'created'=>$row['created']
+                    'created'=>$row['created'],
+                    'isFBF'=> '0'
                     );
             }else{
                continue;
@@ -1462,7 +1464,8 @@ class Api_Model extends CI_Model {
                     'isActive'=>$row['isActive'],
                     'isRockapick'=>$row['isRockapick'],
                     'updated'=>$row['updated'],
-                    'created'=>$row['created']
+                    'created'=>$row['created'],
+                    'isFBF'=>'0'
                     );
             }else{
                continue;
@@ -3723,37 +3726,46 @@ class Api_Model extends CI_Model {
 
 
                     //getting videoDetails
-                    $sqlVideoDetails = "SELECT * FROM video WHERE videoID = ?";
+                    $sqlVideoDetails = "SELECT * FROM video WHERE videoID = ? AND isActive='1'";
                     $queryVideoDetails = $this->db->query($sqlVideoDetails,array($likedVideoID));
                     $videoDetails = $queryVideoDetails->row();
 
-                    // getting uploaded video user data
-                    $sqlVideoUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
-                    $queryVideoUserDetails = $this->db->query($sqlVideoUserDetails,array($videoDetails->userID));
-                    $userVideoDetails = $queryVideoUserDetails->row();
+                    // if video is deleted then not showing notification
+                    if ($queryVideoDetails->num_rows() >= 1) {
+                        $value['notificationTypeID']= 3;
+                        // getting uploaded video user data
+                        $sqlVideoUserDetails = "SELECT * FROM userProfile WHERE userID = ?";
+                        $queryVideoUserDetails = $this->db->query($sqlVideoUserDetails,array($videoDetails->userID));
+                        $userVideoDetails = $queryVideoUserDetails->row();
 
 
 
-                    // $switchStatement = 3;
-                    $profilePic = $userDetails->profilePic; //liker profile picture
-                    $userName = $userDetails->fullName; //liker userName
-                    $wishDescription = 'liked your video';
-                    $description = $videoDetails->description; // video description
-                    $userData = array(
-                        'userID'=> $userVideoDetails->userID,
-                        'userName'=> $userVideoDetails->fullName,
-                        'fullName'=> $userVideoDetails->fullName,
-                        'profilePic'=> $userVideoDetails->profilePic,
-                    );
-                    $thumbnail = $videoDetails->thumbnail; //video Thumbnail
-                    $wishVideoID = $videoDetails->videoID; // we will need videoID instead of wishVideoID
-                    // $videoID = $videoDetails->videoID;
-                    $videoLink = $videoDetails->videoLink; // video link
-                    $title = $videoDetails->title; // videotitle
-                    $created = $videoDetails->created;
-                    $isRead = $value['isRead'];
+                        // $switchStatement = 3;
+                        $profilePic = $userDetails->profilePic; //liker profile picture
+                        $userName = $userDetails->fullName; //liker userName
+                        $wishDescription = 'liked your video';
+                        $description = $videoDetails->description; // video description
+                        $userData = array(
+                            'userID'=> $userVideoDetails->userID,
+                            'userName'=> $userVideoDetails->fullName,
+                            'fullName'=> $userVideoDetails->fullName,
+                            'profilePic'=> $userVideoDetails->profilePic,
+                        );
+                        $thumbnail = $videoDetails->thumbnail; //video Thumbnail
+                        $wishVideoID = $videoDetails->videoID; // we will need videoID instead of wishVideoID
+                        // $videoID = $videoDetails->videoID;
+                        $videoLink = $videoDetails->videoLink; // video link
+                        $title = $videoDetails->title; // videotitle
+                        $created = $videoDetails->created;
+                        $isRead = $value['isRead'];
 
-                    $customNotificationTypeID = '3';
+                        $customNotificationTypeID = '3';
+                    } else {
+                        $value['notificationTypeID']= 33; // since it is not handelled in results below so
+                        // it will be ommited
+                    }
+
+                    
                 break;
 
                 case '4':
@@ -3853,7 +3865,7 @@ class Api_Model extends CI_Model {
                     "notificationTypeID" => $customNotificationTypeID,
                     "isVideo" => '0',
                 );
-            } else {
+            } elseif($value['notificationTypeID']==1 || $value['notificationTypeID']==2 || $value['notificationTypeID']==3) {
                 $results[] = array(
                     "profilePic" => $profilePic,
                     "userName" => $userName,
@@ -3979,7 +3991,7 @@ class Api_Model extends CI_Model {
                 //-------- making dummy category ---------//
                 $categoryDetail = array(
                     'categoryID' => '0',
-                    'categoryName' => 'Wish'
+                    'categoryName' => 'Wish Video'
                     );
 
                 // ------- making empty tag array---------//
@@ -4177,7 +4189,8 @@ class Api_Model extends CI_Model {
                         'isActive'=>$row['isActive'],
                         'isRockapick'=>$row['isRockapick'],
                         'updated'=>$row['updated'],
-                        'created'=>$row['created']
+                        'created'=>$row['created'],
+                        'isFBF'=>'0'
                         );
                 }else{
                     continue;
@@ -4299,7 +4312,8 @@ class Api_Model extends CI_Model {
                         'isActive'=>$row['isActive'],
                         'isRockapick'=>$row['isRockapick'],
                         'updated'=>$row['updated'],
-                        'created'=>$row['created']
+                        'created'=>$row['created'],
+                        'isFBF'=>'0'
                         );
                 }else{
                     continue;
@@ -4418,11 +4432,11 @@ class Api_Model extends CI_Model {
 
 
     public function badgeCountNotifications($userID){
-            $sql = "SELECT count(*) as badgeCount FROM notifications WHERE userID=? AND isRead = '0'";
-            $query = $this->db->query($sql,array($userID));
+        $sql = "SELECT count(*) as badgeCount FROM notifications WHERE userID=? AND isRead = '0'";
+        $query = $this->db->query($sql,array($userID));
 
-            $row = $query->row();
-            if ($query->num_rows() >= 1) {
+        $row = $query->row();
+        if ($query->num_rows() >= 1) {
             $row = $query->row();
             return $row->badgeCount;
         } else {

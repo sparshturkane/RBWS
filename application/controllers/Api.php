@@ -1354,6 +1354,11 @@ class Api extends CI_Controller {
 
                         // // print_r($getUserVideo);exit;
                         /*------------------Rocka Pick Videos In Between----------------------*/
+                        /*------------------making array unique by key------------------------*/
+                        
+
+                        $getUserVideo = $this->array_unique_by_key($getUserVideo, "videoID");
+                        /*------------------making array unique by key------------------------*/
 
                         /*-------------------- Setting Limit and offset------------------*/
                         $offset = $offset-1;
@@ -1386,6 +1391,18 @@ class Api extends CI_Controller {
         echo json_encode($arrResponse);
     }
 
+
+    public function array_unique_by_key (&$array, $key) {
+        $tmp = array();
+        $result = array();
+        foreach ($array as $value) {
+            if (!in_array($value[$key], $tmp)) {
+                array_push($tmp, $value[$key]);
+                array_push($result, $value);
+            }
+        }
+        return $array = $result;
+    }
 
     public function getFbfVideo() {
         $arrResponse = array();
