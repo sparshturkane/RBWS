@@ -1768,4 +1768,151 @@ Line Number: 1294
 
 Backtrace:
 
-sparsh has sent you a wish video sparsh has sent you a wish video 
+sparsh has sent you a wish video sparsh has sent you a wish video sparsh has sent you a wish video --------1----520----520----
+A PHP Error was encountered
+
+Severity:    Notice
+Message:     Array to string conversion
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+Line Number: 2425
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2425
+	Function: _error_handler
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 2319
+	Function: sendPushNotification
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 2761
+	Function: sendEmailWishVideo
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+Array----sparsh has sent you a wish video --------1----521----521----Array
+(
+    [profilePic] => 
+    [userName] => sparsh
+    [wishDescription] => sent you a wish video
+    [description] => testing wish by sparsh 
+    [userData] => Array
+        (
+            [userID] => 3874
+            [userName] => sparsh
+            [fullName] => sparsh
+            [profilePic] => 
+        )
+
+    [thumbnail] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/wishVideo/thumbnail/e59d31b6bba072e96c0a183902fa469b.jpg
+    [videoID] => 521
+    [videoLink] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/rawVideoFiles/rawWishVideo/e59d31b6bba072e96c0a183902fa469b.mp4
+    [title] => testing wish by sparsh 
+    [created] => 2017-03-10 15:50:28
+    [isRead] => 0
+    [notificationTypeID] => 1
+    [isVideo] => 1
+)
+----sparsh has sent you a wish video andi----ios----notitype----1wishVideoID----522wish thumb----522 noti obj----Array
+(
+    [profilePic] => 
+    [userName] => sparsh
+    [wishDescription] => sent you a wish video
+    [description] => testing wish by sparsh 
+    [userData] => Array
+        (
+            [userID] => 3874
+            [userName] => sparsh
+            [fullName] => sparsh
+            [profilePic] => 
+        )
+
+    [thumbnail] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/wishVideo/thumbnail/7e64f133bfb46677f9b1cac9bded528b.jpg
+    [videoID] => 522
+    [videoLink] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/rawVideoFiles/rawWishVideo/7e64f133bfb46677f9b1cac9bded528b.mp4
+    [title] => testing wish by sparsh 
+    [created] => 2017-03-10 15:52:54
+    [isRead] => 0
+    [notificationTypeID] => 1
+    [isVideo] => 1
+)
+----
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     mysqli::real_connect(): (HY000/2002): No such file or directory
+Filename:    /var/www/html/rockabyte/rockabyteServicesV3Test/system/database/drivers/mysqli/mysqli_driver.php
+Line Number: 202
+
+Backtrace:
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/models/Api_model.php
+	Line: 11
+	Function: database
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/application/controllers/Api.php
+	Line: 9
+	Function: model
+
+	File: /var/www/html/rockabyte/rockabyteServicesV3Test/index.php
+	Line: 315
+	Function: require_once
+
+
+
+Database error: A Database Error Occurred
+
+	Unable to connect to your database server using the provided settings.
+	Filename: core/Loader.php
+	Line Number: 353
+
+sparsh has sent you a wish video andi----ios----notitype----1wishVideoID----524wish thumb----524 noti obj----Array
+(
+    [profilePic] => 
+    [userName] => sparsh
+    [wishDescription] => sent you a wish video
+    [description] => testing wish by sparsh 
+    [userData] => Array
+        (
+            [userID] => 3874
+            [userName] => sparsh
+            [fullName] => sparsh
+            [profilePic] => 
+        )
+
+    [thumbnail] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/wishVideo/thumbnail/3de6403cdc6f58e8f3e6c4269937fa25.jpg
+    [videoID] => 524
+    [videoLink] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/rawVideoFiles/rawWishVideo/3de6403cdc6f58e8f3e6c4269937fa25.mp4
+    [title] => testing wish by sparsh 
+    [created] => 2017-03-10 16:48:11
+    [isRead] => 0
+    [notificationTypeID] => 1
+    [isVideo] => 1
+)
+----sparsh has sent you a wish video andi----ios----notitype----1wishVideoID----525wish thumb----http://localhost/rockabyte/rockabyteServicesV3Test/uploads/wishVideo/thumbnail/a2bdd6cab3139c6dd2acfd6a00bb8653.jpg noti obj----Array
+(
+    [profilePic] => 
+    [userName] => sparsh
+    [wishDescription] => sent you a wish video
+    [description] => testing wish by sparsh 
+    [userData] => Array
+        (
+            [userID] => 3874
+            [userName] => sparsh
+            [fullName] => sparsh
+            [profilePic] => 
+        )
+
+    [thumbnail] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/wishVideo/thumbnail/a2bdd6cab3139c6dd2acfd6a00bb8653.jpg
+    [videoID] => 525
+    [videoLink] => http://localhost/rockabyte/rockabyteServicesV3Test/uploads/rawVideoFiles/rawWishVideo/a2bdd6cab3139c6dd2acfd6a00bb8653.mp4
+    [title] => testing wish by sparsh 
+    [created] => 2017-03-10 16:50:23
+    [isRead] => 0
+    [notificationTypeID] => 1
+    [isVideo] => 1
+)
+----
